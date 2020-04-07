@@ -610,7 +610,6 @@ class Cart
         }
 
         $cart->shipping_method = $shippingMethodCode;
-
         $cart->save();
 
         return true;
@@ -634,7 +633,6 @@ class Cart
         }
 
         $cartPayment = new CartPayment;
-
         $cartPayment->method = $payment['method'];
         $cartPayment->cart_id = $cart->id;
         $cartPayment->save();

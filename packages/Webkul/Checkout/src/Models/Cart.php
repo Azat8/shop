@@ -3,6 +3,7 @@
 namespace Webkul\Checkout\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Matrix\Exception;
 use Webkul\Product\Models\ProductProxy;
 use Webkul\Checkout\Contracts\Cart as CartContract;
 

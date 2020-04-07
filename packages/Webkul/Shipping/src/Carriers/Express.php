@@ -14,10 +14,10 @@ class Express extends AbstractShipping
      *
      * @var string
      */
-    protected $code  = 'express';
+    protected $code = 'express';
 
     /**
-     * Returns rate for flatrate
+     * Returns rate for express
      *
      * @return array
      */
@@ -32,22 +32,15 @@ class Express extends AbstractShipping
 
         $object->carrier = 'express';
         $object->carrier_title = $this->getConfigData('title');
-        $object->method = 'flatrate_flatrate';
+        $object->method = 'express_express';
         $object->method_title = $this->getConfigData('title');
         $object->method_description = $this->getConfigData('description');
         $object->price = 0;
         $object->base_price = 0;
 
-        if ($this->getConfigData('type') == 'per_order') {
-            foreach ($cart->items as $item) {
-                if ($item->product->getTypeInstance()->isStockable()) {
-                    $object->price += core()->convertPrice($this->getConfigData('default_rate')) * $item->quantity;
-                    $object->base_price += $this->getConfigData('default_rate') * $item->quantity;
-                }
-            }
-        } else {
-            $object->price = core()->convertPrice($this->getConfigData('default_rate'));
-            $object->base_price = $this->getConfigData('default_rate');
+        if ($cart->bas_sub_total >= $this->getConfigData('price')) {
+            $object->price = core()->convertPrice($this->getConfigData('price'));
+            $object->base_price = $this->getConfigData('price');
         }
 
         return $object;

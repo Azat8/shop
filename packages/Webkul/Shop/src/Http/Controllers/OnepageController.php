@@ -89,8 +89,8 @@ class OnepageController extends Controller
         $cart = Cart::getCart();
 
         return response()->json([
-                'html' => view('shop::checkout.total.summary', compact('cart'))->render()
-            ]);
+            'html' => view('shop::checkout.total.summary', compact('cart'))->render()
+        ]);
     }
 
     /**
@@ -228,7 +228,7 @@ class OnepageController extends Controller
 
         if (! $cart->billing_address)
             throw new \Exception(trans('Please check billing address.'));
-        dd($cart->shipping_method);
+
         if ($cart->haveStockableItems() && ! $cart->selected_shipping_rate)
             throw new \Exception(trans('Please specify shipping method.'));
 

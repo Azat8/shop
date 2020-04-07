@@ -26,6 +26,10 @@ class CustomerAddressForm extends FormRequest
      */
     public function rules()
     {
+        if($this->request->get('for_shipping')) {
+            return [];
+        }
+
         if (isset($this->get('billing')['address_id'])) {
             $this->rules = [
                 'billing.address_id' => ['required'],

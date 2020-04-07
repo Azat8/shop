@@ -12,9 +12,43 @@ return [
         'sort' => 1,
     ],
     [
+        'key' => 'sales.carriers.express',
+        'name' => 'admin::app.admin.system.express-shipping',
+        'sort' => 1,
+        'fields' => [
+            [
+                'name' => 'title',
+                'title' => 'admin::app.admin.system.title',
+                'type' => 'text',
+                'validation' => 'required',
+                'channel_based' => false,
+                'locale_based' => true
+            ], [
+                'name' => 'description',
+                'title' => 'admin::app.admin.system.description',
+                'type' => 'textarea',
+                'channel_based' => false,
+                'locale_based' => true
+            ], [
+                'name' => 'price',
+                'title' => 'admin::app.admin.system.price',
+                'type' => 'text',
+                'channel_based' => false,
+                'locale_based' => true
+            ], [
+                'name' => 'active',
+                'title' => 'admin::app.admin.system.status',
+                'type' => 'boolean',
+                'validation' => 'required',
+                'channel_based' => false,
+                'locale_based' => true
+            ]
+        ]
+    ],
+    [
         'key' => 'sales.carriers.free',
         'name' => 'admin::app.admin.system.free-shipping',
-        'sort' => 1,
+        'sort' => 3,
         'fields' => [
             [
                 'name' => 'title',
@@ -64,49 +98,23 @@ return [
                 'validation' => 'required',
                 'channel_based' => true,
                 'locale_based' => false
-            ], [
-                'name' => 'type',
-                'title' => 'admin::app.admin.system.type',
-                'type' => 'select',
-                'options' => [
-                    [
-                        'title' => 'Per Unit',
-                        'value' => 'per_unit'
-                    ], [
-                        'title' => 'Per Order',
-                        'value' => 'per_order'
-                    ]
-                ],
-                'validation' => 'required'
-            ], [
-                'name' => 'active',
-                'title' => 'admin::app.admin.system.status',
-                'type' => 'boolean',
-                'validation' => 'required',
-                'channel_based' => false,
-                'locale_based' => true
-            ]
-        ]
-    ],
-    [
-        'key' => 'sales.carriers.express',
-        'name' => 'admin::app.admin.system.express-shipping',
-        'sort' => 3,
-        'fields' => [
+            ],
+//            [
+//                'name' => 'type',
+//                'title' => 'admin::app.admin.system.type',
+//                'type' => 'select',
+//                'options' => [
+//                    [
+//                        'title' => 'Per Unit',
+//                        'value' => 'per_unit'
+//                    ], [
+//                        'title' => 'Per Order',
+//                        'value' => 'per_order'
+//                    ]
+//                ],
+//                'validation' => 'required'
+//            ],
             [
-                'name' => 'title',
-                'title' => 'admin::app.admin.system.title',
-                'type' => 'text',
-                'validation' => 'required',
-                'channel_based' => false,
-                'locale_based' => true
-            ], [
-                'name' => 'description',
-                'title' => 'admin::app.admin.system.description',
-                'type' => 'textarea',
-                'channel_based' => false,
-                'locale_based' => true
-            ], [
                 'name' => 'active',
                 'title' => 'admin::app.admin.system.status',
                 'type' => 'boolean',
@@ -116,6 +124,7 @@ return [
             ]
         ]
     ],
+
     [
         'key' => 'sales.shipping',
         'name' => 'admin::app.admin.system.shipping',

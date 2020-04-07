@@ -10,7 +10,6 @@
 
 @push('scripts')
     @include('shop::checkout.cart.coupon')
-
     <script type="text/x-template" id="checkout-template">
         <div id="checkout" class="checkout-process">
             <main>
@@ -35,168 +34,118 @@
                 <ul class="breadcrumb_navigation">
                     <li><a href="index.html">Главная</a></li>
                     <li><a href="about-us.html">Процес оплаты</a></li>
-                    <li><a href="about-us.html">Детали</a></li>
+                    <li><a href="about-us.html">Детали {{ $cart->shipping_method }}</a></li>
                 </ul>
-                <div class="payment_details">
+                <div class="payment_details" v-if="!success_order">
                     <div class="container fluid">
                         <div class="row justify-content-between">
                             <div class="col-lg-5">
-                                <form data-vv-scope="address-form">
-                                    <div class="row no-gutters">
-                                    @include('shop::checkout.onepage.customer-info')
-                                </form>
-                                <h4>Доставка</h4>
-                                @foreach($cart->shipping_rates as $method)
-                                    <ul class="delivery_cont">
-                                        <li>
-                                            <div class="form-check">
-                                                <input type="radio"
-                                                       class="form-check-input"
-                                                       v-validate="'required'"
-                                                       type="radio"
-                                                       id="{{ $method->method }}"
-                                                       name="shipping_method"
-                                                       data-vv-as="&quot;{{ __('shop::app.checkout.onepage.shipping-method') }}&quot;"
-                                                       value="{{ $method->method }}"
-                                                       v-model="selected_shipping_method"
-                                                       @change="shippingMethodSelected($event)">
-
-                                                <label class="form-check-label"
-                                                       for="expressDelivery">{{ $method->method_title }}</label>
-                                            </div>
-                                            <p>{{ $method->method_description }}</p>
-                                        </li>
-                                    </ul>
-                                @endforeach
-                            </div>
-                            <div class="col-lg-5">
-
-                                <div class="col-12">
-                                    <h4>ОПЛАТА</h4>
-                                </div>
-                                <payment-section @onPaymentMethodSelected="paymentMethodSelected($event)"></payment-section>
-                            </div>
-                        </div>
-                        <div class="col-lg-6">
-                            <div class="payment_price">
                                 <div class="row no-gutters">
-                                    <div class="col-sm-12">
-                                        <ul class="payment_product_row">
-                                            @foreach ($cart->items as $key => $item)
-                                                @php
-                                                    $productBaseImage = $item->product->getTypeInstance()->getBaseImage($item);
-                                                @endphp
+                                    <form data-vv-scope="address-form">
+                                        <div class="row no-gutters">
+                                        @include('shop::checkout.onepage.customer-info')
+                                    </form>
+                                    <div class="col-12">
+                                        <h4>Доставка</h4>
+                                    </div>
+                                    <div class="col-12">
+                                        @foreach(\Illuminate\Support\Facades\Config::get('carriers') as $method)
+                                            @php
+                                                $method = new $method['class']();
+
+                                                $method = $method->calculate();
+
+                                            @endphp
+                                            <ul class="delivery_cont">
                                                 <li>
-                                                    <i style="background-image: url({{ $productBaseImage['medium_image_url'] }})"></i>
-                                                    <p>{{ $item->product->name }}</p>
-                                                    <h2 data-price="{{ $item->base_total}}">{{ core()->currency( $item->base_total) }}</h2>
+                                                    <div class="form-check">
+                                                        <input type="radio"
+                                                               class="form-check-input"
+                                                               v-validate="'required'"
+                                                               type="radio"
+                                                               id="{{ $method->method }}"
+                                                               name="shipping_method"
+                                                               data-vv-as="&quot;{{ __('shop::app.checkout.onepage.shipping-method') }}&quot;"
+                                                               value="{{ $method->method }}"
+                                                               v-model="selected_shipping_method"
+                                                               @change="shippingMethodSelected($event)"
+                                                               :disabled="!address_form_validate"
+                                                        >
+
+                                                        <label class="form-check-label"
+                                                               for="{{ $method->method }}">{{ $method->method_title }}</label>
+                                                    </div>
+                                                    <p>{{ $method->method_description }}</p>
                                                 </li>
-                                            @endforeach
-                                        </ul>
+                                            </ul>
+                                        @endforeach
+                                    </div>
+                                    <div class="col-12">
+                                        <h4>ОПЛАТА</h4>
+                                    </div>
+                                    <div class="col-12">
+                                        <payment-section @onPaymentMethodSelected="paymentMethodSelected($event)"></payment-section>
                                     </div>
                                 </div>
-                                <div class="row no-gutters">
-                                    <div class="col-sm-4"></div>
-                                    <div class="col-sm-8">
-                                        <div class="promo_code">
-                                            <h2>промо код</h2>
-                                            <div class="form-group">
-                                                <input type="text" class="form-control">
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="payment_price">
+                                    <div class="row no-gutters">
+                                        <div class="col-">
+                                            <ul class="payment_product_row">
+                                                @foreach ($cart->items as $key => $item)
+                                                    @php
+                                                        $productBaseImage = $item->product->getTypeInstance()->getBaseImage($item);
+                                                    @endphp
+                                                    <li>
+                                                        <i style="background-image: url({{ $productBaseImage['medium_image_url'] }})"></i>
+                                                        <p>{{ $item->product->name }}</p>
+                                                        <h2 data-price="{{ $item->base_total}}">{{ core()->currency( $item->base_total) }}</h2>
+                                                    </li>
+                                                @endforeach
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="row no-gutters">
+                                        <div class="col-sm-4"></div>
+                                        <div class="col-sm-8">
+                                            <div class="promo_code">
+                                                <h2>промо код</h2>
+                                                <div class="form-group">
+                                                    <input type="text" class="form-control">
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="row no-gutters">
-                                    <div class="col-lg-5">
-                                        <p>ИТОГО:</p>
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <span>{{ core()->currency($cart->grand_total) }}</span>
-                                    </div>
-                                </div>
-                                <div class="row no-gutters">
-                                    <div class="col-lg-5">
-                                        <p>ДОСТАВКА:</p>
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <span>20</span>
-                                    </div>
-                                </div>
-                                <div class="row no-gutters">
-                                    <div class="col-lg-5">
-                                        <p>ВСЕГО:</p>
-                                    </div>
-                                    <div class="col-lg-7">
-                                        <span>20.00</span>
-                                    </div>
+                                    <summary-section :key="summeryComponentKey"></summary-section>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-5">
-                            <button type="button" @click="placeOrder()"
-                                    :disabled="disable_button" id="checkout-place-order-button">заказать</button>
-                            <p class="order_info">Нажимая на кнопку, вы подтверждаете своё совершеннолетие, соглашаетесь
-                                на обработку
-                                персональных данных в соответствии с Условиями, а также с Условиями продажи.</p>
+                            <div class="col-lg-5">
+                                <button type="button" @click="placeOrder()"
+                                        :disabled="disable_button" id="checkout-place-order-button">заказать</button>
+                                <p class="order_info">Нажимая на кнопку, вы подтверждаете своё совершеннолетие, соглашаетесь
+                                    на обработку
+                                    персональных данных в соответствии с Условиями, а также с Условиями продажи.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
-        </main>
-        <div class="col-main">
-            <div class="step-content shipping" id="shipping-section">
-                <shipping-section @onShippingMethodSelected="shippingMethodSelected($event)"></shipping-section>
-
-                <div class="button-group">
-                    <button type="button" class="btn btn-lg btn-primary" @click="validateForm('shipping-form')"
-                            :disabled="disable_button" id="checkout-shipping-continue-button">
-                        {{ __('shop::app.checkout.onepage.continue') }}
-                    </button>
-
+                <div class="success_order" v-if="success_order">
+                    <h1>Success Order</h1>
                 </div>
-            </div>
-
-            <div class="step-content payment" v-show="current_step == 3" id="payment-section">
-                <payment-section v-if="current_step == 3"
-                                 @onPaymentMethodSelected="paymentMethodSelected($event)"></payment-section>
-
-                <div class="button-group">
-                    <button type="button" class="btn btn-lg btn-primary" @click="validateForm('payment-form')"
-                            :disabled="disable_button" id="checkout-payment-continue-button">
-                        {{ __('shop::app.checkout.onepage.continue') }}
-                    </button>
-                </div>
-            </div>
-
-            <div class="step-content review" v-show="current_step == 4" id="summary-section">
-                <review-section v-if="current_step == 4" :key="reviewComponentKey">
-                    <div slot="summary-section">
-                        <summary-section :key="summeryComponentKey"></summary-section>
-
-                        <coupon-component
-                            @onApplyCoupon="getOrderSummary"
-                            @onRemoveCoupon="getOrderSummary">
-                        </coupon-component>
-                    </div>
-                </review-section>
-
-                <div class="button-group">
-                    <button type="button" class="btn btn-lg btn-primary" @click="placeOrder()"
-                            :disabled="disable_button" id="checkout-place-order-button">
-                        {{ __('shop::app.checkout.onepage.place-order') }}
-                    </button>
-                </div>
-            </div>
-        </div>
-
-        <div class="col-right" v-show="current_step != 4">
-            <summary-section :key="summeryComponentKey"></summary-section>
-        </div>
+            </main>
         </div>
     </script>
 
     <script type="text/x-template" id="payment-template">
         <div>
             @include('shop::checkout.onepage.payment')
+        </div>
+    </script>
+
+    <script type="text/x-template" id="summary-template">
+        <div>
+            @include('shop::checkout.total.summary')
         </div>
     </script>
 
@@ -224,6 +173,8 @@
 
             data: function () {
                 return {
+                    address_form_validate: true,
+                    success_order: false,
                     step_numbers: {
                         'information': 1,
                         'shipping': 2,
@@ -248,9 +199,9 @@
                         },
                     },
 
-                    selected_shipping_method: '',
+                    selected_shipping_method: "{{ $cart->shipping_method ? $cart->shipping_method : '' }}",
 
-                    selected_payment_method: '',
+                    selected_payment_method: {method: "{{ Webkul\Payment\Facades\Payment::getPaymentMethods()[0]['method'] }}"},
 
                     disable_button: false,
 
@@ -333,6 +284,17 @@
                     });
                 },
 
+                validateAddressForm: function() {
+                    // var this_this = this;
+                    // this.$validator.validate().then(function(res) {
+                    //     console.log(res);
+                    // });
+                    // this.$validator.validateAll('address-form').then(function (result) {
+                    //     this_this.address_form_validate = true;
+                        // this_this.saveAddress();
+                    // });
+                },
+
                 isCustomerExist: function () {
                     this.$validator.attach({name: "email", rules: "required|email"});
 
@@ -381,19 +343,22 @@
                             summaryHtml = Vue.compile(response.data.html)
 
                             this_this.summeryComponentKey++;
-                            //this_this.reviewComponentKey++;
+                            this_this.reviewComponentKey++;
+
+                            console.log(response, summaryHtml);
                         })
                         .catch(function (error) {
                         })
                 },
 
-                saveAddress: function () {
+                saveAddress: function (for_shipping) {
                     var this_this = this;
 
                     this.disable_button = true;
 
-                    this.$http.post("{{ route('shop.checkout.save-address') }}", this.address)
+                    this.$http.post("{{ route('shop.checkout.save-address') }}", {...this.address/*, for_shipping*/})
                         .then(function (response) {
+
                             this_this.disable_button = false;
 
                             if (this_this.step_numbers[response.data.jump_to_section] == 2)
@@ -408,11 +373,9 @@
                             paymentMethods = response.data.paymentMethods;
 
                             this_this.getOrderSummary();
-                            this_this.saveShipping();
                         })
                         .catch(function (error) {
                             this_this.disable_button = false;
-                            console.log(error, 'save-address');
 
                             this_this.handleErrorResponse(error.response, 'address-form')
                         })
@@ -422,10 +385,8 @@
                     var this_this = this;
 
                     this.disable_button = true;
-
                     this.$http.post("{{ route('shop.checkout.save-shipping') }}", {'shipping_method': this.selected_shipping_method})
                         .then(function (response) {
-                            console.log(response, this.selected_shipping_method, 'shipping saved');
                             this_this.disable_button = false;
 
                             paymentHtml = Vue.compile(response.data.html)
@@ -435,12 +396,9 @@
                             paymentMethods = response.data.paymentMethods;
 
                             this_this.getOrderSummary();
-
-                            this_this.savePayment();
                         })
                         .catch(function (error) {
                             this_this.disable_button = false;
-                            console.log(error, 'shipping-form');
 
                             this_this.handleErrorResponse(error.response, 'shipping-form')
                         })
@@ -459,7 +417,7 @@
                             this_this.completed_step = this_this.step_numbers[response.data.jump_to_section] - 1;
                             this_this.current_step = this_this.step_numbers[response.data.jump_to_section];
 
-                            this_this.saveOrder();
+                            // this_this.validateForm('address-form');
 
                             this_this.getOrderSummary();
                         })
@@ -473,14 +431,16 @@
 
                 saveOrder: function () {
                     var this_this = this;
+
                     this.$http.post("{{ route('shop.checkout.save-order') }}", {'_token': "{{ csrf_token() }}"})
                         .then(function (response) {
                             if (response.data.success) {
-                                if (response.data.redirect_url) {
-                                    window.location.href = response.data.redirect_url;
-                                } else {
-                                    window.location.href = "{{ route('shop.checkout.success') }}";
-                                }
+                                this_this.success_order = true;
+                                {{--if (response.data.redirect_url) {--}}
+                                {{--    window.location.href = response.data.redirect_url;--}}
+                                {{--} else {--}}
+                                {{--    window.location.href = "{{ route('shop.checkout.success') }}"  ;--}}
+                                {{--}--}}
                             }
                         })
                         .catch(function (error) {
@@ -499,8 +459,8 @@
                     var this_this = this;
 
                     this.disable_button = true;
-
-                    this.saveAddress();
+                    this.savePayment();
+                    this.saveOrder();
                 },
 
                 handleErrorResponse: function (response, scope) {
@@ -517,7 +477,8 @@
 
                 shippingMethodSelected: function (shippingMethod) {
                     this.selected_shipping_method = shippingMethod.target.value;
-                    console.log(this.selected_shipping_method, shippingMethod);
+                    this.saveAddress(true);
+                    this.saveShipping();
                 },
 
                 paymentMethodSelected: function (paymentMethod) {
@@ -607,7 +568,7 @@
                     templateRender: null,
 
                     payment: {
-                        method: ""
+                        method: "{{ Webkul\Payment\Facades\Payment::getPaymentMethods()[0]['method'] }}"
                     },
 
                     first_iteration: true,
