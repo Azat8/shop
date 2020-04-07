@@ -38,7 +38,10 @@ class Express extends AbstractShipping
         $object->price = 0;
         $object->base_price = 0;
 
-        if ($cart->bas_sub_total >= $this->getConfigData('price')) {
+        $baseSubTotal = (int) $cart->base_sub_total;
+        $price = (int) $this->getConfigData('price');
+        dd($baseSubTotal, $price);
+        if ($baseSubTotal >= $price) {
             $object->price = core()->convertPrice($this->getConfigData('price'));
             $object->base_price = $this->getConfigData('price');
         }

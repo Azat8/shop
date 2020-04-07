@@ -41,8 +41,11 @@ class FlatRate extends AbstractShipping
         $object->method_description = $this->getConfigData('description');
         $object->price = 0;
         $object->base_price = 0;
-        dd($this->getConfigData('default_rate'));
-        if ($cart->bas_sub_total >= $this->getConfigData('default_rate')) {
+
+        $baseSubTotal = (int) $cart->base_sub_total;
+        $rate = (int) $this->getConfigData('default_rate');
+
+        if ($baseSubTotal >= $rate) {
             $object->price = core()->convertPrice($this->getConfigData('default_rate'));
             $object->base_price = $this->getConfigData('default_rate');
         }

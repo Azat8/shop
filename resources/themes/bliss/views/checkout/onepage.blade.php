@@ -356,7 +356,7 @@
 
                     this.disable_button = true;
 
-                    this.$http.post("{{ route('shop.checkout.save-address') }}", {...this.address/*, for_shipping*/})
+                    this.$http.post("{{ route('shop.checkout.save-address') }}", {...this.address, for_shipping})
                         .then(function (response) {
 
                             this_this.disable_button = false;
