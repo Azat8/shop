@@ -10,4 +10,9 @@ class IndexController extends Controller
     {
         return view('products');
     }
+
+    public function matrix()
+    {
+        return view('matrix');
+    }
 }
