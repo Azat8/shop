@@ -67,7 +67,7 @@
             <div class="main_header">
                 <div class="header_top">
                     <div class="header_top_logo">
-                        <a href="index.html" style="background-image: url('/themes/bliss/assets/images/hg/HG-Logo.png')">
+                        <a href="/" style="background-image: url('/themes/bliss/assets/images/hg/HG-Logo.png')">
 
                         </a>
                     </div>
@@ -79,24 +79,7 @@
                                     <img src="/themes/bliss/assets/images/hg/icons/account.png" alt="account_icon"/>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownAccount">
-                                    <form action="">
-                                        <div class="form-group">
-                                            <label>
-                                                <input type="text" class="form-control input-default"
-                                                       placeholder="E-mail address">
-                                            </label>
-                                        </div>
-                                        <div class="form-group">
-                                            <label>
-                                                <input type="text" class="form-control input-default"
-                                                       placeholder="Password">
-                                            </label>
-                                        </div>
-                                        <button type="button" class="btn sign_in_btn">ВОЙТИ</button>
-                                        <a href="forgot-password.html" class="forgot_btn">Забыли пароль?</a>
-                                        <p>Еще не зарегистрированы?</p>
-                                        <a href="sign-up.html" class="btn register_btn">ЗАРЕГИСТРИРОВАТЬСЯ</a>
-                                    </form>
+                                    @include('shop::layouts.header.nav-menu.login')
                                 </div>
                             </div>
 
@@ -174,6 +157,7 @@
             {!! view_render_event('bagisto.shop.layout.content.after') !!}
 
         </main>
+
         <footer>
             <ul>
                 <li class="footer_social">

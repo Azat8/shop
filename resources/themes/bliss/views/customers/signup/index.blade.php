@@ -82,4 +82,71 @@
 
     {!! view_render_event('bagisto.shop.customers.signup.after') !!}
 </div>
+
+<main>
+    <ul class="header_social mobile_social">
+        <li class="languages">
+            <a href="javascript:;" class="arm_icon" style="background-image: url('assets/icons/ge.png')"></a>
+            <a href="javascript:;" class="eng_icon" style="background-image: url('assets/icons/en.png')"></a>
+            <a href="javascript:;" class="rus_icon" style="background-image: url('assets/icons/ru.png')"></a>
+        </li>
+        <li class="social">
+            <a href="javascript:;" class="facebook_icon" style="background-image: url('assets/icons/facebook-icon.png')"></a>
+            <a href="javascript:;" class="youtube_icon" style="background-image: url('assets/icons/youtube-icon.png')"></a>
+            <a href="javascript:;" class="instagram_icon" style="background-image: url('assets/icons/instagram-icon.png')"></a>
+        </li>
+    </ul>
+    <ul class="breadcrumb_navigation">
+        <li><a href="index.html">Главная</a></li>
+        <li><a href="about-us.html">категории</a></li>
+    </ul>
+    <div class="sign_up">
+        <div class="sign_up_container">
+            <form class="sign_up_form physical" method="post" action="{{ route('customer.register.create') }}" @submit.prevent="onSubmit">
+                <div class="sign_up_name_surname">
+                    <div class="form-group">
+                        <input type="text" class="form-control" :class="[errors.has('first_name') ? 'has-error' : '']" placeholder="{{ __('shop::app.customer.signup-form.firstname') }}" name="first_name" v-validate="'required'" value="{{ old('first_name') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.firstname') }}&quot;">
+                        <span class="control-error" v-if="errors.has('first_name')">@{{ errors.first('first_name') }}</span>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" :class="[errors.has('last_name') ? 'has-error' : '']" placeholder="{{ __('shop::app.customer.signup-form.firstname') }}" name="last_name" v-validate="'required'" value="{{ old('last_name') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.firstname') }}&quot;">
+                        <span class="control-error" v-if="errors.has('last_name')">@{{ errors.first('last_name') }}</span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <select class="form-control">
+                        <option selected value="0">Recommended by</option>
+                        <option>0011</option>
+                        <option>0012</option>
+                        <option>0013</option>
+                        <option>0014</option>
+                        <option>0015</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Телефон">
+                </div>
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="E-mail address">
+                </div>
+                <div class="form-group">
+                    <input type="password" class="form-control" placeholder="Пароль">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control address_input" placeholder="Адрес">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control home_input" placeholder="дом">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control city_input" placeholder="Город">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control index_input" placeholder="Индекс">
+                </div>
+                <button type="button" class="btn btn_send_form">Отправить</button>
+            </form>
+        </div>
+    </div>
+</main>
 @endsection
