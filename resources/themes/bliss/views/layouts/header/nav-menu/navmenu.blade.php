@@ -86,7 +86,6 @@ foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCateg
 </script>
 
 <script>
-    console.log('aaa')
     Vue.component('category-item', {
 
         template: '#category-item-template',

@@ -575,9 +575,7 @@
                 }
             },
 
-            // staticRenderFns: paymentTemplateRenderFns,
-
-            mounted: function () {
+            mounted: async function () {
                 for (method in paymentMethods) {
                     if (this.first_iteration) {
                         this.payment.method = paymentMethods[method]['method'];
@@ -586,21 +584,8 @@
                     }
                 }
 
-                // this.templateRender = paymentHtml.render;
-                // for (var i in paymentHtml.staticRenderFns) {
-                //     paymentTemplateRenderFns.push(paymentHtml.staticRenderFns[i]);
-                // }
-
                 eventBus.$emit('after-checkout-payment-section-added');
             },
-
-            // render: function (h) {
-            //     return h('div', [
-            //         (this.templateRender ?
-            //             this.templateRender() :
-            //             '')
-            //     ]);
-            // },
 
             methods: {
                 methodSelected: function () {
