@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Matrix;
+use HG\Crud\src\Models\Matrix;
 
 class IndexController extends Controller
 {
@@ -14,8 +14,7 @@ class IndexController extends Controller
 
     public function matrix()
     {
-    	$matrix = Matrix::orderBy('created_at', 'desc')->paginate(5);
-        
+    	$matrix = Matrix::orderBy('created_at', 'desc')->paginate(20);
         return view('matrix', compact('matrix'));
     }
 }

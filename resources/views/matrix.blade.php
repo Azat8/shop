@@ -29,42 +29,14 @@
             запомнить код продукта HG, чтобы выбрать правильный продукт с полки HG в магазине.</p>
         <div class="container-fluid p-0">
             <div class="row no-gutters">
-                <div class="col-sm-6 col-lg-4">
-                    <a href="javascript:;" class="matrix_content">
-                        <i style="background-image: url('assets/matrix/matrix1.png')"></i>
-                        <p>ПЛИТКИ</p>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <a href="javascript:;" class="matrix_content">
-                        <i style="background-image: url('assets/matrix/matrix2.png')"></i>
-                        <p>ПЛИТКИ</p>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <a href="javascript:;" class="matrix_content">
-                        <i style="background-image: url('assets/matrix/matrix3.png')"></i>
-                        <p>ПЛИТКИ</p>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <a href="javascript:;" class="matrix_content">
-                        <i style="background-image: url('assets/matrix/matrix4.png')"></i>
-                        <p>ПЛИТКИ</p>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <a href="javascript:;" class="matrix_content">
-                        <i style="background-image: url('assets/matrix/matrix5.png')"></i>
-                        <p>ПЛИТКИ</p>
-                    </a>
-                </div>
-                <div class="col-sm-6 col-lg-4">
-                    <a href="javascript:;" class="matrix_content">
-                        <i style="background-image: url('assets/matrix/matrix6.png')"></i>
-                        <p>ПЛИТКИ</p>
-                    </a>
-                </div>
+                @foreach($matrix as $m)
+                    <div class="col-sm-6 col-lg-4">
+                        <a href="/storage/{{$m->file}}" class="matrix_content" target="_blank">
+                            <i style="background-image: url(/storage/{{$m->image}})"></i>
+                            <p>{{$m->name}}</p>
+                        </a>
+                    </div>
+                @endforeach
             </div>
         </div>
     </div>

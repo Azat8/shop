@@ -122,7 +122,7 @@
                 <ul class="header_navigation">
                     <li><a href="/">о компании</a></li>
                     <li><a href="/products">продукция</a></li>
-                    <li><a href="matrix.html">матрица</a></li>
+                    <li><a href="{{route('matrix')}}">матрица</a></li>
                     <li><a href="javascript:;">Советы</a></li>
                     <li><a href="payment&delivery.html">оплата и доставка</a></li>
                     <li><a href="contact-us.html">контакт</a></li>
@@ -184,7 +184,7 @@
                 <li class="footer_navigation">
                     <a href="about-us.html">О КОМПАНИИ HG</a>
                     <a href="production.html">Продукция</a>
-                    <a href="matrix.html">Матрица</a>
+                    <a href="{{route('matrix')}}">Матрица</a>
                     <a href="javascript:;">Советы</a>
                     <a href="payment&delivery.html">Оплата и доставка</a>
                     <a href="contact-us.html">Контакт</a>
@@ -229,7 +229,7 @@
     <ul class="mobile_menu">
         <li><a href="about-us.html">О КОМПАНИИ HG </a></li>
         <li><a href="production.html">Продукция</a></li>
-        <li><a href="matrix.html">Матрица</a></li>
+        <li><a href="{{route('matrix')}}">Матрица</a></li>
         <li><a href="javascript:;">Советы</a></li>
         <li><a href="payment&delivery.html">Оплата и доставка</a></li>
         <li><a href="contact-us.html">Контакт</a></li>
