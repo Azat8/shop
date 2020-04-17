@@ -3,7 +3,6 @@
 @section('page_title')
     {{ $page->page_title }}
 @endsection
-
 @section('seo')
     <meta name="title" content="{{ $page->meta_title }}" />
 
@@ -13,5 +12,6 @@
 @endsection
 
 @section('content-wrapper')
+	@include("shop::cms.$page->url_key")	
     {!! DbView::make($page)->field('html_content')->render() !!}
 @endsection

@@ -214,7 +214,7 @@
         <li><a href="about-us.html">О КОМПАНИИ HG </a></li>
         <li><a href="production.html">Продукция</a></li>
         <li><a href="{{route('matrix')}}">Матрица</a></li>
-        <li><a href="javascript:;">Советы</a></li>
+        <li><a href="  ">Советы</a></li>
         <li><a href="payment&delivery.html">Оплата и доставка</a></li>
         <li><a href="contact-us.html">Контакт</a></li>
     </ul>
