@@ -77,15 +77,15 @@
                         <p>КАТЕГОРИЯ</p>
                     </div>
                 </div>
-                <div class="col-lg-9">
-                    <form class="production_search" action="">
-                        <input type="text" class="form-control" placeholder="search...">
+                {{-- <div class="col-lg-9">
+                    <form class="production_search" action="{{url('categorysearch')}}">
+                        <input type="text" class="form-control" placeholder="search..." value="{{request('term')}}">
                         <button>
                             <img src="/themes/bliss/assets/images/hg/icons/magnifying-glass-product.png" alt="magnifying-glass-product">
                         </button>
                     </form>
-                </div>
-            </div>
+                </div> --}}
+            </div>      
         </div>
 
         <div class="production_container">
@@ -105,15 +105,15 @@
                             <div class="production_category">
                                 @php($products = $productRepository->getAll($category->id))
                                 <h1>{{ $category->name }}</h1>
-
                                 <div class="production_category_row">
                                     @foreach($products as $key => $product)
                                         @if($key < 2)
                                             @php($productBaseImage = $productImageHelper->getProductBaseImage($product))
-
                                             <div class="production_category_row_item">
                                                 <a href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
-                                                   style="background-image: url({{$productBaseImage['medium_image_url']}})"></a>
+                                                   style="position:relative; background-image: url({{$productBaseImage['medium_image_url']}})">
+                                                    <div class="overlay overlay-{{$product->getTypeInstance()->haveSpecialPrice() ? 'sale' : ($product->new ? 'new' : '')}}"></div>
+                                                   </a>
                                                 <p>{{ $product->name }}</p>
                                                 <ul>
                                                     <li>

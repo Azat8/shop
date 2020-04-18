@@ -1047,7 +1047,6 @@ footer ul .footer_navigation a:hover {
 #map {
     height: 250px;
     width: 100%;
-    margin-top: 100px;
 }
 
 /*PRODUCTION SINGLE*/
@@ -2413,3 +2412,35 @@ footer ul .footer_navigation a:hover {
     }
 
 }
+
+.overlay {
+    position: absolute;
+    display: block;
+    width: 30%;
+    top: 0px;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+    /* z-index: 2; */
+    cursor: pointer;
+}
+
+.overlay-new {
+    background: url(/themes/bliss/assets/images/hg/new.svg) no-repeat;
+} .overlay-sale {
+    background: url(/themes/bliss/assets/images/hg/sale.svg) no-repeat;
+} .overlay-bestseller {
+    background: url(/themes/bliss/assets/images/hg/bestseller.svg) no-repeat;
+} .header_social a:before {
+    display: none;
+} .header_social a:nth-child(1) {
+    background-image: url(/themes/bliss/assets/images/hg/icons/facebook-icon.png); 
+} .header_social a:nth-child(2) {
+    background-image: url(/themes/bliss/assets/images/hg/icons/youtube-icon.png);
+} .header_social a:nth-child(3) {
+    background-image: url(/themes/bliss/assets/images/hg/icons/instagram-icon.png);
+}
+
+
+

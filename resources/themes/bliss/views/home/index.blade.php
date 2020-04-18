@@ -90,7 +90,7 @@
 
                     <div class="col-lg-4">
                         <div class="home_product_item">
-                            <i style="background-image: url({{ $productBaseImage['medium_image_url'] }})"></i>
+                            <i style="position:relative;background-image: url({{ $productBaseImage['medium_image_url'] }})"><div class="overlay overlay-{{$productFlat->getTypeInstance()->haveSpecialPrice() ? 'sale' : ($productFlat->new ? 'new' : '')}}"></div></i>
                             <a href="{{ route('shop.productOrCategory.index', $productFlat->url_key) }}"
                                title="{{ $productFlat->name }}">
                                 <p>{{ $productFlat->name }}</p>

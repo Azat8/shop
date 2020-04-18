@@ -27,7 +27,6 @@
                         <img class="logo" src="{{ $category->image_url }}" />
                     @endif
                 </div>
-
                 @if (in_array($category->display_mode, [null, 'description_only', 'products_and_description']))
                     @if ($category->description)
                         <div class="category-description">
