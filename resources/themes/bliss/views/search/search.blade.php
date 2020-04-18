@@ -27,12 +27,12 @@
                     </div>
                 @endif
 
-                <div class="product-grid-4">
-                    @foreach ($results as $productFlat)
-
-                        @include('shop::products.list.card', ['product' => $productFlat->product])
-
-                    @endforeach
+                <div class="production_category">
+                    <div class="production_category_row">   
+                        @foreach ($results as $productFlat)
+                            @include('shop::products.list.card', ['product' => $productFlat->product])
+                        @endforeach
+                    </div>
                 </div>
 
                 @include('ui::datagrid.pagination')

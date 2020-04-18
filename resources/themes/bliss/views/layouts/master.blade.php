@@ -71,7 +71,7 @@
             <div class="main_header">
                 <div class="header_top">
                     <div class="header_top_logo">
-                        <a href="/" style="background-image: url('/themes/bliss/assets/images/hg/HG-Logo.png')">
+                        <a href="/" style="background-image: url(/storage/{{core()->getCurrentChannel()->logo}})">
 
                         </a>
                     </div>
@@ -106,20 +106,17 @@
                             </div>
                         </div>
                         <div class="header_top_search_row">
-                            <form action="" class="header_search">
-                                <input type="text" class="form-control" placeholder="Recipient's username">
-                                <button class="search_btn"><img src="/themes/bliss/assets/images/hg/icons/magnifying-glass.png" alt=""></button>
-                            </form>
+                            @include('shop::partials.search')
                         </div>
                     </div>
                 </div>
                 <ul class="header_navigation">
                     <li><a href="/">о компании</a></li>
-                    <li><a href="/products">продукция</a></li>
-                    <li><a href="{{route('matrix')}}">матрица</a></li>
-                    <li><a href="javascript:;">Советы</a></li>
-                    <li><a href="payment&delivery.html">оплата и доставка</a></li>
-                    <li><a href="contact-us.html">контакт</a></li>
+                    <li><a href="{{url('/products')}}">продукция</a></li>
+                    <li><a href="{{url('matrix')}}">матрица</a></li>
+                    {{-- <li><a href="javascript:;">Советы</a></li> --}}
+                    <li><a href="{{url('page/payment-delivery')}}">оплата и доставка</a></li>
+                    <li><a href="{{url('page/contact-us')}}">контакт</a></li>
                 </ul>
                 <ul class="header_social">
                     <li class="languages">
@@ -128,12 +125,7 @@
                         <a href="javascript:;" class="rus_icon" style="background-image: url('/themes/bliss/assets/images/hg/icons/ru.png')"></a>
                     </li>
                     <li class="social">
-                        <a href="javascript:;" class="facebook_icon"
-                           style="background-image: url('/themes/bliss/assets/images/hg/icons/facebook-icon.png')"></a>
-                        <a href="javascript:;" class="youtube_icon"
-                           style="background-image: url('/themes/bliss/assets/images/hg/icons/youtube-icon.png')"></a>
-                        <a href="javascript:;" class="instagram_icon"
-                           style="background-image: url('/themes/bliss/assets/images/hg/icons/instagram-icon.png')"></a>
+                        {!!core()->getCurrentChannel()->description!!}
                     </li>
                 </ul>
             </div>
@@ -172,17 +164,14 @@
         <footer>
             <ul>
                 <li class="footer_social">
-                    <a href="javascript:;"><i class="fab fa-facebook-f"></i> </a>
-                    <a href="javascript:;"><i class="fab fa-instagram"></i></a>
-                    <a href="javascript:;"><i class="fab fa-youtube"></i></a>
-
+                    {!!core()->getCurrentChannel()->description!!}
                 <li class="footer_navigation">
-                    <a href="about-us.html">О КОМПАНИИ HG</a>
-                    <a href="production.html">Продукция</a>
+                    <a href="{{url('page/about-us')}}">О КОМПАНИИ HG</a>
+                    <a href="{{url('products')}}">Продукция</a>
                     <a href="{{route('matrix')}}">Матрица</a>
-                    <a href="javascript:;">Советы</a>
-                    <a href="payment&delivery.html">Оплата и доставка</a>
-                    <a href="contact-us.html">Контакт</a>
+                    {{-- <a href="javascript:;">Советы</a> --}}
+                    <a href="{{url('page/payment-delivery')}}">Оплата и доставка</a>
+                    <a href="{{url('page/contact-us')}}">Контакт</a>
                 </li>
             </ul>
         </footer>
@@ -222,12 +211,12 @@
     </div>
 
     <ul class="mobile_menu">
-        <li><a href="about-us.html">О КОМПАНИИ HG </a></li>
-        <li><a href="production.html">Продукция</a></li>
-        <li><a href="{{route('matrix')}}">Матрица</a></li>
-        <li><a href="  ">Советы</a></li>
-        <li><a href="payment&delivery.html">Оплата и доставка</a></li>
-        <li><a href="contact-us.html">Контакт</a></li>
+        <li><a href="{{url('page/about-us')}}">О КОМПАНИИ HG </a></li>
+        <li><a href="{{url('products')}}">Продукция</a></li>
+        <li><a href="{{url('matrix')}}">Матрица</a></li>
+        {{-- <li><a href="  ">Советы</a></li> --}}
+        <li><a href="{{url('page/payment-delivery')}}">Оплата и доставка</a></li>
+        <li><a href="{{url('page/contact-us')}}">Контакт</a></li>
     </ul>
 
     <!--MAIN JS-->

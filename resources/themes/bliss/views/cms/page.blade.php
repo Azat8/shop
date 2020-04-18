@@ -12,6 +12,25 @@
 @endsection
 
 @section('content-wrapper')
-	@include("shop::cms.$page->url_key")	
     {!! DbView::make($page)->field('html_content')->render() !!}
+
+<script>
+  function initMap() {
+    var location = {lat: 40.2, lng: 44.55};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 14,
+      center: location
+    });
+    var marker = new google.maps.Marker({
+      position: location,
+      map: map
+    });
+  }
+
+</script>
+<script async="" defer=""
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7nSpucMaZeeBRk9JbmLZkVWQx4L8fLgs&amp;callback=initMap"
+        type="text/javascript"></script>
+</body>
+	
 @endsection
