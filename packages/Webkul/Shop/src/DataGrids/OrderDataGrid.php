@@ -30,7 +30,7 @@ class OrderDataGrid extends DataGrid
     {
         $this->addColumn([
             'index' => 'increment_id',
-            'label' => trans('shop::app.customer.account.order.index.order_id'),
+            'label' => '#',
             'type' => 'string',
             'searchable' => false,
             'sortable' => true,
@@ -46,17 +46,17 @@ class OrderDataGrid extends DataGrid
             'filterable' => true
         ]);
 
-        $this->addColumn([
-            'index' => 'grand_total',
-            'label' => trans('shop::app.customer.account.order.index.total'),
-            'type' => 'number',
-            'searchable' => true,
-            'sortable' => true,
-            'filterable' => true,
-            'wrapper' => function ($value) {
-                return core()->formatPrice($value->grand_total, $value->order_currency_code);
-            }
-        ]);
+//        $this->addColumn([
+//            'index' => 'grand_total',
+//            'label' => trans('shop::app.customer.account.order.index.total'),
+//            'type' => 'number',
+//            'searchable' => true,
+//            'sortable' => true,
+//            'filterable' => true,
+//            'wrapper' => function ($value) {
+//                return core()->formatPrice($value->grand_total, $value->order_currency_code);
+//            }
+//        ]);
 
         $this->addColumn([
             'index' => 'status',
@@ -86,11 +86,11 @@ class OrderDataGrid extends DataGrid
     }
 
     public function prepareActions() {
-        $this->addAction([
-            'type' => 'View',
-            'method' => 'GET',
-            'route' => 'customer.orders.view',
-            'icon' => 'icon eye-icon'
-        ]);
+//        $this->addAction([
+//            'type' => 'View',
+//            'method' => 'GET',
+//            'route' => 'customer.orders.view',
+//            'icon' => 'icon eye-icon'
+//        ]);
     }
 }

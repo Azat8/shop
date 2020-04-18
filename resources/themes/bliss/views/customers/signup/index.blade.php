@@ -4,85 +4,6 @@
 @endsection
 @section('content-wrapper')
 
-<div class="auth-content">
-
-    <div class="sign-up-text">
-        {{ __('shop::app.customer.signup-text.account_exists') }} - <a href="{{ route('customer.session.index') }}">{{ __('shop::app.customer.signup-text.title') }}</a>
-    </div>
-
-    {!! view_render_event('bagisto.shop.customers.signup.before') !!}
-
-    <form method="post" action="{{ route('customer.register.create') }}" @submit.prevent="onSubmit">
-
-        {{ csrf_field() }}
-
-        <div class="login-form">
-            <div class="login-text">{{ __('shop::app.customer.signup-form.title') }}</div>
-
-            {!! view_render_event('bagisto.shop.customers.signup_form_controls.before') !!}
-
-            <div class="control-group" :class="[errors.has('first_name') ? 'has-error' : '']">
-                <label for="first_name" class="required">{{ __('shop::app.customer.signup-form.firstname') }}</label>
-                <input type="text" class="control" name="first_name" v-validate="'required'" value="{{ old('first_name') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.firstname') }}&quot;">
-                <span class="control-error" v-if="errors.has('first_name')">@{{ errors.first('first_name') }}</span>
-            </div>
-
-            <div class="control-group" :class="[errors.has('last_name') ? 'has-error' : '']">
-                <label for="last_name" class="required">{{ __('shop::app.customer.signup-form.lastname') }}</label>
-                <input type="text" class="control" name="last_name" v-validate="'required'" value="{{ old('last_name') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.lastname') }}&quot;">
-                <span class="control-error" v-if="errors.has('last_name')">@{{ errors.first('last_name') }}</span>
-            </div>
-
-            <div class="control-group" :class="[errors.has('email') ? 'has-error' : '']">
-                <label for="email" class="required">{{ __('shop::app.customer.signup-form.email') }}</label>
-                <input type="email" class="control" name="email" v-validate="'required|email'" value="{{ old('email') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.email') }}&quot;">
-                <span class="control-error" v-if="errors.has('email')">@{{ errors.first('email') }}</span>
-            </div>
-
-            <div class="control-group" :class="[errors.has('password') ? 'has-error' : '']">
-                <label for="password" class="required">{{ __('shop::app.customer.signup-form.password') }}</label>
-                <input type="password" class="control" name="password" v-validate="'required|min:6'" ref="password" value="{{ old('password') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.password') }}&quot;">
-                <span class="control-error" v-if="errors.has('password')">@{{ errors.first('password') }}</span>
-            </div>
-
-            <div class="control-group" :class="[errors.has('password_confirmation') ? 'has-error' : '']">
-                <label for="password_confirmation" class="required">{{ __('shop::app.customer.signup-form.confirm_pass') }}</label>
-                <input type="password" class="control" name="password_confirmation"  v-validate="'required|min:6|confirmed:password'" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.confirm_pass') }}&quot;">
-                <span class="control-error" v-if="errors.has('password_confirmation')">@{{ errors.first('password_confirmation') }}</span>
-            </div>
-
-            {{-- <div class="signup-confirm" :class="[errors.has('agreement') ? 'has-error' : '']">
-                <span class="checkbox">
-                    <input type="checkbox" id="checkbox2" name="agreement" v-validate="'required'">
-                    <label class="checkbox-view" for="checkbox2"></label>
-                    <span>{{ __('shop::app.customer.signup-form.agree') }}
-                        <a href="">{{ __('shop::app.customer.signup-form.terms') }}</a> & <a href="">{{ __('shop::app.customer.signup-form.conditions') }}</a> {{ __('shop::app.customer.signup-form.using') }}.
-                    </span>
-                </span>
-                <span class="control-error" v-if="errors.has('agreement')">@{{ errors.first('agreement') }}</span>
-            </div> --}}
-
-            {!! view_render_event('bagisto.shop.customers.signup_form_controls.after') !!}
-
-            {{-- <div class="control-group" :class="[errors.has('agreement') ? 'has-error' : '']">
-
-                <input type="checkbox" id="checkbox2" name="agreement" v-validate="'required'" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.agreement') }}&quot;">
-                <span>{{ __('shop::app.customer.signup-form.agree') }}
-                    <a href="">{{ __('shop::app.customer.signup-form.terms') }}</a> & <a href="">{{ __('shop::app.customer.signup-form.conditions') }}</a> {{ __('shop::app.customer.signup-form.using') }}.
-                </span>
-                <span class="control-error" v-if="errors.has('agreement')">@{{ errors.first('agreement') }}</span>
-            </div> --}}
-
-            <button class="btn btn-primary btn-lg" type="submit">
-                {{ __('shop::app.customer.signup-form.button_title') }}
-            </button>
-
-        </div>
-    </form>
-
-    {!! view_render_event('bagisto.shop.customers.signup.after') !!}
-</div>
-
 <main>
     <ul class="header_social mobile_social">
         <li class="languages">
@@ -103,13 +24,15 @@
     <div class="sign_up">
         <div class="sign_up_container">
             <form class="sign_up_form physical" method="post" action="{{ route('customer.register.create') }}" @submit.prevent="onSubmit">
+                {{ csrf_field() }}
+
                 <div class="sign_up_name_surname">
                     <div class="form-group">
                         <input type="text" class="form-control" :class="[errors.has('first_name') ? 'has-error' : '']" placeholder="{{ __('shop::app.customer.signup-form.firstname') }}" name="first_name" v-validate="'required'" value="{{ old('first_name') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.firstname') }}&quot;">
                         <span class="control-error" v-if="errors.has('first_name')">@{{ errors.first('first_name') }}</span>
                     </div>
                     <div class="form-group">
-                        <input type="text" class="form-control" :class="[errors.has('last_name') ? 'has-error' : '']" placeholder="{{ __('shop::app.customer.signup-form.firstname') }}" name="last_name" v-validate="'required'" value="{{ old('last_name') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.firstname') }}&quot;">
+                        <input type="text" class="form-control" :class="[errors.has('last_name') ? 'has-error' : '']" placeholder="{{ __('shop::app.customer.signup-form.lastname') }}" name="last_name" v-validate="'required'" value="{{ old('last_name') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.lastname') }}&quot;">
                         <span class="control-error" v-if="errors.has('last_name')">@{{ errors.first('last_name') }}</span>
                     </div>
                 </div>
@@ -124,27 +47,40 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control" placeholder="Телефон">
+                    <input type="text" class="form-control" :class="[errors.has('phone') ? 'has-error' : '']" placeholder="{{ __('shop::app.customer.account.address.create.phone') }}" name="phone" v-validate="'required'" value="{{ old('phone') }}" data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.phone') }}&quot;">
+                    <span class="control-error" v-if="errors.has('phone')">@{{ errors.first('phone') }}</span>
                 </div>
                 <div class="form-group">
-                    <input type="email" class="form-control" placeholder="E-mail address">
+                    <input type="email" class="form-control" name="email" v-validate="'required|email'" value="{{ old('email') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.email') }}&quot;" placeholder="{{ __('shop::app.customer.signup-form.email') }}">
+                    <span class="control-error" v-if="errors.has('email')">@{{ errors.first('email') }}</span>
                 </div>
                 <div class="form-group">
-                    <input type="password" class="form-control" placeholder="Пароль">
+                    <input type="password" class="form-control" name="password" v-validate="'required|min:6'" ref="password" placeholder="{{ __('shop::app.customer.signup-form.password') }}" value="{{ old('password') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.password') }}&quot;" :class="[errors.has('password') ? 'has-error' : '']">
+                    <span class="control-error" v-if="errors.has('password')">@{{ errors.first('password') }}</span>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control address_input" placeholder="Адрес">
+                    <input type="password" :class="[errors.has('password_confirmation') ? 'has-error' : '']" class="control" name="password_confirmation"  v-validate="'required|min:6|confirmed:password'" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.confirm_pass') }}&quot;" placeholder="{{ __('shop::app.customer.signup-form.confirm_pass') }}">
+                    <span class="control-error" v-if="errors.has('password_confirmation')">@{{ errors.first('password_confirmation') }}</span>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control home_input" placeholder="дом">
+                    <input type="text" class="form-control address_input" :class="[errors.has('address1') ? 'has-error' : '']" placeholder="{{ __('shop::app.customer.signup-form.address') }}" name="address1" v-validate="'required'" value="{{ old('address1') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.address') }}&quot;">
+                    <span class="control-error" v-if="errors.has('address1')">@{{ errors.first('address1') }}</span>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control city_input" placeholder="Город">
+                    <input type="text" class="form-control home_input" :class="[errors.has('home') ? 'has-error' : '']" placeholder="{{ __('shop::app.customer.signup-form.home') }}" name="home" v-validate="'required'" value="{{ old('home') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.home') }}&quot;">
+                    <span class="control-error" v-if="errors.has('home')">@{{ errors.first('home') }}</span>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control index_input" placeholder="Индекс">
+                    <input type="text" class="form-control city_input" :class="[errors.has('city') ? 'has-error' : '']" placeholder="{{ __('shop::app.customer.signup-form.city') }}" name="city" v-validate="'required'" value="{{ old('city') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.city') }}&quot;">
+                    <span class="control-error" v-if="errors.has('city')">@{{ errors.first('city') }}</span>
                 </div>
-                <button type="button" class="btn btn_send_form">Отправить</button>
+                <div class="form-group">
+                    <input type="text" class="form-control index_input" :class="[errors.has('postcode') ? 'has-error' : '']" placeholder="{{ __('shop::app.customer.signup-form.index') }}" name="postcode" v-validate="'required'" value="{{ old('postcode') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.index') }}&quot;">
+                    <span class="control-error" v-if="errors.has('postcode')">@{{ errors.first('postcode') }}</span>
+                </div>
+                <button type="submit" class="btn btn_send_form">
+                    {{ __('shop::app.customer.signup-form.button_title') }}
+                </button>
             </form>
         </div>
     </div>
