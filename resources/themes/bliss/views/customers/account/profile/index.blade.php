@@ -5,102 +5,41 @@
 @endsection
 
 @section('content-wrapper')
-
-<div class="account-content">
-
-    @include('shop::customers.account.partials.sidemenu')
-
-    <div class="account-layout">
-
-        <div class="account-head">
-
-            <span class="back-icon"><a href="{{ route('customer.account.index') }}"><i class="icon icon-menu-back"></i></a></span>
-
-            <span class="account-heading">{{ __('shop::app.customer.account.profile.index.title') }}</span>
-
-            <span class="account-action">
-                <a href="{{ route('customer.profile.edit') }}">{{ __('shop::app.customer.account.profile.index.edit') }}</a>
-            </span>
-
-            <div class="horizontal-rule"></div>
-        </div>
-
-         {!! view_render_event('bagisto.shop.customers.account.profile.view.before', ['customer' => $customer]) !!}
-
-        <div class="account-table-content" style="width: 50%;">
-            <table style="color: #5E5E5E;">
-                <tbody>
-                    {!! view_render_event(
-                    'bagisto.shop.customers.account.profile.view.table.before', ['customer' => $customer])
-                    !!}
-                    <tr>
-                        <td>{{ __('shop::app.customer.account.profile.fname') }}</td>
-                        <td>{{ $customer->first_name }}</td>
-                    </tr>
-
-                    <tr>
-                        <td>{{ __('shop::app.customer.account.profile.lname') }}</td>
-                        <td>{{ $customer->last_name }}</td>
-                    </tr>
-
-                    <tr>
-                        <td>{{ __('shop::app.customer.account.profile.gender') }}</td>
-                        <td>{{ $customer->gender }}</td>
-                    </tr>
-
-                    <tr>
-                        <td>{{ __('shop::app.customer.account.profile.dob') }}</td>
-                        <td>{{ $customer->date_of_birth }}</td>
-                    </tr>
-
-                    <tr>
-                        <td>{{ __('shop::app.customer.account.profile.email') }}</td>
-                        <td>{{ $customer->email }}</td>
-                    </tr>
-                    {!! view_render_event(
-                    'bagisto.shop.customers.account.profile.view.table.after', ['customer' => $customer])
-                    !!}
-
-                    {{-- @if ($customer->subscribed_to_news_letter == 1)
-                        <tr>
-                            <td> {{ __('shop::app.footer.subscribe-newsletter') }}</td>
-                            <td>
-                                <a class="btn btn-sm btn-primary" href="{{ route('shop.unsubscribe', $customer->email) }}">{{ __('shop::app.subscription.unsubscribe') }} </a>
-                            </td>
-                        </tr>
-                    @endif --}}
-                </tbody>
-            </table>
-
-
-            <button type="submit" @click="showModal('deleteProfile')" class="btn btn-lg btn-primary mt-10">
-                {{ __('shop::app.customer.account.address.index.delete') }}
-            </button>
-
-            <form method="POST" action="{{ route('customer.profile.destroy') }}" @submit.prevent="onSubmit">
-                @csrf
-
-                <modal id="deleteProfile" :is-open="modalIds.deleteProfile">
-                    <h3 slot="header">{{ __('shop::app.customer.account.address.index.enter-password') }}</h3>
-
-                    <div slot="body">
-                        <div class="control-group" :class="[errors.has('password') ? 'has-error' : '']">
-                            <label for="password" class="required">{{ __('admin::app.users.users.password') }}</label>
-                            <input type="password" v-validate="'required|min:6|max:18'" class="control" id="password" name="password" data-vv-as="&quot;{{ __('admin::app.users.users.password') }}&quot;"/>
-                            <span class="control-error" v-if="errors.has('password')">@{{ errors.first('password') }}</span>
-                        </div>
-
-                        <div class="page-action">
-                            <button type="submit"  class="btn btn-lg btn-primary mt-10">
-                            {{ __('shop::app.customer.account.address.index.delete') }}
-                            </button>
-                        </div>
+    <main>
+        <ul class="header_social mobile_social">
+            <li class="languages">
+                <a href="javascript:;" class="arm_icon" style="background-image: url('assets/icons/ge.png')"></a>
+                <a href="javascript:;" class="eng_icon" style="background-image: url('assets/icons/en.png')"></a>
+                <a href="javascript:;" class="rus_icon" style="background-image: url('assets/icons/ru.png')"></a>
+            </li>
+            <li class="social">
+                <a href="javascript:;" class="facebook_icon" style="background-image: url('assets/icons/facebook-icon.png')"></a>
+                <a href="javascript:;" class="youtube_icon" style="background-image: url('assets/icons/youtube-icon.png')"></a>
+                <a href="javascript:;" class="instagram_icon" style="background-image: url('assets/icons/instagram-icon.png')"></a>
+            </li>
+        </ul>
+        <ul class="breadcrumb_navigation">
+            <li><a href="index.html">Главная</a></li>
+            <li><a href="about-us.html">Детали профиля</a></li>
+        </ul>
+        <div class="account">
+            <h1>МОЙ ПРОФИЛЬ</h1>
+            <div class="sign_out_btn">
+                <a
+                    href="{{ route('customer.session.destroy') }}">
+                    {{ __('shop::app.header.logout') }}
+                </a>
+            </div>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-6">
+                        @include('shop::customers.account.orders.index')
                     </div>
-                </modal>
-            </form>
+                    <div class="col-lg-6">
+                        @include('shop::customers.account.profile.edit')
+                    </div>
+                </div>
+            </div>
         </div>
-
-        {!! view_render_event('bagisto.shop.customers.account.profile.view.after', ['customer' => $customer]) !!}
-    </div>
-</div>
+    </main>
 @endsection

@@ -146,7 +146,7 @@ Route::group(['middleware' => ['web', 'locale', 'theme', 'currency']], function 
 
         //registration form store
         Route::post('register', 'Webkul\Customer\Http\Controllers\RegistrationController@create')->defaults('_config', [
-            'redirect' => 'customer.session.index',
+            'redirect' => 'shop.home.index',
         ])->name('customer.register.create');
 
         //verify account

@@ -3,6 +3,7 @@
 namespace Webkul\Customer\Http\Controllers;
 
 use Hash;
+use Webkul\Customer\Repositories\CustomerAddressRepository;
 use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\Product\Repositories\ProductReviewRepository;
 
@@ -30,6 +31,14 @@ class CustomerController extends Controller
     protected $customerRepository;
 
     /**
+     * CustomerAddressRepository object
+     *
+     * @var Object
+     */
+    protected $customerAddressRepository;
+
+
+    /**
      * ProductReviewRepository object
      *
      * @var array
@@ -44,7 +53,7 @@ class CustomerController extends Controller
      *
      * @return void
      */
-    public function __construct(CustomerRepository $customerRepository, ProductReviewRepository $productReviewRepository)
+    public function __construct(CustomerRepository $customerRepository, ProductReviewRepository $productReviewRepository, CustomerAddressRepository $customerAddressRepository)
     {
         $this->middleware('customer');
 
@@ -53,6 +62,8 @@ class CustomerController extends Controller
         $this->customerRepository = $customerRepository;
 
         $this->productReviewRepository = $productReviewRepository;
+
+        $this->customerAddressRepository = $customerAddressRepository;
     }
 
     /**
@@ -86,7 +97,8 @@ class CustomerController extends Controller
      */
     public function update()
     {
-        $id = auth()->guard('customer')->user()->id;
+        $customer = auth()->guard('customer')->user();
+        $id = $customer->id;
 
         $this->validate(request(), [
             'first_name'            => 'string',
@@ -97,6 +109,9 @@ class CustomerController extends Controller
             'password'              => 'confirmed|min:6|required_with:oldpassword',
             'oldpassword'           => 'required_with:password',
             'password_confirmation' => 'required_with:password',
+            'city'         => 'string|required',
+            'postcode'     => 'required',
+            'phone'        => 'required',
         ]);
 
         $data = collect(request()->input())->except('_token')->toArray();
@@ -120,6 +135,14 @@ class CustomerController extends Controller
         }
 
         if ($this->customerRepository->update($data, $id)) {
+            $addressData = collect(request()->input())->except(
+                '_token',
+                'email',
+                'password',
+                'phone'
+            )->toArray();
+
+            $this->customerAddressRepository->update($addressData, $customer->addresses[0]->id);
             Session()->flash('success', trans('shop::app.customer.account.profile.edit-success'));
 
             return redirect()->route($this->_config['redirect']);

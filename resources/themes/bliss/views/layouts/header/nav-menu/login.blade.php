@@ -48,30 +48,33 @@
             @endguest
 
             @auth('customer')
-                <div class="modal-content customer-options">
-                    <div class="customer-session">
-                        <label class="">
-                            {{ auth()->guard('customer')->user()->first_name }}
-                        </label>
-                    </div>
+{{--                <a href="">--}}
+{{--                    {{ auth()->guard('customer')->user()->first_name }}--}}
+{{--                </a>--}}
+{{--                <div class="modal-content customer-options">--}}
+{{--                    <div class="customer-session">--}}
+{{--                        <label class="">--}}
+{{--                            {{ auth()->guard('customer')->user()->first_name }}--}}
+{{--                        </label>--}}
+{{--                    </div>--}}
 
-                    <ul type="none">
-                        <li>
-                            <a href="{{ route('customer.profile.index') }}" class="unset">{{ __('shop::app.header.profile') }}</a>
-                        </li>
+{{--                    <ul type="none">--}}
+{{--                        <li>--}}
+{{--                            <a href="{{ route('customer.profile.index') }}" class="unset">{{ __('shop::app.header.profile') }}</a>--}}
+{{--                        </li>--}}
 
-                        <li>
-                            <a href="{{ route('customer.orders.index') }}" class="unset">{{ __('velocity::app.shop.general.orders') }}</a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="{{ route('customer.orders.index') }}" class="unset">{{ __('velocity::app.shop.general.orders') }}</a>--}}
+{{--                        </li>--}}
 
-                        <li>
-                            <a href="{{ route('customer.wishlist.index') }}" class="unset">{{ __('shop::app.header.wishlist') }}</a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="{{ route('customer.wishlist.index') }}" class="unset">{{ __('shop::app.header.wishlist') }}</a>--}}
+{{--                        </li>--}}
 
-                        <li>
-                            <a href="{{ route('customer.session.destroy') }}" class="unset">{{ __('shop::app.header.logout') }}</a>
-                        </li>
-                    </ul>
-                </div>
+{{--                        <li>--}}
+{{--                            <a href="{{ route('customer.session.destroy') }}" class="unset">{{ __('shop::app.header.logout') }}</a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
         @endauth
         <!--/.Content-->

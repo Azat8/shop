@@ -8,9 +8,11 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Mail;
 use Webkul\Customer\Mail\RegistrationEmail;
 use Webkul\Customer\Mail\VerificationEmail;
+use Webkul\Customer\Repositories\CustomerAddressRepository;
 use Webkul\Customer\Repositories\CustomerRepository;
 use Webkul\Customer\Repositories\CustomerGroupRepository;
 use Cookie;
+use Webkul\Customer\Rules\VatIdRule;
 
 /**
  * Registration controller
@@ -46,12 +48,14 @@ class RegistrationController extends Controller
      *
      * @param \Webkul\Customer\Repositories\CustomerRepository      $customer
      * @param \Webkul\Customer\Repositories\CustomerGroupRepository $customerGroupRepository
+     * @param \Webkul\Customer\Repositories\CustomerAddressRepository $customerAddressRepository
      *
      * @return void
      */
     public function __construct(
         CustomerRepository $customerRepository,
-        CustomerGroupRepository $customerGroupRepository
+        CustomerGroupRepository $customerGroupRepository,
+        CustomerAddressRepository $customerAddressRepository
     )
     {
         $this->_config = request('_config');
@@ -59,6 +63,7 @@ class RegistrationController extends Controller
         $this->customerRepository = $customerRepository;
 
         $this->customerGroupRepository = $customerGroupRepository;
+        $this->customerAddressRepository = $customerAddressRepository;
     }
 
     /**
@@ -83,6 +88,9 @@ class RegistrationController extends Controller
             'last_name'  => 'string|required',
             'email'      => 'email|required|unique:customers,email',
             'password'   => 'confirmed|min:6|required',
+            'city'         => 'string|required',
+            'postcode'     => 'required',
+            'phone'        => 'required',
         ]);
 
         $data = request()->input();
@@ -136,6 +144,22 @@ class RegistrationController extends Controller
 
                 session()->flash('success', trans('shop::app.customer.signup-form.success'));
             }
+
+            $cust_id['customer_id'] = $customer->id;
+            $cust_id['first_name'] = $customer->first_name;
+            $cust_id['last_name'] = $customer->last_name;
+
+            $addressData = collect(request()->input())->except(
+                '_token',
+                'email',
+                'password',
+                'phone'
+            )->toArray();
+
+            $addressData = array_merge($cust_id, $addressData);
+            $addressData['default_address'] = 1;
+
+            $this->customerAddressRepository->create($addressData);
 
             return redirect()->route($this->_config['redirect']);
         } else {
