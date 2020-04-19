@@ -109,10 +109,11 @@
                 </ul>
                 <ul class="header_social">
                     <li class="languages">
-                        <a href="javascript:;" class="arm_icon" style="background-image: url('/themes/bliss/assets/images/hg/icons/ge.png')"></a>
-                        <a href="javascript:;" class="eng_icon" style="background-image: url('/themes/bliss/assets/images/hg/icons/en.png')"></a>
-                        <a href="javascript:;" class="rus_icon" style="background-image: url('/themes/bliss/assets/images/hg/icons/ru.png')"></a>
+                        @foreach (core()->getCurrentChannel()->locales as $locale)
+                            <a href="/locale={{ $locale->code }}" class="arm_icon" style="background-image: url('/themes/bliss/assets/images/hg/icons/{{$locale->code}}.png')"></a>
+                        @endforeach
                     </li>
+
                     <li class="social">
                         {!!core()->getCurrentChannel()->description!!}
                     </li>
