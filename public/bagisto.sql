@@ -26,6 +26,10 @@ DELIMITER $$
 --
 -- Functions
 --
+
+SET FOREIGN_KEY_CHECKS=0;
+
+
 CREATE DEFINER=`root`@`localhost` FUNCTION `get_url_path_of_category` (`categoryId` INT, `localeCode` VARCHAR(255)) RETURNS VARCHAR(255) CHARSET utf8 BEGIN
 
                 DECLARE urlPath VARCHAR(255);
@@ -7617,6 +7621,9 @@ ALTER TABLE `tax_categories_tax_rates`
 ALTER TABLE `velocity_contents_translations`
   ADD CONSTRAINT `velocity_contents_translations_content_id_foreign` FOREIGN KEY (`content_id`) REFERENCES `velocity_contents` (`id`) ON DELETE CASCADE;
 COMMIT;
+
+SET FOREIGN_KEY_CHECKS=1;
+
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
