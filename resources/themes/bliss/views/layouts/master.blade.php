@@ -33,11 +33,7 @@
     <!--BOOTSTRAP -->
     <script src="/themes/bliss/assets/js/libs/bootstrap.min.js"></script>
     <!--slick-->
-    <style>
-        #datagrid-filters {
-            display: none !important;
-        }
-    </style>
+
     @if ($favicon = core()->getCurrentChannel()->favicon_url)
         <link rel="icon" sizes="16x16" href="{{ $favicon }}" />
     @else
@@ -78,12 +74,6 @@
                     <div class="header_top_search">
                         <div class="header_top_account_row">
                             <div class="dropdown">
-                                @auth('customer')
-                                <a href="{{ route('customer.orders.index') }}">
-                                    {{ auth()->guard('customer')->user()->first_name }}
-                                </a>
-                                @endauth
-                                @guest('customer')
                                 <button class="btn account_btn dropdown-toggle" type="button" id="dropdownAccount"
                                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <img src="/themes/bliss/assets/images/hg/icons/account.png" alt="account_icon"/>
@@ -91,7 +81,6 @@
                                 <div class="dropdown-menu" aria-labelledby="dropdownAccount">
                                     @include('shop::layouts.header.nav-menu.login')
                                 </div>
-                                @endguest
                             </div>
 
                             <ul class="header_top_price">
@@ -121,7 +110,7 @@
                 <ul class="header_social">
                     <li class="languages">
                         @foreach (core()->getCurrentChannel()->locales as $locale)
-                            <a href="/locale={{ $locale->code }}" class="arm_icon" style="background-image: url('/themes/bliss/assets/images/hg/icons/{{$locale->code}}.png')"></a>
+                            <a href="/locale={{ $locale->code }}" class="arm_icon" style="background-image: url(storage/{{$locale->locale_image}})"></a>
                         @endforeach
                     </li>
 
