@@ -14,7 +14,6 @@ class Product extends Model implements ProductContract
     protected $fillable = ['type', 'attribute_family_id', 'sku', 'parent_id'];
 
     protected $typeInstance;
-
     // protected $with = ['attribute_family', 'inventories'];
 
     // protected $table = 'products';

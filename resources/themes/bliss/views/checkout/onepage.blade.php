@@ -32,9 +32,9 @@
                     </li>
                 </ul>
                 <ul class="breadcrumb_navigation">
-                    <li><a href="index.html">Главная</a></li>
-                    <li><a href="about-us.html">Процес оплаты</a></li>
-                    <li><a href="about-us.html">Детали {{ $cart->shipping_method }}</a></li>
+                    <li><a href="/">{{ __('app.home') }}</a></li>
+                    <li><a href="{{ route('shop.checkout.cart.index') }}">{{ __('app.payment_process') }}</a></li>
+                    <li><a href="{{ route('shop.checkout.onepage.index') }}">{{ __('app.details') }}</a></li>
                 </ul>
                 <div class="payment_details" v-if="!success_order">
                     <div class="container fluid">
@@ -46,7 +46,7 @@
                                         @include('shop::checkout.onepage.customer-info')
                                     </form>
                                     <div class="col-12">
-                                        <h4>Доставка</h4>
+                                        <h4>{{ __('shop::app.checkout.onepage.shipping-method') }}</h4>
                                     </div>
                                     <div class="col-12">
                                         @foreach(\Illuminate\Support\Facades\Config::get('carriers') as $method)
@@ -81,7 +81,7 @@
                                         @endforeach
                                     </div>
                                     <div class="col-12">
-                                        <h4>ОПЛАТА</h4>
+                                        <h4>{{ __('shop::app.checkout.onepage.payment-method') }}</h4>
                                     </div>
                                     <div class="col-12">
                                         <payment-section @onPaymentMethodSelected="paymentMethodSelected($event)"></payment-section>
@@ -122,10 +122,8 @@
                             </div>
                             <div class="col-lg-5">
                                 <button type="button" @click="placeOrder()"
-                                        :disabled="disable_button" id="checkout-place-order-button">заказать</button>
-                                <p class="order_info">Нажимая на кнопку, вы подтверждаете своё совершеннолетие, соглашаетесь
-                                    на обработку
-                                    персональных данных в соответствии с Условиями, а также с Условиями продажи.</p>
+                                        :disabled="disable_button" id="checkout-place-order-button">{{ __('shop::app.checkout.onepage.place-order') }}</button>
+                                <p class="order_info">{{ __('shop::app.checkout.onepage.payment-term') }}</p>
                             </div>
                         </div>
                     </div>

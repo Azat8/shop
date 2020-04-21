@@ -14,7 +14,7 @@
 <div>
     <div class="row no-gutters">
         <div class="col-lg-5">
-            <p>ИТОГО:</p>
+            <p>{{ __('shop::app.checkout.onepage.order-summary') }}:</p>
         </div>
         <div class="col-lg-7">
             <span>{{ core()->currency($cart->base_sub_total) }}</span>
@@ -22,7 +22,7 @@
     </div>
     <div class="row no-gutters">
         <div class="col-lg-5">
-            <p>ДОСТАВКА:</p>
+            <p>{{ __('shop::app.checkout.onepage.shipping-method') }}:</p>
         </div>
         <div class="col-lg-7">
         <span>
@@ -36,7 +36,7 @@
     </div>
     <div class="row no-gutters">
         <div class="col-lg-5">
-            <p>ВСЕГО:</p>
+            <p>{{__('app.total_price')}}:</p>
         </div>
         <div class="col-lg-7">
             <span>{{ core()->currency($cart->base_grand_total) }}</span>

@@ -57,9 +57,15 @@
             </li>
         </ul>
         <ul class="breadcrumb_navigation">
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="production.html">машина , мотоцикл , яхта</a></li>
-            <li><a href="production.html">HG Очиститель автомобильного стекла</a></li>
+            @php($category = Webkul\Product\Models\Product::find($product->product_id)->categories)
+            @php($category = count($category) ? $category[0] : null)
+
+
+            <li><a href="/">{{ __('app.home') }}</a></li>
+            @if($category)
+            <li><a href="/{{ $category->slug }}">{{ $category->name }}</a></li>
+            @endif
+            <li><a href="{{ route('shop.productOrCategory.index', $product->url_key) }}">{{ $product->name }}</a></li>
         </ul>
         <div class="production_single">
             <h1>{{ $product->name }}</h1>
@@ -74,7 +80,7 @@
                                     </div>
                                 @endforeach
                             </div>
-                            <p class="volume">Содержимое : <span> {{ $product->volume }}</span></p>
+                            <p class="volume">{{ __('app.volume') }} : <span> {{ $product->volume }}</span></p>
                             <div class="dots"></div>
 
                         </div>
@@ -83,7 +89,7 @@
                         <form method="POST" class="production_single_text"
                               action="{{ route('cart.add', $product->product_id) }}">
                             <p>{!! $product->description !!} </p>
-                            <a href="#instruction">> Просмотреть всю информацию о продукте</a>
+                            <a href="#instruction">> {{ __('app.see_about') }}</a>
                             <input type="hidden" name="is_buy_now">
                             <input type="hidden" name="product_id" value="{{ $product->product_id }}">
                             @csrf
@@ -97,7 +103,7 @@
                                         quantity="1">
                                     </quantity-changer>
                                     <button type="submit" class="btn order_online">
-                                        ЗАКАЗАТЬ ОНЛАЙН
+                                        {{ __('app.order_online') }}
                                         <i style="background-image: url('/themes/bliss/assets/images/hg/icons/shopping-white-single.png')"></i>
                                     </button>
                                 </li>
@@ -107,12 +113,12 @@
                 </div>
             </div>
             <div class="production_instruction">
-                <h1 id="instruction">Инструкция по применению:</h1>
+                <h1 id="instruction">{{ __('app.instruction') }}</h1>
                 <p>{!! $product->short_description !!} </p>
             </div>
             @if($product->related_products()->count())
                 <div class="production_category">
-                    <h1>С этим продуктов люди также выбирают:</h1>
+                    <h1>{{ __('app.similar_products') }}</h1>
                     <div class="production_category_row">
                         @foreach($product->related_products()->get() as $prod)
                             @php($prodBaseImage = $productImageHelper->getProductBaseImage($prod))
