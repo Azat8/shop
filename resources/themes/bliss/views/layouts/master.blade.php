@@ -110,7 +110,7 @@
                 <ul class="header_social">
                     <li class="languages">
                         @foreach (core()->getCurrentChannel()->locales as $locale)
-                            <a href="/locale={{ $locale->code }}" class="arm_icon" style="background-image: url(storage/{{$locale->locale_image}})"></a>
+                            <a href="/?locale={{ $locale->code }}" class="arm_icon" style="background-image: url(storage/{{$locale->locale_image}})"></a>
                         @endforeach
                     </li>
 

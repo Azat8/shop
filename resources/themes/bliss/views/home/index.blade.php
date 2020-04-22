@@ -103,7 +103,7 @@
         </div>
     </div>
     <div class="home_advantage_hg">
-        <h1>Почему мы выбираем элитные продукты HG?</h1>
+        <h1>{{__('app.home_why_we_choose')}}?</h1>
         
         <div class="container-fluid">
             <div class="row">
@@ -111,11 +111,9 @@
                     <div class="home_advantage_hg_row">
                         <i style="background-image: url('/themes/bliss/assets/images/hg/icons/hg-logo-lighter-white.png')"></i>
                         <div class="home_advantage_hg_row_text">
-                            <h1>Что такое HG?</h1>
-                            <p>Инновационные формулы продуктов для ухода за домом и приусадебным участком
-                                разработаны по принципу «для каждой проблемы – свое решение». Для любого загрязнения
-                                и пятна существует средство HG, которое способно справиться с ними быстро и без
-                                усилий!
+                            <h1>{{__('app.home_section_title_1')}}</h1>
+                            <p>
+                                {{__('app.home_section_text_1')}}
                             </p>
                         </div>
                     </div>
@@ -124,11 +122,9 @@
                     <div class="home_advantage_hg_row">
                         <i style="background-image: url('/themes/bliss/assets/images/hg/icons/hg-logo-lighter-blue.png')"></i>
                         <div class="home_advantage_hg_row_text">
-                            <h1>Что такое HG?</h1>
-                            <p>Инновационные формулы продуктов для ухода за домом и приусадебным участком
-                                разработаны по принципу «для каждой проблемы – свое решение». Для любого загрязнения
-                                и пятна существует средство HG, которое способно справиться с ними быстро и без
-                                усилий!
+                            <h1>{{__('app.home_section_title_2')}}</h1>
+                            <p>
+                                {{__('app.home_section_text_2')}}
                             </p>
                         </div>
                     </div>
@@ -137,11 +133,9 @@
                     <div class="home_advantage_hg_row">
                         <i style="background-image: url('/themes/bliss/assets/images/hg/icons/hg-logo-lighter-blue.png')"></i>
                         <div class="home_advantage_hg_row_text">
-                            <h1>Что такое HG?</h1>
-                            <p>Инновационные формулы продуктов для ухода за домом и приусадебным участком
-                                разработаны по принципу «для каждой проблемы – свое решение». Для любого загрязнения
-                                и пятна существует средство HG, которое способно справиться с ними быстро и без
-                                усилий!
+                            <h1>{{__('app.home_section_title_3')}}</h1>
+                            <p>
+                                {{__('app.home_section_text_3')}}
                             </p>
                         </div>
                     </div>
@@ -150,11 +144,9 @@
                     <div class="home_advantage_hg_row">
                         <i style="background-image: url('/themes/bliss/assets/images/hg/icons/hg-logo-lighter-yellow.png')"></i>
                         <div class="home_advantage_hg_row_text">
-                            <h1>Что такое HG?</h1>
-                            <p>Инновационные формулы продуктов для ухода за домом и приусадебным участком
-                                разработаны по принципу «для каждой проблемы – свое решение». Для любого загрязнения
-                                и пятна существует средство HG, которое способно справиться с ними быстро и без
-                                усилий!
+                            <h1>{{__('app.home_section_title_4')}}</h1>
+                            <p>
+                                {{__('app.home_section_text_4')}}
                             </p>
                         </div>
                     </div>
@@ -163,11 +155,9 @@
                     <div class="home_advantage_hg_row">
                         <i style="background-image: url('/themes/bliss/assets/images/hg/icons/hg-logo-lighter-gray.png')"></i>
                         <div class="home_advantage_hg_row_text">
-                            <h1>Что такое HG?</h1>
-                            <p>Инновационные формулы продуктов для ухода за домом и приусадебным участком
-                                разработаны по принципу «для каждой проблемы – свое решение». Для любого загрязнения
-                                и пятна существует средство HG, которое способно справиться с ними быстро и без
-                                усилий!
+                            <h1>{{__('app.home_section_title_5')}}</h1>
+                            <p>
+                                {{__('app.home_section_text_5')}}
                             </p>
                         </div>
                     </div>
@@ -176,11 +166,9 @@
                     <div class="home_advantage_hg_row">
                         <i style="background-image: url('/themes/bliss/assets/images/hg/icons/hg-logo-lighter-green.png')"></i>
                         <div class="home_advantage_hg_row_text">
-                            <h1>Что такое HG?</h1>
-                            <p>Инновационные формулы продуктов для ухода за домом и приусадебным участком
-                                разработаны по принципу «для каждой проблемы – свое решение». Для любого загрязнения
-                                и пятна существует средство HG, которое способно справиться с ними быстро и без
-                                усилий!
+                            <h1>{{__('app.home_section_title_6')}}</h1>
+                            <p>
+                                {{__('app.home_section_text_6')}}
                             </p>
                         </div>
                     </div>
