@@ -13,7 +13,6 @@
 
 @section('content-wrapper')
     {!! DbView::make($page)->field('html_content')->render() !!}
-
 <script>
   function initMap() {
     var location = {lat: 40.2, lng: 44.55};

@@ -457,7 +457,7 @@ main .mobile_social {
 
 .home_slider_item {
     width: 100%;
-    /*height: 566px;*/
+    height: 60vh;
     padding-bottom: 3%;
     background-size: cover;
     background-repeat: no-repeat;
@@ -511,7 +511,8 @@ main .mobile_social {
 .home_products .home_product_item i {
     display: block;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 100%;
+    /*background-size: contain;*/
     background-position: center;
     width: 100%;
     height: 350px;
@@ -2441,6 +2442,8 @@ footer ul .footer_navigation a:hover {
 } .header_social a:nth-child(3) {
     background-image: url(/themes/bliss/assets/images/hg/icons/instagram-icon.png);
 }
-
+.sticker, .regular-price, .no-gutters .promo_code {
+    display: none;
+}
 
 

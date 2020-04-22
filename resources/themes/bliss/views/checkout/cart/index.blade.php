@@ -72,7 +72,7 @@
                                     <td>
                                         <ul class="table_price">
                                             <li>
-                                                <span data-price="{{ $item->product->price }}">{!! $item->product->getTypeInstance()->getPriceHtml() !!}</span>
+                                                <span data-price="{{ $item->product->special_price ?: $item->product->price }}">{!! $item->product->getTypeInstance()->getPriceHtml() !!}</span>
                                             </li>
                                         </ul>
                                     </td>
