@@ -106,8 +106,7 @@
         <h1>Почему мы выбираем элитные продукты HG?</h1>
         
         <div class="container-fluid">
-            {!!core()->getCurrentChannel()->home_page_content!!}
-            {{-- <div class="row">
+            <div class="row">
                 <div class="col-lg-6">
                     <div class="home_advantage_hg_row">
                         <i style="background-image: url('/themes/bliss/assets/images/hg/icons/hg-logo-lighter-white.png')"></i>
@@ -186,7 +185,7 @@
                         </div>
                     </div>
                 </div>
-            </div> --}}
+            </div>
         </div>
     </div>
 
