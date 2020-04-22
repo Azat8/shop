@@ -2441,9 +2441,9 @@ footer ul .footer_navigation a:hover {
     background-image: url(/themes/bliss/assets/images/hg/icons/youtube-icon.png);
 } .header_social a:nth-child(3) {
     background-image: url(/themes/bliss/assets/images/hg/icons/instagram-icon.png);
-}
-.sticker, .regular-price, .no-gutters .promo_code {
+} .sticker, .regular-price, .no-gutters .promo_code {
     display: none;
+} .home_slider_container .slick-list {
+    height: 60vh;
 }
-
 
