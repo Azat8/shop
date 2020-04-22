@@ -18,8 +18,8 @@
         </li>
     </ul>
     <ul class="breadcrumb_navigation">
-        <li><a href="index.html">Главная</a></li>
-        <li><a href="about-us.html">категории</a></li>
+        <li><a href="/">{{ __('app.home') }}</a></li>
+        <li><a href="{{ route('customer.register.index') }}">{{ __('shop::app.header.sign-up') }}</a></li>
     </ul>
     <div class="sign_up">
         <div class="sign_up_container">
@@ -36,16 +36,16 @@
                         <span class="control-error" v-if="errors.has('last_name')">@{{ errors.first('last_name') }}</span>
                     </div>
                 </div>
-                <div class="form-group">
-                    <select class="form-control">
-                        <option selected value="0">Recommended by</option>
-                        <option>0011</option>
-                        <option>0012</option>
-                        <option>0013</option>
-                        <option>0014</option>
-                        <option>0015</option>
-                    </select>
-                </div>
+{{--                <div class="form-group">--}}
+{{--                    <select class="form-control">--}}
+{{--                        <option selected value="0">Recommended by</option>--}}
+{{--                        <option>0011</option>--}}
+{{--                        <option>0012</option>--}}
+{{--                        <option>0013</option>--}}
+{{--                        <option>0014</option>--}}
+{{--                        <option>0015</option>--}}
+{{--                    </select>--}}
+{{--                </div>--}}
                 <div class="form-group">
                     <input type="text" class="form-control" :class="[errors.has('phone') ? 'has-error' : '']" placeholder="{{ __('shop::app.customer.account.address.create.phone') }}" name="phone" v-validate="'required'" value="{{ old('phone') }}" data-vv-as="&quot;{{ __('shop::app.customer.account.address.create.phone') }}&quot;">
                     <span class="control-error" v-if="errors.has('phone')">@{{ errors.first('phone') }}</span>
@@ -59,7 +59,7 @@
                     <span class="control-error" v-if="errors.has('password')">@{{ errors.first('password') }}</span>
                 </div>
                 <div class="form-group">
-                    <input type="password" :class="[errors.has('password_confirmation') ? 'has-error' : '']" class="control" name="password_confirmation"  v-validate="'required|min:6|confirmed:password'" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.confirm_pass') }}&quot;" placeholder="{{ __('shop::app.customer.signup-form.confirm_pass') }}">
+                    <input type="password" :class="[errors.has('password_confirmation') ? 'has-error' : '']" class="form-control" name="password_confirmation"  v-validate="'required|min:6|confirmed:password'" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.confirm_pass') }}&quot;" placeholder="{{ __('shop::app.customer.signup-form.confirm_pass') }}">
                     <span class="control-error" v-if="errors.has('password_confirmation')">@{{ errors.first('password_confirmation') }}</span>
                 </div>
                 <div class="form-group">

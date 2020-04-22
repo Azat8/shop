@@ -41,7 +41,7 @@
                     </div>
                     <button type="submit" class="btn sign_in_btn">{{ __('shop::app.customer.login-form.button_title') }}</button>
                     <a href="{{ route('customer.forgot-password.create') }}" class="forgot_btn">{{ __('shop::app.customer.login-form.forgot_pass') }}</a>
-                    <p>Еще не зарегистрированы?</p>
+                    <p>{{ __('shop::app.customer.login-form.not_account_yet') }}</p>
                     <a href="{{ route('customer.register.index') }}" class="btn register_btn">{{ __('shop::app.header.sign-up') }}</a>
                 </form>
 

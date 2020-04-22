@@ -1,12 +1,12 @@
 <div class="col-12">
-    <h1>Детали</h1>
+    <h1>{{ __('app.details') }}</h1>
 </div>
 
 <div class="form-container row">
     <div class="col-lg-9">
         <div class="form-group" :class="[errors.has('address-form.billing[address1][]') ? 'has-error' : '']">
 
-            <input @change="validateAddressForm" type="text" v-validate="'required'" placeholder="Адрес доставки" class="control form-control user_info" id="billing_address_0" name="billing[address1][]" v-model="address.billing.address1[0]" data-vv-as="&quot;{{ __('shop::app.checkout.onepage.address1') }}&quot;"/>
+            <input @change="validateAddressForm" type="text" v-validate="'required'" placeholder="{{ __('shop::app.checkout.onepage.shipping-address') }}" class="control form-control user_info" id="billing_address_0" name="billing[address1][]" v-model="address.billing.address1[0]" data-vv-as="&quot;{{ __('shop::app.checkout.onepage.shipping-address') }}&quot;"/>
 
             <span class="control-error" v-if="errors.has('address-form.billing[address1][]')">
                 @{{ errors.first('address-form.billing[address1][]') }}
@@ -18,7 +18,7 @@
     <div class="col-lg-3">
         <div class="form-group" :class="[errors.has('address-form.billing[apartment]') ? 'has-error' : '']">
 
-            <input @change="validateAddressForm" type="text" v-validate="'required'" placeholder="Дом" class="control form-control user_info" id="billing_apartment" name="billing[apartment]" v-model="address.billing.apartment" data-vv-as="&quot;{{ __('shop::app.checkout.onepage.apartment') }}&quot;"/>
+            <input @change="validateAddressForm" type="text" v-validate="'required'" placeholder="{{ __('shop::app.checkout.onepage.house') }}  " class="control form-control user_info" id="billing_apartment" name="billing[apartment]" v-model="address.billing.apartment" data-vv-as="&quot;{{ __('shop::app.checkout.onepage.apartment') }}&quot;"/>
 
             <span class="control-error" v-if="errors.has('address-form.billing[apartment]')">
                 @{{ errors.first('address-form.billing[apartment]') }}

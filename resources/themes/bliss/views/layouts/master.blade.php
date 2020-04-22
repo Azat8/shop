@@ -100,12 +100,12 @@
                     </div>
                 </div>
                 <ul class="header_navigation">
-                    <li><a href="/">о компании</a></li>
-                    <li><a href="{{url('/products')}}">продукция</a></li>
-                    <li><a href="{{url('matrix')}}">матрица</a></li>
+                    <li><a href="{{url('page/about-us')}}">{{ __('app.about_company') }}</a></li>
+                    <li><a href="{{url('/products')}}">{{ __('app.products') }}</a></li>
+                    <li><a href="{{url('matrix')}}">{{ __('app.matrix') }}</a></li>
                     {{-- <li><a href="javascript:;">Советы</a></li> --}}
-                    <li><a href="{{url('page/payment-delivery')}}">оплата и доставка</a></li>
-                    <li><a href="{{url('page/contact-us')}}">контакт</a></li>
+                    <li><a href="{{url('page/payment-delivery')}}">{{ __('app.payment_delivery') }}</a></li>
+                    <li><a href="{{url('page/contact-us')}}">{{ __('app.contact') }}</a></li>
                 </ul>
                 <ul class="header_social">
                     <li class="languages">
@@ -156,12 +156,12 @@
                 <li class="footer_social">
                     {!!core()->getCurrentChannel()->description!!}
                 <li class="footer_navigation">
-                    <a href="{{url('page/about-us')}}">О КОМПАНИИ HG</a>
-                    <a href="{{url('products')}}">Продукция</a>
-                    <a href="{{route('matrix')}}">Матрица</a>
+                    <a href="{{url('page/about-us')}}">{{ __('app.about_company') }}</a>
+                    <a href="{{url('products')}}">{{ __('app.products') }}</a>
+                    <a href="{{route('matrix')}}">{{ __('app.matrix') }}</a>
                     {{-- <a href="javascript:;">Советы</a> --}}
-                    <a href="{{url('page/payment-delivery')}}">Оплата и доставка</a>
-                    <a href="{{url('page/contact-us')}}">Контакт</a>
+                    <a href="{{url('page/payment-delivery')}}">{{ __('app.payment_delivery') }}</a>
+                    <a href="{{url('page/contact-us')}}">{{ __('app.contact') }}</a>
                 </li>
             </ul>
         </footer>
@@ -201,12 +201,12 @@
     </div>
 
     <ul class="mobile_menu">
-        <li><a href="{{url('page/about-us')}}">О КОМПАНИИ HG </a></li>
-        <li><a href="{{url('products')}}">Продукция</a></li>
-        <li><a href="{{url('matrix')}}">Матрица</a></li>
-        {{-- <li><a href="  ">Советы</a></li> --}}
-        <li><a href="{{url('page/payment-delivery')}}">Оплата и доставка</a></li>
-        <li><a href="{{url('page/contact-us')}}">Контакт</a></li>
+        <a href="{{url('page/about-us')}}">{{ __('app.about_company') }}</a>
+        <a href="{{url('products')}}">{{ __('app.products') }}</a>
+        <a href="{{route('matrix')}}">{{ __('app.matrix') }}</a>
+        {{-- <a href="javascript:;">Советы</a> --}}
+        <a href="{{url('page/payment-delivery')}}">{{ __('app.payment_delivery') }}</a>
+        <a href="{{url('page/contact-us')}}">{{ __('app.contact') }}</a>
     </ul>
 
     <!--MAIN JS-->

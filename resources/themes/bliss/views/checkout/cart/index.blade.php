@@ -24,13 +24,13 @@
             </li>
         </ul>
         <ul class="breadcrumb_navigation">
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="about-us.html">ЗАРЕГИСТРИРОВАТЬСЯ</a></li>
+            <li><a href="/">{{ __('app.home') }}</a></li>
+            <li><a href="/products">{{ __('app.categories') }}</a></li>
         </ul>
         <div class="basket">
             @if ($cart)
                 <div class="product_header">
-                    <h1>Просмотр заказа</h1>
+                    <h1>{{ __('app.order_review') }}</h1>
                 </div>
                 <form action="{{ route('shop.checkout.cart.update') }}" method="POST" @submit.prevent="onSubmit" id="cart-form">
                     @csrf
@@ -38,10 +38,10 @@
                         <table class="table table-borderless ">
                             <thead>
                             <tr>
-                                <th scope="col" rowspan="6">ПРОДУКТ</th>
-                                <th scope="col" rowspan="3">КОЛ-ВО</th>
-                                <th scope="col" rowspan="2">ЦЕНА</th>
-                                <th scope="col" rowspan="2">ИТОГО</th>
+                                <th scope="col" rowspan="6">{{ __('app.product') }}</th>
+                                <th scope="col" rowspan="3">{{ __('app.qty') }}</th>
+                                <th scope="col" rowspan="2">{{ __('app.price') }}</th>
+                                <th scope="col" rowspan="2">{{ __('app.total_price') }}</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -103,11 +103,11 @@
                             <div class="total_price_container">
                                 <ul>
                                     <li>
-                                        <p>ВСЕГО</p>
+                                        <p>{{ __('app.total') }}</p>
                                         <span id="total-summ">{{ core()->currency($cart->base_grand_total) }}</span>
                                     </li>
                                     <li>
-                                        <a href="{{ route('shop.checkout.onepage.index') }}">ПЕРЕЙТИ К ОПЛАТЕ</a>
+                                        <a href="{{ route('shop.checkout.onepage.index') }}">{{ __('app.go_to_payment') }}</a>
                                     </li>
                                 </ul>
                             </div>
