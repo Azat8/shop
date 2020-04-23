@@ -51,7 +51,7 @@ class MatrixController extends Controller
 
         session()->flash('success', trans('admin::app.response.update-success', ['name' => 'Matrix']));
 
-        return redirect()->route($this->_config['redirect']);
+        return redirect()->back();
     }
 
     public function store()
@@ -66,6 +66,6 @@ class MatrixController extends Controller
 
         session()->flash('success', trans('admin::app.response.create-success', ['name' => 'Matrix']));
 
-        return redirect()->route($this->_config['redirect']);
+        return redirect()->back();
     }
 }
