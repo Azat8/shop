@@ -36,7 +36,7 @@
     <script src="/themes/bliss/assets/js/index.js"></script>
     
     <!--MAIN JS-->
-    <script src="/themes/bliss/assets/js/incrementDecrement.js"></script>
+    
 
     
     @if ($favicon = core()->getCurrentChannel()->favicon_url)
@@ -213,7 +213,7 @@
         <a href="{{url('page/payment-delivery')}}">{{ __('app.payment_delivery') }}</a>
         <a href="{{url('page/contact-us')}}">{{ __('app.contact') }}</a>
     </ul>
-
+    <script src="/themes/bliss/assets/js/incrementDecrement.js"></script>    
     <script type="text/javascript">
         window.flashMessages = [];
 
@@ -239,7 +239,7 @@
 
     <script type="text/javascript" src="{{ bagisto_asset('js/shop.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendor/webkul/ui/assets/js/ui.js') }}"></script>
-
+        
     <script src="/themes/bliss/assets/js/libs/slick.min.js"></script>
     <script src="/themes/bliss/assets/js/slickSlider.js"></script>
 
