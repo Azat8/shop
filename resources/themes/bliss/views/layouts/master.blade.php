@@ -32,8 +32,13 @@
     <script src="/themes/bliss/assets/js/libs/popper.min.js"></script>
     <!--BOOTSTRAP -->
     <script src="/themes/bliss/assets/js/libs/bootstrap.min.js"></script>
-    <!--slick-->
+    
+    <script src="/themes/bliss/assets/js/index.js"></script>
+    
+    <!--MAIN JS-->
+    <script src="/themes/bliss/assets/js/incrementDecrement.js"></script>
 
+    
     @if ($favicon = core()->getCurrentChannel()->favicon_url)
         <link rel="icon" sizes="16x16" href="{{ $favicon }}" />
     @else
@@ -64,7 +69,7 @@
 
     <div id="app">
         <header>
-            <div class="main_header">
+                <div class="main_header">
                 <div class="header_top">
                     <div class="header_top_logo">
                         <a href="/" style="background-image: url(/storage/{{core()->getCurrentChannel()->logo}})">
@@ -99,6 +104,7 @@
                         </div>
                     </div>
                 </div>
+
                 <ul class="header_navigation">
                     <li><a href="{{url('page/about-us')}}">{{ __('app.about_company') }}</a></li>
                     <li><a href="{{url('/products')}}">{{ __('app.products') }}</a></li>
@@ -125,7 +131,7 @@
                         <a href="javascript:;" class="burger_menu"
                            style="background-image: url('/themes/bliss/assets/images/hg/icons/menu_icon.png')"></a>
                     </div>
-                    <a href="index.html" class="mobile_logo" style="background-image: url('/themes/bliss/assets/images/hg/HG-Logo.png')"></a>
+                    <a href="/" class="mobile_logo" style="background-image: url('/themes/bliss/assets/images/hg/HG-Logo.png')"></a>
                     <ul class="right_side">
                         <li>
                             <a class="account_icon" style="background-image: url('/themes/bliss/assets/images/hg/icons/account.png')"
@@ -204,15 +210,9 @@
         <a href="{{url('page/about-us')}}">{{ __('app.about_company') }}</a>
         <a href="{{url('products')}}">{{ __('app.products') }}</a>
         <a href="{{route('matrix')}}">{{ __('app.matrix') }}</a>
-        {{-- <a href="javascript:;">Советы</a> --}}
         <a href="{{url('page/payment-delivery')}}">{{ __('app.payment_delivery') }}</a>
         <a href="{{url('page/contact-us')}}">{{ __('app.contact') }}</a>
     </ul>
-
-    <!--MAIN JS-->
-    <script src="/themes/bliss/assets/js/incrementDecrement.js"></script>
-    <script src="/themes/bliss/assets/js/index.js"></script>
-
 
     <script type="text/javascript">
         window.flashMessages = [];
