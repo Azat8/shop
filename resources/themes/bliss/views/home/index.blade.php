@@ -39,24 +39,6 @@
 
 @section('content-wrapper')
     {!! view_render_event('bagisto.shop.home.content.before') !!}
-    <ul class="header_social mobile_social">
-        <li class="languages">
-            <a href="javascript:;" class="arm_icon"
-               style="background-image: url('/themes/bliss/assets/images/hg/icons/ge.png')"></a>
-            <a href="javascript:;" class="eng_icon"
-               style="background-image: url('/themes/bliss/assets/images/hg/icons/en.png')"></a>
-            <a href="javascript:;" class="rus_icon"
-               style="background-image: url('/themes/bliss/assets/images/hg/icons/ru.png')"></a>
-        </li>
-        <li class="social">
-            <a href="javascript:;" class="facebook_icon"
-               style="background-image: url('/themes/bliss/assets/images/hg/icons/facebook-icon.png')"></a>
-            <a href="javascript:;" class="youtube_icon"
-               style="background-image: url('/themes/bliss/assets/images/hg/icons/youtube-icon.png')"></a>
-            <a href="javascript:;" class="instagram_icon"
-               style="background-image: url('/themes/bliss/assets/images/hg/icons/instagram-icon.png')"></a>
-        </li>
-    </ul>
     <div class="home_slider">
         <div class="home_slider_container">
             @if (! empty($sliderData))

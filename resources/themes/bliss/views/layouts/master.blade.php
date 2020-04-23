@@ -27,13 +27,6 @@
     <link rel="stylesheet" href="/themes/bliss/assets/css/style.css">
 
     <!--JQUERY-->
-    <script src="/themes/bliss/assets/js/libs/jquery-3.4.1.min.js"></script>
-    <!--POPPER JS-->
-    <script src="/themes/bliss/assets/js/libs/popper.min.js"></script>
-    <!--BOOTSTRAP -->
-    <script src="/themes/bliss/assets/js/libs/bootstrap.min.js"></script>
-    
-    <script src="/themes/bliss/assets/js/index.js"></script>
     
     <!--MAIN JS-->
     
@@ -113,17 +106,9 @@
                     <li><a href="{{url('page/payment-delivery')}}">{{ __('app.payment_delivery') }}</a></li>
                     <li><a href="{{url('page/contact-us')}}">{{ __('app.contact') }}</a></li>
                 </ul>
-                <ul class="header_social">
-                    <li class="languages">
-                        @foreach (core()->getCurrentChannel()->locales as $locale)
-                            <a href="?locale={{ $locale->code }}" class="arm_icon" style="background-image: url(/storage/{{$locale->locale_image}})"></a>
-                        @endforeach
-                    </li>
+                
+                @include('shop::partials.locations-social-links')
 
-                    <li class="social">
-                        {!!core()->getCurrentChannel()->description!!}
-                    </li>
-                </ul>
             </div>
             <div class="mobile_header">
                 <div class="mobile_header_container">
@@ -131,7 +116,7 @@
                         <a href="javascript:;" class="burger_menu"
                            style="background-image: url('/themes/bliss/assets/images/hg/icons/menu_icon.png')"></a>
                     </div>
-                    <a href="/" class="mobile_logo" style="background-image: url('/themes/bliss/assets/images/hg/HG-Logo.png')"></a>
+                    <a href="/" class="mobile_logo" style="background-image: url(/storage/{{core()->getCurrentChannel()->logo}})"></a>
                     <ul class="right_side">
                         <li>
                             <a class="account_icon" style="background-image: url('/themes/bliss/assets/images/hg/icons/account.png')"
@@ -150,6 +135,8 @@
             <flash-wrapper ref='flashes'></flash-wrapper>
 
             {!! view_render_event('bagisto.shop.layout.content.before') !!}
+            
+            @include('shop::partials.locations-social-links', ['class' => 'mobile_social'])
 
             @yield('content-wrapper')
 
@@ -205,15 +192,17 @@
 {{--            </div>--}}
 {{--        @endif--}}
     </div>
-
+    {!! view_render_event('bagisto.shop.layout.body.after') !!}
+    <div class="modal-overlay"></div>
     <ul class="mobile_menu">
-        <a href="{{url('page/about-us')}}">{{ __('app.about_company') }}</a>
-        <a href="{{url('products')}}">{{ __('app.products') }}</a>
-        <a href="{{route('matrix')}}">{{ __('app.matrix') }}</a>
-        <a href="{{url('page/payment-delivery')}}">{{ __('app.payment_delivery') }}</a>
-        <a href="{{url('page/contact-us')}}">{{ __('app.contact') }}</a>
+        <li><a href="{{url('page/about-us')}}">{{ __('app.about_company') }}</a></li>
+        <li><a href="{{url('products')}}">{{ __('app.products') }}</a></li>
+        <li><a href="{{route('matrix')}}">{{ __('app.matrix') }}</a></li>
+        <li><a href="{{url('page/payment-delivery')}}">{{ __('app.payment_delivery') }}</a></li>
+        <li><a href="{{url('page/contact-us')}}">{{ __('app.contact') }}</a></li>
     </ul>
-    <script src="/themes/bliss/assets/js/incrementDecrement.js"></script>    
+
+    <script src="/themes/bliss/assets/js/libs/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
         window.flashMessages = [];
 
@@ -235,14 +224,15 @@
                 window.serverErrors = @json($errors->getMessages());
             @endif
         @endif
-    </script>
-
+    </script>    
     <script type="text/javascript" src="{{ bagisto_asset('js/shop.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendor/webkul/ui/assets/js/ui.js') }}"></script>
-        
+    <script src="/themes/bliss/assets/js/incrementDecrement.js"></script>    
+    <script src="/themes/bliss/assets/js/libs/popper.min.js"></script>
+    <script src="/themes/bliss/assets/js/libs/bootstrap.min.js"></script>
+    <script src="/themes/bliss/assets/js/index.js"></script>
     <script src="/themes/bliss/assets/js/libs/slick.min.js"></script>
     <script src="/themes/bliss/assets/js/slickSlider.js"></script>
-
     <script>
         let storage_cart_products = localStorage.getItem('cart_products');
 
@@ -262,13 +252,7 @@
             });
         }
     </script>
-
     @stack('scripts')
-
-    {!! view_render_event('bagisto.shop.layout.body.after') !!}
-
-    <div class="modal-overlay"></div>
-
 </body>
 
 </html>
