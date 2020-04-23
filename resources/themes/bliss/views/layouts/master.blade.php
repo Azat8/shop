@@ -123,9 +123,12 @@
                                href="mobile-login.html"></a>
                         </li>
                         <li>
-                            <a href="basket.html" class="shopping_icon"
+                            <a href="{{ route('shop.checkout.cart.index') }}" class="shopping_icon"
                                style="background-image: url('/themes/bliss/assets/images/hg/icons/shopping.png')"></a>
                         </li>
+                        <div class="count">
+                            <p>{{ $cart ? $cart->items->count() : 0 }}</p>
+                        </div>
                     </ul>
                 </div>
             </div>

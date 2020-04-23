@@ -352,7 +352,7 @@ main .mobile_social {
     position: relative;
 }
 
-.header_top_account_row .header_top_shopping > .count {
+.header_top_account_row .header_top_shopping > .count, .right_side > .count {
     position: absolute;
     top: 0;
     right: 42px;
@@ -365,7 +365,7 @@ main .mobile_social {
     justify-content: center;
 }
 
-.header_top_account_row .header_top_shopping > .count p {
+.header_top_account_row .header_top_shopping > .count p, .right_side > .count p {
     margin: 0;
     color: #ffffff;
     font-weight: bold;
