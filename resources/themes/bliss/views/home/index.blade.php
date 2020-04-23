@@ -112,9 +112,7 @@
                         <i style="background-image: url('/themes/bliss/assets/images/hg/icons/hg-logo-lighter-white.png')"></i>
                         <div class="home_advantage_hg_row_text">
                             <h1>{{__('app.home_section_title_1')}}</h1>
-                            <p>
-                                {{__('app.home_section_text_1')}}
-                            </p>
+                            <p>{{__('app.home_section_text_1')}}</p>
                         </div>
                     </div>
                 </div>
