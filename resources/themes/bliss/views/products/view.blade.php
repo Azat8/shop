@@ -38,24 +38,6 @@
     {!! view_render_event('bagisto.shop.products.view.before', ['product' => $product]) !!}
 
     <main>
-        <ul class="header_social mobile_social">
-            <li class="languages">
-                <a href="javascript:;" class="arm_icon"
-                   style="background-image: url('/themes/bliss/assets/images/hg/icons/ge.png')"></a>
-                <a href="javascript:;" class="eng_icon"
-                   style="background-image: url('/themes/bliss/assets/images/hg/icons/en.png')"></a>
-                <a href="javascript:;" class="rus_icon"
-                   style="background-image: url('/themes/bliss/assets/images/hg/icons/ru.png')"></a>
-            </li>
-            <li class="social">
-                <a href="javascript:;" class="facebook_icon"
-                   style="background-image: url('/themes/bliss/assets/images/hg/icons/facebook-icon.png')"></a>
-                <a href="javascript:;" class="youtube_icon"
-                   style="background-image: url('/themes/bliss/assets/images/hg/icons/youtube-icon.png')"></a>
-                <a href="javascript:;" class="instagram_icon"
-                   style="background-image: url('/themes/bliss/assets/images/hg/icons/instagram-icon.png')"></a>
-            </li>
-        </ul>
         <ul class="breadcrumb_navigation">
             @php($category = Webkul\Product\Models\Product::find($product->product_id)->categories)
             @php($category = count($category) ? $category[0] : null)
@@ -100,6 +82,7 @@
                                 <li>
                                     <quantity-changer
                                         :control-name="'qty[{{$product->id}}]'"
+                                        max="{{ $product->product->inventories->first()->qty }}"
                                         quantity="1">
                                     </quantity-changer>
                                     <button type="submit" class="btn order_online">
@@ -192,6 +175,11 @@
                     default: 1
                 },
 
+                max: {
+                    type: [Number, String],
+                    default: 1
+                },
+
                 validations: {
                     type: String,
                     default: 'required|numeric|min_value:1'
@@ -221,9 +209,12 @@
                 },
 
                 increaseQty: function() {
-                    this.qty = parseInt(this.qty) + 1;
+                    if(parseInt(this.qty) < parseInt(this.max)) {
+                        this.qty = parseInt(this.qty) + 1;
+                        this.qty_changed = true;
+                    }
 
-                    this.$emit('onQtyUpdated', this.qty)
+                    this.$emit('onQtyUpdated', this.qty);
                 }
             }
         });
