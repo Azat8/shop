@@ -11,7 +11,7 @@
     </ul>
     <div class="sign_up">
         <div class="sign_up_container">
-            <form class="sign_up_form physical" method="post" action="{{ route('customer.register.create') }}" @submit.prevent="onSubmit">
+            <form class="sign_up_form physical" method="post" action="{{ route('customer.register.create') }}">
                 {{ csrf_field() }}
 
                 <div class="sign_up_name_surname">
