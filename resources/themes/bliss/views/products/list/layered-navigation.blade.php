@@ -83,15 +83,15 @@
     {!! view_render_event('bagisto.shop.home.content.before') !!}
     <main>
         <ul class="breadcrumb_navigation">
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="production.html">категории</a></li>
+            <li><a href="/">{{__('app.home')}}</a></li>
+            <li><a href="javascript:;">{{__('app.categories')}}</a></li>
         </ul>
 
         <div class="container-fluid">
             <div class="row">
                 <div class="col-lg-3">
                     <div class="production_header">
-                        <p>КАТЕГОРИЯ</p>
+                        <p>{{__('app.categories')}}</p>
                     </div>
                 </div>
             </div>

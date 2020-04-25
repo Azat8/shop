@@ -7,17 +7,11 @@
 @section('content-wrapper')
     <main>
         <ul class="breadcrumb_navigation">
-            <li><a href="index.html">Главная</a></li>
-            <li><a href="about-us.html">Детали профиля</a></li>
+            <li><a href="/">{{__('app.home')}}</a></li>
+            <li><a href="javascript:;">{{__('app.profile_details')}}</a></li>
         </ul>
         <div class="account">
-            <h1>МОЙ ПРОФИЛЬ</h1>
-            <div class="sign_out_btn">
-                <a
-                    href="{{ route('customer.session.destroy') }}">
-                    {{ __('shop::app.header.logout') }}
-                </a>
-            </div>
+            <h1>{{__('app.profile_title')}}</h1>
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-lg-6">

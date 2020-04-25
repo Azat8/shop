@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-lg-12">
-        <h2>Детали профиля</h2>
+        <h2>{{__('app.profile_details')}}</h2>
     </div>
 </div>
 

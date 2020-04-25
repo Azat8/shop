@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="{{ app()->getLocale() }}">
-
 <head>
 
     <title>@yield('page_title')</title>
@@ -77,10 +76,21 @@
                                     <img src="/themes/bliss/assets/images/hg/icons/account.png" alt="account_icon"/>
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownAccount">
-                                    @include('shop::layouts.header.nav-menu.login')
+                                    @auth('customer')
+                                        <div class="sign_out_btn">
+                                            <a href="{{ route('customer.session.destroy') }}">
+                                                {{ __('shop::app.header.logout') }}
+                                            </a> |
+                                            <a href="{{url('customer/account/profile')}}">
+                                                {{__('app.profile_title')}}
+                                            </a>
+                                        </div>
+                                    @else    
+                                        @include('shop::layouts.header.nav-menu.login')
+                                    @endauth
                                 </div>
                             </div>
-
+                                
                             <ul class="header_top_price">
                                 <li class="header_price">{{ $cart && $cart->base_grand_total ? core()->currency($cart->base_grand_total) : 0 }}</li>
 {{--                                <li style="background-image: url('/themes/bliss/assets/images/hg/icons/gel.png')"></li>--}}

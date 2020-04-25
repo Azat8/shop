@@ -1,4 +1,4 @@
-<h2>История заказов</h2>
+<h2>{{__('app.orders_history')}}</h2>
 {{--<table class="table">--}}
 {{--    <thead>--}}
 {{--    <tr>--}}

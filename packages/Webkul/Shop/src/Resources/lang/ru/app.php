@@ -38,7 +38,7 @@ return [
         'profile' => 'Profile',
         'wishlist' => 'Wishlist',
         'cart' => 'Cart',
-        'logout' => 'Logout',
+        'logout' => 'Выйти',
         'search-text' => 'Поиск'
     ],
 
@@ -138,8 +138,8 @@ return [
         ],
 
         'login-text' => [
-            'no_account' => 'Do not have account',
-            'title' => 'Sign Up',
+            'no_account' => 'Нет аккаунта',
+            'title' => 'зарегистрироваться',
         ],
 
         'login-form' => [
@@ -159,9 +159,9 @@ return [
         ],
 
         'forgot-password' => [
-            'title' => 'Recover Password',
-            'email' => 'Email',
-            'submit' => 'Send Password Reset Email',
+            'title' => 'Восстановить пароль',
+            'email' => 'Адрес электронной почты',
+            'submit' => 'Отправить Сбросить пароль на электронную почту',
             'page_title' => 'Forgot your password ?'
         ],
 
@@ -189,19 +189,19 @@ return [
                 'edit-fail' => 'Error! Profile cannot be updated, please try again later.',
                 'unmatch' => 'The old password does not match.',
 
-                'fname' => 'First Name',
-                'lname' => 'Last Name',
+                'fname' => 'Имя',
+                'lname' => 'Фамилия',
                 'gender' => 'Gender',
                 'other' => 'Other',
                 'male' => 'Male',
                 'female' => 'Female',
                 'dob' => 'Date Of Birth',
-                'phone' => 'Phone',
-                'email' => 'Email',
-                'opassword' => 'Old Password',
-                'password' => 'Password',
-                'cpassword' => 'Confirm Password',
-                'submit' => 'Update Profile',
+                'phone' => 'Телефон',
+                'email' => 'Электронная почта',
+                'opassword' => 'Старый пароль',
+                'password' => 'Пароль',
+                'cpassword' => 'Подтвердите Пароль',
+                'submit' => 'Подтвердить изменения',
 
                 'edit-profile' => [
                     'title' => 'Edit Profile',

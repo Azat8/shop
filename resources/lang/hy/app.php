@@ -2,6 +2,9 @@
 
 return [
     'about_company' => 'Մեր մասին',
+    'profile_title' => 'Իմ պրոֆիլը',
+    'orders_history' => 'Պատվերների պատմություն',
+    'profile_details' => 'Պրոֆիլի մանրամասններ',
     'products' => 'Ապրանքներ',
     'product' => 'Ապրանք',
     'matrix' => 'Մատրիցաներ',

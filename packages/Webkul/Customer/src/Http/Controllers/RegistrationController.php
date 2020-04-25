@@ -148,7 +148,7 @@ class RegistrationController extends Controller
             $cust_id['customer_id'] = $customer->id;
             $cust_id['first_name'] = $customer->first_name;
             $cust_id['last_name'] = $customer->last_name;
-
+                
             $addressData = collect(request()->input())->except(
                 '_token',
                 'email',

@@ -2,6 +2,9 @@
 
 return [
     'about_company' => 'О КОМПАНИИ HG ',
+    'profile_title' => 'МОЙ ПРОФИЛЬ',
+    'orders_history' => 'История заказов',
+    'profile_details' => 'Детали профиля',
     'products' => 'Продукция',
     'product' => 'товар',
     'matrix' => 'Матрица',

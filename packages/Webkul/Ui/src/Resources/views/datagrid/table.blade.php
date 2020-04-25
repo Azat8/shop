@@ -8,7 +8,7 @@
     @push('scripts')
         <script type="text/x-template" id="datagrid-filters">
             <div class="grid-container">
-                <div class="filter-row-one" id="datagrid-filters">
+               {{--<div class="filter-row-one" id="datagrid-filters">
                     <div class="search-filter">
                         <input type="search" id="search-field" class="control" placeholder="{{ __('ui::app.datagrid.search') }}" v-model="searchValue" v-on:keyup.enter="searchCollection(searchValue)" />
 
@@ -42,7 +42,7 @@
                                     </div>
                                 </li>
 
-                                {{-- suitable for string columns --}}
+                                
                                 <li v-if='stringConditionSelect'>
                                     <div class="control-group">
                                         <select class="control" v-model="stringCondition">
@@ -55,14 +55,14 @@
                                     </div>
                                 </li>
 
-                                {{-- Response fields based on the type of columns to be filtered --}}
+                                
                                 <li v-if='stringCondition != null'>
                                     <div class="control-group">
                                         <input type="text" class="control response-string" placeholder="{{ __('ui::app.datagrid.value-here') }}" v-model="stringValue" />
                                     </div>
                                 </li>
 
-                                {{-- suitable for numeric columns --}}
+                                
                                 <li v-if='numberConditionSelect'>
                                     <div class="control-group">
                                         <select class="control" v-model="numberCondition">
@@ -83,7 +83,7 @@
                                     </div>
                                 </li>
 
-                                {{-- suitable for boolean columns --}}
+                                
                                 <li v-if='booleanConditionSelect'>
                                     <div class="control-group">
                                         <select class="control" v-model="booleanCondition">
@@ -104,7 +104,7 @@
                                     </div>
                                 </li>
 
-                                {{-- suitable for date/time columns --}}
+                                
                                 <li v-if='datetimeConditionSelect'>
                                     <div class="control-group">
                                         <select class="control" v-model="datetimeCondition">
@@ -115,7 +115,6 @@
                                             <option value="lt">{{ __('ui::app.datagrid.less') }}</option>
                                             <option value="gte">{{ __('ui::app.datagrid.greatere') }}</option>
                                             <option value="lte">{{ __('ui::app.datagrid.lesse') }}</option>
-                                            {{-- <option value="btw">{{ __('ui::app.datagrid.between') }}</option> --}}
                                         </select>
                                     </div>
                                 </li>
@@ -146,8 +145,8 @@
                             </select>
                         </div>
                     </div>
-                </div>
-
+                </div> --}}
+                
                 <div class="filter-row-two">
                     <span class="filter-tag" v-if="filters.length > 0" v-for="filter in filters" style="text-transform: capitalize;">
                         <span v-if="filter.column == 'sort'">@{{ filter.label }}</span>

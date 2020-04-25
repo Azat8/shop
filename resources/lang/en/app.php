@@ -2,6 +2,9 @@
 
 return [
     'about_company' => 'About',
+    'profile_title' => 'My profile',
+    'orders_history' => 'Orders History',
+    'profile_details' => 'Profile Details',
     'products' => 'Products',
     'product' => 'Product',
     'matrix' => 'Matrix',

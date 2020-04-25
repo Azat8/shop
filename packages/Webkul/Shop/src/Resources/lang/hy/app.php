@@ -38,7 +38,7 @@ return [
         'profile' => 'Profile',
         'wishlist' => 'Wishlist',
         'cart' => 'Cart',
-        'logout' => 'Logout',
+        'logout' => 'Դուրսգալ',
         'search-text' => 'Փնտրել'
     ],
 
@@ -138,8 +138,8 @@ return [
         ],
 
         'login-text' => [
-            'no_account' => 'Do not have account',
-            'title' => 'Sign Up',
+            'no_account' => 'Դեռ գրանցված չեք? ',
+            'title' => 'Գրանցվել',
         ],
 
         'login-form' => [
@@ -159,9 +159,9 @@ return [
         ],
 
         'forgot-password' => [
-            'title' => 'Recover Password',
-            'email' => 'Email',
-            'submit' => 'Send Password Reset Email',
+            'title' => 'Վերականգնել գախտնաբառը',
+            'email' => 'Էլ․ հասցե',
+            'submit' => 'Ուղարկեք Վերագործարկված գաղտնաբառը էլ. հասցեին',
             'page_title' => 'Forgot your password ?'
         ],
 
@@ -170,7 +170,7 @@ return [
             'email' => 'Registered Email',
             'password' => 'Password',
             'confirm-password' => 'Confirm Password',
-            'back-link-title' => 'Back to Sign In',
+            'back-link-title' => 'Վերադառնալ մուտք',
             'submit-btn-title' => 'Reset Password'
         ],
 
@@ -189,19 +189,19 @@ return [
                 'edit-fail' => 'Error! Profile cannot be updated, please try again later.',
                 'unmatch' => 'The old password does not match.',
 
-                'fname' => 'First Name',
-                'lname' => 'Last Name',
+                'fname' => 'Անուն',
+                'lname' => 'Ազգանուն',
                 'gender' => 'Gender',
                 'other' => 'Other',
                 'male' => 'Male',
                 'female' => 'Female',
                 'dob' => 'Date Of Birth',
-                'phone' => 'Phone',
-                'email' => 'Email',
-                'opassword' => 'Old Password',
-                'password' => 'Password',
-                'cpassword' => 'Confirm Password',
-                'submit' => 'Update Profile',
+                'phone' => 'Հեռախոս',
+                'email' => 'էլ․ հասցե',
+                'opassword' => 'Հին գախտնաբառ',
+                'password' => 'Գախտնաբառ',
+                'cpassword' => 'Հաստատել գախտնաբառը',
+                'submit' => 'Հաստատել փոփոխությունները',
 
                 'edit-profile' => [
                     'title' => 'Edit Profile',
