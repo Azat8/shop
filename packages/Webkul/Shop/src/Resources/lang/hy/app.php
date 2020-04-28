@@ -520,7 +520,7 @@ return [
             'password' => 'Password',
             'login-exist-message' => 'You already have an account with us, Sign in or continue as guest.',
             'enter-coupon-code' => 'Enter Coupon Code',
-            'payment-term' => 'Սեղմելով այս կոճակը ՝ Դուք հաստատում եք, Ձեր ճափահասությունը և համաձայն եք անձնական տվյալների մշակմանը `համաձայն Պայմանների, ինչպես նաև Վաճառքի պայմանների:'
+            'payment-term' => 'Սեղմելով այս կոճակը ՝ Դուք հաստատում եք, Ձեր չափահասությունը և համաձայն եք անձնական տվյալների մշակմանը `համաձայն Պայմանների, ինչպես նաև Վաճառքի պայմանների:'
         ],
 
         'total' => [

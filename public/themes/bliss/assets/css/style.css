@@ -2445,5 +2445,13 @@ footer ul .footer_navigation a:hover {
     display: none;
 } .home_slider_container .slick-list {
     height: 60vh;
-}
+} 
 
+@media screen and (min-height: 320px) and (max-width: 768px){
+    .mobile-login-register-dropdown button > img {
+        width: 50%;
+    } .mobile-login-register-dropdown .dropdown-menu {
+        padding: 4px;
+        width:  100%;
+    }
+}
