@@ -12,10 +12,10 @@
         </div>
 
         {!! view_render_event('bagisto.shop.customers.login.before') !!}
-        <div class="sign_up_container"> 
-            <form method="POST" action="{{ route('customer.session.create') }}" @submit.prevent="onSubmit" class="sign_up_form physical">
+        <div class="sign_up_container">
+            <form method="POST" action="{{ route('customer.session.create') }}" class="sign_up_form physical">
             {{ csrf_field() }}
-            <div class="login-form">   
+            <div class="login-form">
                 <div class="login-text mt-2 mb-2">{{ __('shop::app.customer.login-form.title') }}</div>
 
                 {!! view_render_event('bagisto.shop.customers.login_form_controls.before') !!}
