@@ -21,7 +21,7 @@
 
             <!--Content-->
             @guest('customer')
-                <form method="POST" action="{{ route('customer.session.create') }}" @submit.prevent="onSubmit">
+                <form method="POST" action="{{ route('customer.session.create') }}">
                     {{ csrf_field() }}
                     <div class="form-group" :class="[errors.has('email') ? 'has-error' : '']">
                         <label>
