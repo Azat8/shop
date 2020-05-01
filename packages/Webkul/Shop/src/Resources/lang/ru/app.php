@@ -642,28 +642,28 @@ return [
             ],
 
             'registration' => [
-                'subject' => 'New Customer Registration',
-                'customer-registration' => 'Customer Registered Successfully',
+                'subject' => 'Регистрация нового клиента',
+                'customer-registration' => 'Клиент успешно зарегистрирован',
                 'dear' => 'Dear :customer_name',
-                'greeting' => 'Welcome and thank you for registering with us!',
-                'summary' => 'Your account has now been created successfully and you can login using your email address and password credentials. Upon logging in, you will be able to access other services including reviewing past orders, wishlists and editing your account information.',
-                'thanks' => 'Thanks!',
+                'greeting' => 'Добро пожаловать и спасибо за регистрацию у нас!',
+                'summary' => 'Ваш учетная запись была успешно создана, и вы можете войти, используя свой адрес электронной почты и пароль. После входа в систему вы сможете получить доступ к другим услугам, включая просмотр прошлых заказов, списков пожеланий и редактирование информации о вашей учетной записи.',
+                'thanks' => 'Спасибо!',
             ],
 
             'verification' => [
-                'heading' => config('app.name') . ' - Email Verification',
-                'subject' => 'Verification Mail',
-                'verify' => 'Verify Your Account',
-                'summary' => 'This is the mail to verify that the email address you entered is yours.
-                Kindly click the Verify Your Account button below to verify your account.'
+                'heading' => config('app.name') . ' - Подтверждение по элетронной почте',
+                'subject' => 'Письмо с подтверждением',
+                'verify' => 'Подтвердите ваш аккаунт',
+                'summary' => 'Это письмо, подтверждающее, что введенный вами адрес электронной почты принадлежит вам.
+                Пожалуйста, нажмите кнопку Подтвердить свою учетную запись ниже, чтобы подтвердить свою учетную запись.'
             ],
 
             'subscription' => [
-                'subject' => 'Subscription Email',
-                'greeting' => ' Welcome to ' . config('app.name') . ' - Email Subscription',
-                'unsubscribe' => 'Unsubscribe',
-                'summary' => 'Thanks for putting me into your inbox. It’s been a while since you’ve read ' . config('app.name') . ' email, and we don’t want to overwhelm your inbox. If you still do not want to receive
-                the latest email marketing news then for sure click the button below.'
+                'subject' => 'Электронная подписка',
+                'greeting' => ' Добро пожаловать в ' . config('app.name') . ' - Электронная подписка',
+                'unsubscribe' => 'Отказаться от подписки',
+                'summary' => 'Спасибо, что поместили меня в свой почтовый ящик. Прошло много времени с тех пор, как вы прочитали ' . config('app.name') . ' электронная почта, и мы не хотим перегружать ваш почтовый ящик. Если вы все еще не хотите получать
+                 последние новости маркетинга по электронной почте, затем обязательно нажмите кнопку ниже.'
             ]
         ]
     ],

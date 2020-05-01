@@ -285,7 +285,7 @@ return [
                     'SKU' => 'SKU',
                     'product-name' => 'Անուն',
                     'qty' => 'Քանակ',
-                    'item-status' => 'Նյութի կարգավիճակը',
+                    'item-status' => 'կարգավիճակը',
                     'item-ordered' => 'Պատվիրվել է (:qty_ordered)',
                     'item-invoice' => 'Ապրանքագրվել է (:qty_invoiced)',
                     'item-shipped' => 'Առաքվել է (:qty_shipped)',
@@ -294,20 +294,20 @@ return [
                     'price' => 'Գին',
                     'total' => 'Ընդհանուր',
                     'subtotal' => 'Ընդհանուր գին',
-                    'shipping-handling' => 'Առաքում և մշակում',
+                    'shipping-handling' => 'Առաքում',
                     'tax' => 'Tax',
                     'discount' => 'Զեղճ',
                     'tax-percent' => 'Tax Percent',
                     'tax-amount' => 'Tax Amount',
                     'discount-amount' => 'Discount Amount',
-                    'grand-total' => 'Grand Total',
+                    'grand-total' => 'Ընդհանուր գին',
                     'total-paid' => 'Total Paid',
                     'total-refunded' => 'Total Refunded',
                     'total-due' => 'Total Due',
                     'shipping-address' => 'Shipping Address',
                     'billing-address' => 'Billing Address',
-                    'shipping-method' => 'Shipping Method',
-                    'payment-method' => 'Payment Method',
+                    'shipping-method' => 'Առաքման եղանակ',
+                    'payment-method' => 'Վճարման եղանակ',
                     'individual-invoice' => 'Invoice #:invoice_id',
                     'individual-shipment' => 'Shipment #:shipment_id',
                     'print' => 'Print',
@@ -526,7 +526,7 @@ return [
         'total' => [
             'order-summary' => 'Order Summary',
             'sub-total' => 'Items',
-            'grand-total' => 'Grand Total',
+            'grand-total' => 'Ընդհանուր գին',
             'delivery-charges' => 'Delivery Charges',
             'tax' => 'Tax',
             'discount' => 'Discount',
@@ -567,7 +567,7 @@ return [
             'price' => 'Գին',
             'quantity' => 'Քանակ',
             'subtotal' => 'Ենթա արժեք',
-            'shipping-handling' => 'Առաքում և բեռնաթափում',
+            'shipping-handling' => 'Առաքում',
             'tax' => 'Tax',
             'discount' => 'Զեղճ',
             'grand-total' => 'Ընդհանուր գումար',
@@ -589,7 +589,7 @@ return [
                 'shipping-handling' => 'Shipping & Handling',
                 'tax' => 'Tax',
                 'discount' => 'Discount',
-                'grand-total' => 'Grand Total',
+                'grand-total' => 'Ընդհանուր գին',
                 'final-summary' => 'Thanks for showing your interest in our store',
                 'help' => 'If you need any kind of help please contact us at :support_email',
                 'thanks' => 'Thanks!',
@@ -642,26 +642,26 @@ return [
             ],
 
             'registration' => [
-                'subject' => 'New Customer Registration',
-                'customer-registration' => 'Customer Registered Successfully',
-                'dear' => 'Dear :customer_name',
-                'greeting' => 'Welcome and thank you for registering with us!',
-                'summary' => 'Your account has now been created successfully and you can login using your email address and password credentials. Upon logging in, you will be able to access other services including reviewing past orders, wishlists and editing your account information.',
-                'thanks' => 'Thanks!',
+                'subject' => 'Հաճախորդների նոր գրանցում',
+                'customer-registration' => 'Հաճախորդը գրանցվեց հաջողությամբ',
+                'dear' => 'Սիրելի :customer_name',
+                'greeting' => 'Բարի գալուստ և շնորհակալություն ՝ մեզ մոտ գրանցվելու համար!',
+                'summary' => 'Ձեր հաշիվն այժմ հաջողությամբ ստեղծվել է, և դուք կարող եք մուտք գործել ՝ օգտագործելով ձեր էլ.փոստի հասցեն և գաղտնաբառի հավատարմագրերը: Մտնելուց հետո դուք կկարողանաք մուտք գործել այլ ծառայություններ ՝ ներառյալ անցյալի պատվերների վերանայում, և խմբագրելու ձեր հաշվի տեղեկությունները:',
+                'thanks' => 'Շնորհակալություն!',
             ],
 
             'verification' => [
-                'heading' => config('app.name') . ' - Email Verification',
-                'subject' => 'Verification Mail',
-                'verify' => 'Verify Your Account',
-                'summary' => 'This is the mail to verify that the email address you entered is yours.
-                Kindly click the Verify Your Account button below to verify your account.'
+                'heading' => config('app.name') . ' - Էլ.փոստի հաստատում',
+                'subject' => 'Էլ.փոստի հաստատում',
+                'verify' => 'Հաստատեք Ձեր հաշիվը',
+                'summary' => 'Սա այն փոստն է, որ ձեր մուտքագրված էլփոստի հասցեն ձերն է:
+                 Ձեր հաշիվը հաստատելու համար սեխմեք ստորեվ բերված կոճակը:'
             ],
 
             'subscription' => [
-                'subject' => 'Subscription Email',
-                'greeting' => ' Welcome to ' . config('app.name') . ' - Email Subscription',
-                'unsubscribe' => 'Unsubscribe',
+                'subject' => 'Բաժանորդագրվեք',
+                'greeting' => 'Բարի գալուստ ' . config('app.name') . ' - Էլ.փոստի բաժանորդագրություն',
+                'unsubscribe' => 'Ապաբաժանորդագրվել',
                 'summary' => 'Thanks for putting me into your inbox. It’s been a while since you’ve read ' . config('app.name') . ' email, and we don’t want to overwhelm your inbox. If you still do not want to receive
                 the latest email marketing news then for sure click the button below.'
             ]

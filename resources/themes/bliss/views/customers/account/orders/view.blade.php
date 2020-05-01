@@ -55,9 +55,9 @@
                                                 <th>{{ __('shop::app.customer.account.order.view.price') }}</th>
                                                 <th>{{ __('shop::app.customer.account.order.view.item-status') }}</th>
                                                 <th>{{ __('shop::app.customer.account.order.view.subtotal') }}</th>
-                                                <th>{{ __('shop::app.customer.account.order.view.tax-percent') }}</th>
-                                                <th>{{ __('shop::app.customer.account.order.view.tax-amount') }}</th>
-                                                <th>{{ __('shop::app.customer.account.order.view.grand-total') }}</th>
+{{--                                                <th>{{ __('shop::app.customer.account.order.view.tax-percent') }}</th>--}}
+{{--                                                <th>{{ __('shop::app.customer.account.order.view.tax-amount') }}</th>--}}
+{{--                                                <th>{{ __('shop::app.customer.account.order.view.grand-total') }}</th>--}}
                                             </tr>
                                         </thead>
 
@@ -109,17 +109,17 @@
                                                         </span>
                                                     </td>
 
-                                                    <td data-value="{{ __('shop::app.customer.account.order.view.subtotal') }}">
-                                                        {{ core()->formatPrice($item->total, $order->order_currency_code) }}
-                                                    </td>
+{{--                                                    <td data-value="{{ __('shop::app.customer.account.order.view.subtotal') }}">--}}
+{{--                                                        {{ core()->formatPrice($item->total, $order->order_currency_code) }}--}}
+{{--                                                    </td>--}}
 
-                                                    <td data-value="{{ __('shop::app.customer.account.order.view.tax-percent') }}">
-                                                        {{ number_format($item->tax_percent, 2) }}%
-                                                    </td>
+{{--                                                    <td data-value="{{ __('shop::app.customer.account.order.view.tax-percent') }}">--}}
+{{--                                                        {{ number_format($item->tax_percent, 2) }}%--}}
+{{--                                                    </td>--}}
 
-                                                    <td data-value="{{ __('shop::app.customer.account.order.view.tax-amount') }}">
-                                                        {{ core()->formatPrice($item->tax_amount, $order->order_currency_code) }}
-                                                    </td>
+{{--                                                    <td data-value="{{ __('shop::app.customer.account.order.view.tax-amount') }}">--}}
+{{--                                                        {{ core()->formatPrice($item->tax_amount, $order->order_currency_code) }}--}}
+{{--                                                    </td>--}}
 
                                                     <td data-value="{{ __('shop::app.customer.account.order.view.grand-total') }}">
                                                         {{ core()->formatPrice($item->total + $item->tax_amount - $item->discount_amount, $order->order_currency_code) }}
@@ -156,35 +156,35 @@
                                                 </tr>
                                             @endif
 
-                                            <tr class="border">
-                                                <td>{{ __('shop::app.customer.account.order.view.tax') }}</td>
-                                                <td>-</td>
-                                                <td>{{ core()->formatPrice($order->tax_amount, $order->order_currency_code) }}</td>
-                                            </tr>
+{{--                                            <tr class="border">--}}
+{{--                                                <td>{{ __('shop::app.customer.account.order.view.tax') }}</td>--}}
+{{--                                                <td>-</td>--}}
+{{--                                                <td>{{ core()->formatPrice($order->tax_amount, $order->order_currency_code) }}</td>--}}
+{{--                                            </tr>--}}
 
-                                            <tr class="bold">
-                                                <td>{{ __('shop::app.customer.account.order.view.grand-total') }}</td>
-                                                <td>-</td>
-                                                <td>{{ core()->formatPrice($order->grand_total, $order->order_currency_code) }}</td>
-                                            </tr>
+{{--                                            <tr class="bold">--}}
+{{--                                                <td>{{ __('shop::app.customer.account.order.view.grand-total') }}</td>--}}
+{{--                                                <td>-</td>--}}
+{{--                                                <td>{{ core()->formatPrice($order->grand_total, $order->order_currency_code) }}</td>--}}
+{{--                                            </tr>--}}
 
-                                            <tr class="bold">
-                                                <td>{{ __('shop::app.customer.account.order.view.total-paid') }}</td>
-                                                <td>-</td>
-                                                <td>{{ core()->formatPrice($order->grand_total_invoiced, $order->order_currency_code) }}</td>
-                                            </tr>
+{{--                                            <tr class="bold">--}}
+{{--                                                <td>{{ __('shop::app.customer.account.order.view.total-paid') }}</td>--}}
+{{--                                                <td>-</td>--}}
+{{--                                                <td>{{ core()->formatPrice($order->grand_total_invoiced, $order->order_currency_code) }}</td>--}}
+{{--                                            </tr>--}}
 
-                                            <tr class="bold">
-                                                <td>{{ __('shop::app.customer.account.order.view.total-refunded') }}</td>
-                                                <td>-</td>
-                                                <td>{{ core()->formatPrice($order->grand_total_refunded, $order->order_currency_code) }}</td>
-                                            </tr>
+{{--                                            <tr class="bold">--}}
+{{--                                                <td>{{ __('shop::app.customer.account.order.view.total-refunded') }}</td>--}}
+{{--                                                <td>-</td>--}}
+{{--                                                <td>{{ core()->formatPrice($order->grand_total_refunded, $order->order_currency_code) }}</td>--}}
+{{--                                            </tr>--}}
 
-                                            <tr class="bold">
-                                                <td>{{ __('shop::app.customer.account.order.view.total-due') }}</td>
-                                                <td>-</td>
-                                                <td>{{ core()->formatPrice($order->total_due, $order->order_currency_code) }}</td>
-                                            </tr>
+{{--                                            <tr class="bold">--}}
+{{--                                                <td>{{ __('shop::app.customer.account.order.view.total-due') }}</td>--}}
+{{--                                                <td>-</td>--}}
+{{--                                                <td>{{ core()->formatPrice($order->total_due, $order->order_currency_code) }}</td>--}}
+{{--                                            </tr>--}}
                                         <tbody>
                                     </table>
                                 </div>
@@ -286,11 +286,11 @@
                                                     <td>{{ core()->formatPrice($invoice->tax_amount, $order->order_currency_code) }}</td>
                                                 </tr>
 
-                                                <tr class="bold">
-                                                    <td>{{ __('shop::app.customer.account.order.view.grand-total') }}</td>
-                                                    <td>-</td>
-                                                    <td>{{ core()->formatPrice($invoice->grand_total, $order->order_currency_code) }}</td>
-                                                </tr>
+{{--                                                <tr class="bold">--}}
+{{--                                                    <td>{{ __('shop::app.customer.account.order.view.grand-total') }}</td>--}}
+{{--                                                    <td>-</td>--}}
+{{--                                                    <td>{{ core()->formatPrice($invoice->grand_total, $order->order_currency_code) }}</td>--}}
+{{--                                                </tr>--}}
                                             </table>
                                         </div>
                                     </div>
@@ -457,51 +457,41 @@
                 <div class="sale-section">
                     <div class="section-content" style="border-bottom: 0">
                         <div class="order-box-container">
-                            <div class="box">
-                                <div class="box-title">
-                                    {{ __('shop::app.customer.account.order.view.billing-address') }}
-                                </div>
+{{--                            <div class="box">--}}
+{{--                                <div class="box-title">--}}
+{{--                                    {{ __('shop::app.customer.account.order.view.billing-address') }}--}}
+{{--                                </div>--}}
 
-                                <div class="box-content">
+{{--                                <div class="box-content">--}}
 
-                                    @include ('admin::sales.address', ['address' => $order->billing_address])
+{{--                                    @include ('admin::sales.address', ['address' => $order->billing_address])--}}
 
-                                </div>
-                            </div>
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                             @if ($order->shipping_address)
+{{--                                <div class="box">--}}
+{{--                                    <div class="box-title">--}}
+{{--                                        {{ __('shop::app.customer.account.order.view.shipping-address') }}--}}
+{{--                                    </div>--}}
+
+{{--                                    <div class="box-content">--}}
+
+{{--                                        @include ('admin::sales.address', ['address' => $order->shipping_address])--}}
+
+{{--                                    </div>--}}
+{{--                                </div>--}}
+
                                 <div class="box">
                                     <div class="box-title">
-                                        {{ __('shop::app.customer.account.order.view.shipping-address') }}
-                                    </div>
-
-                                    <div class="box-content">
-
-                                        @include ('admin::sales.address', ['address' => $order->shipping_address])
-
-                                    </div>
-                                </div>
-
-                                <div class="box">
-                                    <div class="box-title">
-                                        {{ __('shop::app.customer.account.order.view.shipping-method') }}
-                                    </div>
-
-                                    <div class="box-content">
-
-                                        {{ $order->shipping_title }}
-
+                                        {{ __('shop::app.customer.account.order.view.shipping-method') }} -- {{ $order->shipping_title }}
                                     </div>
                                 </div>
                             @endif
 
                             <div class="box">
                                 <div class="box-title">
-                                    {{ __('shop::app.customer.account.order.view.payment-method') }}
-                                </div>
-
-                                <div class="box-content">
-                                    {{ core()->getConfigData('sales.paymentmethods.' . $order->payment->method . '.title') }}
+                                    {{ __('shop::app.customer.account.order.view.payment-method') }} -- {{ core()->getConfigData('sales.paymentmethods.' . $order->payment->method . '.title') }}
                                 </div>
                             </div>
                         </div>
