@@ -90,6 +90,45 @@
 @stop
 
 @push('scripts')
+    <script type="text/x-template" id="basket-template">
+        <i @click="addToCart()" class="production_icon"
+           style="background-image: url('/themes/bliss/assets/images/hg/icons/shopping_blue.png'); cursor: pointer"></i>
+    </script>
+    <script>
+        Vue.component('basket', {
+            template: '#basket-template',
+            props: {
+                product_id: {
+                    type: [Number, String]
+                }
+            },
+            methods: {
+                addToCart: function() {
+                    var this_this = this;
+                    $.ajax({
+                        method: 'POST',
+                        url: '/api/checkout/cart/add/'+this_this.product_id,
+                        data: {
+                            product_id: this_this.product_id,
+                            quantity: 1,
+                            is_configurable: false,
+                            _token: '{{ csrf_token() }}'
+                        },
+                        success: function(res) {
+                            window.flashMessages = [{
+                                'type': 'alert-success',
+                                'message': res.message
+                            }];
+
+                            this_this.$root.addFlashMessages();
+                            $('.header_price').text(res.data.formated_sub_total);
+                            $('.header_top_shopping .count p').text(res.data.items.length);
+                        }
+                    })
+                }
+            }
+        });
+    </script>
     <script>
         $(document).ready(function() {
             $('.responsive-layred-filter').css('display','none');

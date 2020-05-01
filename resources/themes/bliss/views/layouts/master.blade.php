@@ -26,15 +26,15 @@
     <link rel="stylesheet" href="/themes/bliss/assets/css/style.css">
 
     <!--JQUERY-->
-    
-    <!--MAIN JS-->
-    
 
-    
+    <!--MAIN JS-->
+
+
+
     @if ($favicon = core()->getCurrentChannel()->favicon_url)
         <link rel="icon" sizes="16x16" href="{{ $favicon }}" />
     @else
-        <link rel="icon" sizes="16x16" href="{{ bagisto_asset('images/favicon.ico') }}" />
+        <link rel="icon" sizes="16x16" href="{{ bagisto_asset('images/logo.jpg') }}" />
     @endif
 
     @yield('head')
@@ -70,7 +70,7 @@
                     </div>
                     <div class="header_top_search">
                         <div class="header_top_account_row">
-                            @include('shop::partials.login-register-dropdown')    
+                            @include('shop::partials.login-register-dropdown')
                             <ul class="header_top_price">
                                 <li class="header_price">{{ $cart && $cart->base_grand_total ? core()->currency($cart->base_grand_total) : 0 }}</li>
 {{--                                <li style="background-image: url('/themes/bliss/assets/images/hg/icons/gel.png')"></li>--}}
@@ -96,7 +96,7 @@
                     <li><a href="{{url('page/payment-delivery')}}">{{ __('app.payment_delivery') }}</a></li>
                     <li><a href="{{url('page/contact-us')}}">{{ __('app.contact') }}</a></li>
                 </ul>
-                
+
                 @include('shop::partials.locations-social-links')
 
             </div>
@@ -127,7 +127,7 @@
             <flash-wrapper ref='flashes'></flash-wrapper>
 
             {!! view_render_event('bagisto.shop.layout.content.before') !!}
-            
+
             @include('shop::partials.locations-social-links', ['class' => 'mobile_social'])
 
             @yield('content-wrapper')
@@ -216,10 +216,10 @@
                 window.serverErrors = @json($errors->getMessages());
             @endif
         @endif
-    </script>    
+    </script>
     <script type="text/javascript" src="{{ bagisto_asset('js/shop.js') }}"></script>
     <script type="text/javascript" src="{{ asset('vendor/webkul/ui/assets/js/ui.js') }}"></script>
-    <script src="/themes/bliss/assets/js/incrementDecrement.js"></script>    
+    <script src="/themes/bliss/assets/js/incrementDecrement.js"></script>
     <script src="/themes/bliss/assets/js/libs/popper.min.js"></script>
     <script src="/themes/bliss/assets/js/libs/bootstrap.min.js"></script>
     <script src="/themes/bliss/assets/js/index.js"></script>

@@ -131,8 +131,7 @@
                                                         {{--                                                           style="background-image: url('/themes/bliss/assets/images/hg/icons/geldark.png')"></i>--}}
                                                     </li>
                                                     <li>
-                                                        <i class="production_icon"
-                                                           style="background-image: url('/themes/bliss/assets/images/hg/icons/shopping_blue.png')"></i>
+                                                        <basket product_id="{{ $product->product_id }}"></basket>
                                                     </li>
                                                 </ul>
                                             </div>
