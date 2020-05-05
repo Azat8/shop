@@ -10,7 +10,11 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-App::setLocale('fa');
+
+if(Request::segments(1) == 'admin'){
+	App::setLocale('hy');
+}
+
 Route::group(['middleware' => ['web', 'theme', 'locale', 'currency']], function () {
     Route::get('/products', 'IndexController@products')->defaults('_config', [ 'view' => 'products' ])->name('products');
     Route::get('/matrix', 'IndexController@matrix')->defaults('_config', [ 'view' => 'matrix' ])->name('matrix');
