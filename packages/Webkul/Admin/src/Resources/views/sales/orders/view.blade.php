@@ -315,7 +315,7 @@
                                     </table>
                                 </div>
 
-                                <table class="sale-summary">
+                                {{-- <table class="sale-summary">
                                     <tr>
                                         <td>{{ __('admin::app.sales.orders.subtotal') }}</td>
                                         <td>-</td>
@@ -376,7 +376,7 @@
                                         <td>-</td>
                                         <td>{{ core()->formatBasePrice($order->base_total_due) }}</td>
                                     </tr>
-                                </table>
+                                </table> --}}
 
                             </div>
                         </accordian>
