@@ -73,7 +73,7 @@
                     </div>
                 </div>
 
-                <div class="dashboard-card">
+{{--                 <div class="dashboard-card">
                     <div class="title">
                         {{ __('admin::app.dashboard.total-sale') }}
                     </div>
@@ -124,10 +124,10 @@
                         </span>
                     </div>
                 </div>
-
+ --}}
             </div>
 
-            <div class="graph-stats">
+            {{-- <div class="graph-stats">
 
                 <div class="left-card-container graph">
                     <div class="card" style="overflow: hidden;">
@@ -190,7 +190,7 @@
                     </div>
                 </div>
 
-            </div>
+            </div> --}}
 
             @inject ('productImageHelper', 'Webkul\Product\Helpers\ProductImage')
 

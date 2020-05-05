@@ -132,7 +132,7 @@ return [
         'customer-with-most-sales' => 'Հաճախորդներ ամենաշատ վաճառքով',
         'order-count' => ':count Orders',
         'revenue' => 'Revenue :total',
-        'stock-threshold' => 'Ֆոնդային շեմ',
+        'stock-threshold' => 'Վերջին ապրանքներ',
         'qty-left' => ':qty Left'
     ],
 
