@@ -87,31 +87,31 @@ class OrderDataGrid extends DataGrid
             'filterable' => true
         ]);
 
-        $this->addColumn([
-            'index' => 'status',
-            'label' => trans('admin::app.datagrid.status'),
-            'type' => 'string',
-            'sortable' => true,
-            'searchable' => true,
-            'closure' => true,
-            'filterable' => true,
-            'wrapper' => function ($value) {
-                if ($value->status == 'processing')
-                    return '<span class="badge badge-md badge-success">'. trans('admin::app.sales.orders.order-status-processing') .'</span>';
-                else if ($value->status == 'completed')
-                    return '<span class="badge badge-md badge-success">'. trans('admin::app.sales.orders.order-status-success') .'</span>';
-                else if ($value->status == "canceled")
-                    return '<span class="badge badge-md badge-danger">'. trans('admin::app.sales.orders.order-status-canceled') .'</span>';
-                else if ($value->status == "closed")
-                    return '<span class="badge badge-md badge-info">'. trans('admin::app.sales.orders.order-status-closed') .'</span>';
-                else if ($value->status == "pending")
-                    return '<span class="badge badge-md badge-warning">'. trans('admin::app.sales.orders.order-status-pending') .'</span>';
-                else if ($value->status == "pending_payment")
-                    return '<span class="badge badge-md badge-warning">'. trans('admin::app.sales.orders.order-status-pending-payment') .'</span>';
-                else if ($value->status == "fraud")
-                    return '<span class="badge badge-md badge-danger">'. trans('admin::app.sales.orders.order-status-fraud') . '</span>';
-            }
-        ]);
+        // $this->addColumn([
+        //     'index' => 'status',
+        //     'label' => trans('admin::app.datagrid.status'),
+        //     'type' => 'string',
+        //     'sortable' => true,
+        //     'searchable' => true,
+        //     'closure' => true,
+        //     'filterable' => true,
+        //     'wrapper' => function ($value) {
+        //         if ($value->status == 'processing')
+        //             return '<span class="badge badge-md badge-success">'. trans('admin::app.sales.orders.order-status-processing') .'</span>';
+        //         else if ($value->status == 'completed')
+        //             return '<span class="badge badge-md badge-success">'. trans('admin::app.sales.orders.order-status-success') .'</span>';
+        //         else if ($value->status == "canceled")
+        //             return '<span class="badge badge-md badge-danger">'. trans('admin::app.sales.orders.order-status-canceled') .'</span>';
+        //         else if ($value->status == "closed")
+        //             return '<span class="badge badge-md badge-info">'. trans('admin::app.sales.orders.order-status-closed') .'</span>';
+        //         else if ($value->status == "pending")
+        //             return '<span class="badge badge-md badge-warning">'. trans('admin::app.sales.orders.order-status-pending') .'</span>';
+        //         else if ($value->status == "pending_payment")
+        //             return '<span class="badge badge-md badge-warning">'. trans('admin::app.sales.orders.order-status-pending-payment') .'</span>';
+        //         else if ($value->status == "fraud")
+        //             return '<span class="badge badge-md badge-danger">'. trans('admin::app.sales.orders.order-status-fraud') . '</span>';
+        //     }
+        // ]);
 
         $this->addColumn([
             'index' => 'billed_to',
