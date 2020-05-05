@@ -394,7 +394,7 @@
                                     <th>{{ __('admin::app.sales.invoices.date') }}</th>
                                     <th>{{ __('admin::app.sales.invoices.order-id') }}</th>
                                     <th>{{ __('admin::app.sales.invoices.customer-name') }}</th>
-                                    <th>{{ __('admin::app.sales.invoices.status') }}</th>
+                                    {{-- <th>{{ __('admin::app.sales.invoices.status') }}</th> --}}
                                     <th>{{ __('admin::app.sales.invoices.amount') }}</th>
                                     <th>{{ __('admin::app.sales.invoices.action') }}</th>
                                 </tr>
@@ -408,7 +408,7 @@
                                         <td>{{ $invoice->created_at }}</td>
                                         <td>#{{ $invoice->order->increment_id }}</td>
                                         <td>{{ $invoice->address->name }}</td>
-                                        <td>{{ $invoice->status_label }}</td>
+                                        {{-- <td>{{ $invoice->status_label }}</td> --}}
                                         <td>{{ core()->formatBasePrice($invoice->base_grand_total) }}</td>
                                         <td class="action">
                                             <a href="{{ route('admin.sales.invoices.view', $invoice->id) }}">
@@ -484,7 +484,7 @@
                                     <th>{{ __('admin::app.sales.refunds.date') }}</th>
                                     <th>{{ __('admin::app.sales.refunds.order-id') }}</th>
                                     <th>{{ __('admin::app.sales.refunds.customer-name') }}</th>
-                                    <th>{{ __('admin::app.sales.refunds.status') }}</th>
+                                    {{-- <th>{{ __('admin::app.sales.refunds.status') }}</th> --}}
                                     <th>{{ __('admin::app.sales.refunds.refunded') }}</th>
                                     <th>{{ __('admin::app.sales.refunds.action') }}</th>
                                 </tr>
@@ -498,7 +498,7 @@
                                         <td>{{ $refund->created_at }}</td>
                                         <td>#{{ $refund->order->increment_id }}</td>
                                         <td>{{ $refund->order->customer_full_name }}</td>
-                                        <td>{{ __('admin::app.sales.refunds.refunded') }}</td>
+                                        {{-- <td>{{ __('admin::app.sales.refunds.refunded') }}</td> --}}
                                         <td>{{ core()->formatBasePrice($refund->base_grand_total) }}</td>
                                         <td class="action">
                                             <a href="{{ route('admin.sales.refunds.view', $refund->id) }}">
