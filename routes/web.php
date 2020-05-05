@@ -11,9 +11,9 @@
 |
 */
 
-if(Request::segments(1) == 'admin'){
-	App::setLocale('hy');
-}
+
+App::setLocale('hy');
+
 
 Route::group(['middleware' => ['web', 'theme', 'locale', 'currency']], function () {
     Route::get('/products', 'IndexController@products')->defaults('_config', [ 'view' => 'products' ])->name('products');
