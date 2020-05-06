@@ -28,7 +28,7 @@
             removeButtonLabel: {
                 type: String,
                 required: false,
-                default: 'Remove Image'
+                default: 'Ջնջել նկարը'
             },
 
             inputName: {

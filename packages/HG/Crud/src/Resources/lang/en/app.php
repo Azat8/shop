@@ -2,15 +2,15 @@
 
 return [
     'matrix' => [
-        'name' => 'Name',
-        'title' => 'Matrix',
-        'image' => 'Image',
-        'file' => 'File',
-        'add-matrix' => 'Add matrix',
+        'name' => 'Անուն',
+        'title' => 'Մատրիցաներ',
+        'image' => 'Նկար',
+        'file' => 'Ֆայլ',
+        'add-matrix' => 'Ավելացնել',
         'file-type' => 'pdf',
-        'actions' => 'Actions',
-        'save-btn-title' => 'Save Matrix',
-        'edit-title' => 'Edit Matrix',
-        'see-file' => 'See File'
+        'actions' => 'Գործողություն',
+        'save-btn-title' => 'Պահպանել',
+        'edit-title' => 'Փոփոխել',
+        'see-file' => 'Տեսնել Ֆայլը'
     ]
 ];

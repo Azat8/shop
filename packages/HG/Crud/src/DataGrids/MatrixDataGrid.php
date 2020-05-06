@@ -53,14 +53,14 @@ class MatrixDataGrid extends DataGrid
 
     public function prepareActions() {
         $this->addAction([
-            'title' => 'Edit Matrix',
+            'title' => trans('admin::app.update'),
             'method' => 'GET', // use GET request only for redirect purposes
             'route' => 'matrix.edit',
             'icon' => 'icon pencil-lg-icon'
         ]);
 
         $this->addAction([
-            'title' => 'Delete Matrix',
+            'title' => trans('admin::app.delete'),
             'method' => 'POST', // use GET request only for redirect purposes
             'route' => 'admin.catalog.categories.delete',
             'confirm_text' => trans('ui::app.datagrid.massaction.delete', ['resource' => 'product']),

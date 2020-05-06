@@ -9,7 +9,7 @@
         </div>
 
         <div class="remove-preview">
-            <button class="btn btn-md btn-primary" @click.prevent="removePreviewImage">Remove Image</button>
+            <button class="btn btn-md btn-primary" @click.prevent="removePreviewImage">Ջնջել Նկարը</button>
         </div>
 
     </div>

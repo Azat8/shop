@@ -1,7 +1,7 @@
 <?php
 return [
     'datagrid' => [
-        'actions' => 'Actions',
+        'actions' => 'Գործողություն',
         'id' => 'Index columns have value greater than zero only',
 
         'massaction' => [
