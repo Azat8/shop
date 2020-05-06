@@ -166,7 +166,7 @@ return [
         'gender' => 'Gender',
         'title' => 'Title',
         'layout' => 'Layout',
-        'url-key' => 'URL Key',
+        'url-key' => 'Երթուղի',
         'comment' => 'Comment',
         'product-name' => 'Product',
         'currency-name' => 'Currency Name',
