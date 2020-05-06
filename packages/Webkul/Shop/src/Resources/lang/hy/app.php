@@ -219,7 +219,7 @@ return [
                     'create' => 'Create Address',
                     'delete' => 'Delete',
                     'make-default' => 'Make Default',
-                    'default' => 'Default',
+                    'default' => 'Սկզբնական',
                     'contact' => 'Contact',
                     'confirm-delete' =>  'Do you really want to delete this address?',
                     'default-delete' => 'Default address cannot be changed.',
