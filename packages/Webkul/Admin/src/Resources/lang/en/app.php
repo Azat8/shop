@@ -491,7 +491,7 @@ return [
             'url' => 'Url',
             'sort-order' => 'Sort Order',
             'browse-file' => 'Browse File',
-            'product-link' => 'Linked Products',
+            'product-link' => 'Կապակցված ապրանքներ',
             'cross-selling' => 'Cross Selling',
             'up-selling' => 'Up Selling',
             'related-products' => 'Related Products',
