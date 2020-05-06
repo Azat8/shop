@@ -444,8 +444,8 @@ return [
     'catalog' => [
         'products' => [
             'title' => 'Products',
-            'add-product-btn-title' => 'Add Product',
-            'add-title' => 'Add Product',
+            'add-product-btn-title' => 'Ավելացնել ապրանք',
+            'add-title' => 'Ավելացնել ապրանք',
             'edit-title' => 'Edit Product',
             'save-btn-title' => 'Save Product',
             'general' => 'Ընդհանուր',
