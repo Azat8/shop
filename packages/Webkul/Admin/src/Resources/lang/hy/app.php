@@ -448,7 +448,7 @@ return [
             'add-title' => 'Add Product',
             'edit-title' => 'Edit Product',
             'save-btn-title' => 'Save Product',
-            'general' => 'General',
+            'general' => 'Ընդհանուր',
             'product-type' => 'Product Type',
             'simple' => 'Simple',
             'configurable' => 'Configurable',
