@@ -1292,7 +1292,7 @@ return [
             'order-number-prefix' => 'Order Number Prefix',
             'order-number-length' => 'Order Number Length',
             'order-number-suffix' => 'Order Number Suffix',
-            'default' => 'Default',
+            'default' => 'Սկզբնական',
             'sandbox' => 'Sandbox',
             'all-channels' => 'All',
             'all-locales' => 'All'
