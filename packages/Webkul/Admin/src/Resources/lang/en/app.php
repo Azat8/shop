@@ -477,7 +477,7 @@ return [
             'configurable-error' => 'Please select atleast one configurable attribute.',
             'categories' => 'Կատեգորիաներ',
             'images' => 'Նկարներ',
-            'inventories' => 'Գրապահոց',
+            'inventories' => 'Պահեստի առկա քանակ',
             'variations' => 'Variations',
             'downloadable' => 'Downloadable Information',
             'links' => 'Links',
