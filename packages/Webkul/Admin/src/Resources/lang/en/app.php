@@ -907,10 +907,10 @@ return [
         ],
 
         'note' => [
-            'title' => 'Add Note',
-            'save-note' => 'Save Note',
-            'enter-note' => 'Enter Note',
-            'help-title' => 'Add Note On This Customer'
+            'title' => 'Ավելացնել նշում',
+            'save-note' => 'Պահպանել',
+            'enter-note' => 'Մուտքագրեք նշումը',
+            'help-title' => 'Ավելացնել նշում հաճախորդի համար'
         ],
 
         'customers' => [
