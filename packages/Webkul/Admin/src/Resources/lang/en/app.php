@@ -475,7 +475,7 @@ return [
             'mass-delete-success' => 'All the selected products have been deleted successfully',
             'mass-update-success' => 'All the selected products have been updated successfully',
             'configurable-error' => 'Please select atleast one configurable attribute.',
-            'categories' => 'Categories',
+            'categories' => 'Կատեգորիաներ',
             'images' => 'Images',
             'inventories' => 'Inventories',
             'variations' => 'Variations',
@@ -586,7 +586,7 @@ return [
             'group-exist-error' => 'Group with same name already exists.'
         ],
         'categories' => [
-            'title' => 'Categories',
+            'title' => 'Կատեգորիաներ',
             'add-title' => 'Add Category',
             'edit-title' => 'Edit Category',
             'save-btn-title' => 'Save Category',
@@ -1050,7 +1050,7 @@ return [
             'end-other-rules' => 'End Other Rules',
             'children-categories' => 'Categories (Children Only)',
             'parent-categories' => 'Categories (Parent Only)',
-            'categories' => 'Categories',
+            'categories' => 'Կատեգորիաներ',
             'attribute_family' => 'Attribute Family'
         ],
 
@@ -1098,7 +1098,7 @@ return [
             'discount-amount' => 'Discount Amount',
             'mass-delete-success' => 'All the selected index of coupons have been deleted successfully.',
             'end-other-rules' => 'End Other Rules',
-            'categories' => 'Categories',
+            'categories' => 'Կատեգորիաներ',
             'attribute_family' => 'Attribute Family'
         ]
     ],
