@@ -79,14 +79,14 @@ class CategoryDataGrid extends DataGrid
             }
         ]);
 
-        $this->addColumn([
-            'index' => 'count',
-            'label' => trans('admin::app.datagrid.no-of-products'),
-            'type' => 'number',
-            'sortable' => true,
-            'searchable' => false,
-            'filterable' => false
-        ]);
+//        $this->addColumn([
+//            'index' => 'count',
+//            'label' => trans('admin::app.datagrid.no-of-products'),
+//            'type' => 'number',
+//            'sortable' => true,
+//            'searchable' => false,
+//            'filterable' => false
+//        ]);
     }
 
     public function prepareActions() {
