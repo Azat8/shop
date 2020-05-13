@@ -211,13 +211,11 @@ class OnepageController extends Controller
             if($data['payment']['method'] == 'moneytransfer'){
                 $api_data = [
                     'bindingId' => $order->cart_id,
-                    'returnUrl'   => url()->full(),
                     'userName'    => config('bank-api.bank_api.login'),
                     'password'    => config('bank-api.bank_api.password'),
-                    'amount'      => 6000
                 ];
-                dd($api_data);
-                $response = (new \GuzzleHttp\Client)->request('POST', config('bank-api.bank_api.url'), $api_data);
+
+                $response = (new \GuzzleHttp\Client)->request('GET', 'https://ipay.arca.am/payment/rest/bindCard.do?', $api_data);
                 dd($response, 'Api response');
 
             }
