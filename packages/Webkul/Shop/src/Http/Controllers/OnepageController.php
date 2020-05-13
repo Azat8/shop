@@ -207,7 +207,6 @@ class OnepageController extends Controller
         }
 
         $order = $this->orderRepository->create($data = Cart::prepareDataForOrder());
-        dd($data);
         if(isset($data['payment']['method'])){
             if($data['payment']['method'] == 'moneytransfer'){
                 $api_data = [
@@ -217,6 +216,7 @@ class OnepageController extends Controller
                     'password'    => config('bank-api.bank_api.password'),
                     'amount'      => 6000
                 ];
+                dd($api_data);
                 $response = (new \GuzzleHttp\Client)->request('POST', config('bank-api.bank_api.url'), $api_data);
                 dd($response, 'Api response');
 
