@@ -212,9 +212,9 @@ class OnepageController extends Controller
                 $api_data = [
                     'bindingId' => $order->cart_id,
                     'userName'    => config('bank-api.bank_api.login'),
-                    'password'    => base64_encode(config('bank-api.bank_api.password')),
+                    'password'    => md5(config('bank-api.bank_api.password')),
                     'amount' => '500',
-                    'returnUrl' => base64_encode(url()),
+                    'returnUrl' => md5(url()),
                     'orderNumber' => 'G87654321',
                     'currency' => 643
                 ];
