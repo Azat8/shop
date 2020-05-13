@@ -213,7 +213,7 @@ class OnepageController extends Controller
                     'amount' => 100,
                     'currency' => 643,
                     'language' => app()->getLocale(),
-//                    'orderNumber' => $order->cart_id,
+                    'orderNumber' => $order->cart_id,
 //                    'password'    => md5(config('bank-api.bank_api.password')),
 //                    'returnUrl' => urlencode(url()),
                     'userName'    => config('bank-api.bank_api.login'),
