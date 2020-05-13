@@ -226,7 +226,7 @@ class OnepageController extends Controller
                 $body = $response->getBody();
 
                 $dataResponse = json_decode($body, true);
-                return $dataResponse;
+
             }
         }
 
@@ -237,6 +237,7 @@ class OnepageController extends Controller
 
         return response()->json([
             'success' => true,
+            'data' => $dataResponse
         ]);
     }
 
