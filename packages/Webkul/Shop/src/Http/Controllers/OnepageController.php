@@ -211,7 +211,7 @@ class OnepageController extends Controller
             if($data['payment']['method'] == 'moneytransfer'){
                 $api_data = [
                     'bindingId' => $order->cart_id,
-                    'userName'    => config('bank-api.bank_api.login'),
+                    'userName'    => md5(config('bank-api.bank_api.login')),
                     'password'    => md5(config('bank-api.bank_api.password')),
                     'amount' => '500',
                     'returnUrl' => md5(url()),
