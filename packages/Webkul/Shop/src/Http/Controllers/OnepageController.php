@@ -221,7 +221,7 @@ class OnepageController extends Controller
                 ];
 
                 $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/paymentorder.do', $api_data);
-
+                dd($response);
             }
         }
 
