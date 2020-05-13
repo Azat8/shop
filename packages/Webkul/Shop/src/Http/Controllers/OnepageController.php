@@ -209,15 +209,15 @@ class OnepageController extends Controller
         if(isset($data['payment']['method'])){
             if($data['payment']['method'] == 'moneytransfer'){
                 $api_data = [
-                    'amount' => $order->base_grand_total,
-                    'currency' => core()->getBaseCurrency()->code,
-                    'language' => app()->getLocale(),
-                    'orderNumber' => $order->cart_id,
-                    'password'    => 'aLSXfSRa'/*config('bank-api.bank_api.password')*/,
-                    'returnUrl' => urlencode(url()->current()),
-                    'userName'    => config('bank-api.bank_api.login'),
-                    'jsonParams' => json_encode(['orderNumber' => $order->cart_id]),
-                    'pageView' => 'DESKTOP'
+//                    'amount' => $order->base_grand_total,
+//                    'currency' => core()->getBaseCurrency()->code,
+//                    'language' => app()->getLocale(),
+//                    'orderNumber' => $order->cart_id,
+//                    'password'    => 'aLSXfSRa'/*config('bank-api.bank_api.password')*/,
+//                    'returnUrl' => urlencode(url()->current()),
+//                    'userName'    => config('bank-api.bank_api.login'),
+//                    'jsonParams' => json_encode(['orderNumber' => $order->cart_id]),
+//                    'pageView' => 'DESKTOP'
                 ];
                 $client = new \GuzzleHttp\Client;
                 $response = $client->post('https://ipay.arca.am/payment/rest/register.do', $api_data);
