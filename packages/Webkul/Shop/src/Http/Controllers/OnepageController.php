@@ -220,8 +220,9 @@ class OnepageController extends Controller
                     'jsonParams' => json_encode(['orderNumber' => $order->cart_id]),
                     'pageView' => 'DESKTOP',
                 ];
-                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/registerPreAuth.do', $api_data);
-                dd($response);
+                dd($api_data);
+//                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/registerPreAuth.do', $api_data);
+//                dd($response);
             }
         }
 
