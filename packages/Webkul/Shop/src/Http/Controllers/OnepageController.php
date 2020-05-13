@@ -218,7 +218,7 @@ class OnepageController extends Controller
                     'password'    => md5(config('bank-api.bank_api.password')),
                     'returnUrl' => urlencode(url()),
                     'userName'    => md5(config('bank-api.bank_api.login')),
-                    'jsonParams' => json_encode(['orderNumber' => $order->cart_id]),
+//                    'jsonParams' => json_encode(['orderNumber' => $order->cart_id]),
                     'pageView' => 'DESKTOP',
                 ];
 
