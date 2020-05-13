@@ -213,9 +213,9 @@ class OnepageController extends Controller
 //                    'currency' => core()->getBaseCurrency()->code,
 //                    'language' => app()->getLocale(),
 //                    'orderNumber' => $order->cart_id,
-//                    'password'    => 'aLSXfSRa'/*config('bank-api.bank_api.password')*/,
+                    'password'    => 'mBxYhy5XqQEs887s'/*config('bank-api.bank_api.password')*/,
 //                    'returnUrl' => urlencode(url()->current()),
-//                    'userName'    => config('bank-api.bank_api.login'),
+                    'userName'    => config('bank-api.bank_api.login'),
 //                    'jsonParams' => json_encode(['orderNumber' => $order->cart_id]),
 //                    'pageView' => 'DESKTOP'
                 ];
