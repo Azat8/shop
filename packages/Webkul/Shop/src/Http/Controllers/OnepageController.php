@@ -207,21 +207,21 @@ class OnepageController extends Controller
         }
 
         $order = $this->orderRepository->create($data = Cart::prepareDataForOrder());
+        dd($data);
+        if(isset($data['payment']['method'])){
+            if($data['payment']['method'] == 'moneytransfer'){
+                $api_data = [
+                    'bindingId' => $order->cart_id,
+                    'returnUrl'   => url()->full(),
+                    'userName'    => config('bank-api.bank_api.login'),
+                    'password'    => config('bank-api.bank_api.password'),
+                    'amount'      => 6000
+                ];
+                $response = (new \GuzzleHttp\Client)->request('POST', config('bank-api.bank_api.url'), $api_data);
+                dd($response, 'Api response');
 
-//        if(isset($data['payment']['method'])){
-//            if($data['payment']['method'] == 'moneytransfer'){
-//                $api_data = [
-//                    'bindingId' => $order->cart_id,
-//                    'returnUrl'   => url()->full(),
-//                    'userName'    => config('bank-api.bank_api.login'),
-//                    'password'    => config('bank-api.bank_api.password'),
-//                    'amount'      => 6000
-//                ];
-//                $response = (new \GuzzleHttp\Client)->request('POST', config('bank-api.bank_api.url'), $api_data);
-//                dd($response, 'Api response');
-//
-//            }
-//        }
+            }
+        }
 
 
         Cart::deActivateCart();
