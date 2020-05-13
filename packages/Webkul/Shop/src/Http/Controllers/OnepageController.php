@@ -209,20 +209,21 @@ class OnepageController extends Controller
         if(isset($data['payment']['method'])){
             if($data['payment']['method'] == 'moneytransfer'){
                 $api_data = [
-//                    'amount' => $order->base_grand_total,
-//                    'currency' => core()->getBaseCurrency()->code,
-//                    'language' => app()->getLocale(),
-//                    'orderNumber' => $order->cart_id,
-                    'password'    => 'mBxYhy5XqQEs887s'/*config('bank-api.bank_api.password')*/,
-//                    'returnUrl' => urlencode(url()->current()),
-                    'userName'    => '34543495_api', //config('bank-api.bank_api.login'),
-//                    'jsonParams' => json_encode(['orderNumber' => $order->cart_id]),
-//                    'pageView' => 'DESKTOP'
+                    'amount' => $order->base_grand_total,
+                    'currency' => core()->getBaseCurrency()->code,
+                    'language' => app()->getLocale(),
+                    'orderNumber' => $order->cart_id,
+                    'password'    => config('bank-api.bank_api.password'),
+                    'returnUrl' => urlencode(url()->current()),
+                    'userName'    => config('bank-api.bank_api.login'),
+                    'jsonParams' => json_encode(['orderNumber' => $order->cart_id]),
+                    'pageView' => 'DESKTOP'
                 ];
                 $client = new \GuzzleHttp\Client;
-                $response = $client->get('https://ipay.arca.am/payment/rest/register.do?password=mBxYhy5XqQEs887s&userName=34543495_api');
+                $response = $client->get("https://ipay.arca.am/payment/rest/register.do?".http_build_query($api_data));
                 $body = $response->getBody();
-                dd((string) $body, $api_data /*,$order*/);
+
+                dd((string) $body, $api_data, http_build_query($api_data) /*,$order*/);
             }
         }
 
