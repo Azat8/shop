@@ -220,23 +220,9 @@ class OnepageController extends Controller
                     'pageView' => 'DESKTOP'
                 ];
                 $client = new \GuzzleHttp\Client;
-                $response = $client->post('https://ipay.arca.am/payment/rest/register.do', $api_data);
+                $response = $client->post('https://ipay.arca.am:8445/payment/rest/register.do', $api_data);
                 $body = $response->getBody();
                 dd((string) $body/*, $api_data, $order*/);
-//
-//                $ch = curl_init();
-//
-//                curl_setopt($ch, CURLOPT_URL,"https://ipay.arca.am/payment/rest/register.do");
-//                curl_setopt($ch, CURLOPT_POST, 1);
-//                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($api_data));
-//
-//                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-//
-//                $server_output = curl_exec($ch);
-//                dd($server_output);
-//                curl_close ($ch);
-
-
             }
         }
 
