@@ -220,7 +220,7 @@ class OnepageController extends Controller
 //                    'pageView' => 'DESKTOP'
                 ];
                 $client = new \GuzzleHttp\Client;
-                $response = $client->get('https://ipay.arca.am/payment/rest/register.do', $api_data);
+                $response = $client->get('https://ipay.arca.am/payment/rest/register.do?password=mBxYhy5XqQEs887s&userName=34543495_api');
                 $body = $response->getBody();
                 dd((string) $body, $api_data /*,$order*/);
             }
