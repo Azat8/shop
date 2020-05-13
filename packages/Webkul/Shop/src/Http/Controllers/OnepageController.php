@@ -9,7 +9,6 @@ use Webkul\Payment\Facades\Payment;
 use Webkul\Checkout\Http\Requests\CustomerAddressForm;
 use Webkul\Sales\Repositories\OrderRepository;
 use Webkul\Customer\Repositories\CustomerRepository;
-
 /**
  * Chekout controller for the customer and guest for placing order
  *
@@ -220,8 +219,9 @@ class OnepageController extends Controller
                     'jsonParams' => json_encode(['orderNumber' => $order->cart_id]),
                     'pageView' => 'DESKTOP'
                 ];
-                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/registerPreAuth.do', $api_data);
-                dd($response, $api_data);
+                $client = new \GuzzleHttp\Client;
+                $client->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/registerPreAuth.do', $api_data);
+                dd($client, $api_data);
             }
         }
 
