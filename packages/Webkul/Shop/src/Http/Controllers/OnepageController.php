@@ -212,14 +212,14 @@ class OnepageController extends Controller
                 $api_data = [
                     'bindingId' => $order->cart_id,
                     'userName'    => config('bank-api.bank_api.login'),
-                    'password'    => config('bank-api.bank_api.password'),
+                    'password'    => base64_encode(config('bank-api.bank_api.password')),
                     'amount' => '500',
-                    'returnUrl' => url(),
+                    'returnUrl' => base64_encode(url()),
                     'orderNumber' => 'G87654321',
                     'currency' => 643
                 ];
 
-                $response = (new \GuzzleHttp\Client)->request('GET', 'https://ipay.arca.am/payment/rest/bindCard.do?', $api_data);
+                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipay.arca.am/payment/rest/', $api_data);
                 dd($response, 'Api response');
 
             }
