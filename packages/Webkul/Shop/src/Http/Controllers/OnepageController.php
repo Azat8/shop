@@ -222,8 +222,8 @@ class OnepageController extends Controller
                     'pageView' => 'DESKTOP',
                 ];
                 dd($api_data);
-                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest', $api_data);
-                dd($response);
+//                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest', $api_data);
+//                dd($response);
             }
         }
 
