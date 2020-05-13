@@ -26,48 +26,49 @@
                                     <form data-vv-scope="address-form">
                                         <div class="row no-gutters">
                                         @include('shop::checkout.onepage.customer-info')
+
+                                        <div class="col-12">
+                                            <h4>{{ __('shop::app.checkout.onepage.payment-method') }}</h4>
+                                        </div>
+                                        <div class="col-12">
+                                            <payment-section @onPaymentMethodSelected="paymentMethodSelected($event)"></payment-section>
+                                        </div>
                                     </form>
-                                    <div class="col-12">
-                                        <h4>{{ __('shop::app.checkout.onepage.shipping-method') }}</h4>
-                                    </div>
-                                    <div class="col-12">
-                                        @foreach(\Illuminate\Support\Facades\Config::get('carriers') as $method)
-                                            @php
-                                                $method = new $method['class']();
+{{--                                    <div class="col-12">--}}
+{{--                                        <h4>{{ __('shop::app.checkout.onepage.shipping-method') }}</h4>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="col-12">--}}
+{{--                                        @foreach(\Illuminate\Support\Facades\Config::get('carriers') as $method)--}}
+{{--                                            @php--}}
+{{--                                                $method = new $method['class']();--}}
 
-                                                $method = $method->calculate();
+{{--                                                $method = $method->calculate();--}}
 
-                                            @endphp
-                                            <ul class="delivery_cont">
-                                                <li>
-                                                    <div class="form-check">
-                                                        <input type="radio"
-                                                               class="form-check-input"
-                                                               v-validate="'required'"
-                                                               type="radio"
-                                                               id="{{ $method->method }}"
-                                                               name="shipping_method"
-                                                               data-vv-as="&quot;{{ __('shop::app.checkout.onepage.shipping-method') }}&quot;"
-                                                               value="{{ $method->method }}"
-                                                               v-model="selected_shipping_method"
-                                                               @change="shippingMethodSelected($event)"
-                                                               :disabled="!address_form_validate"
-                                                        >
+{{--                                            @endphp--}}
+{{--                                            <ul class="delivery_cont">--}}
+{{--                                                <li>--}}
+{{--                                                    <div class="form-check">--}}
+{{--                                                        <input type="radio"--}}
+{{--                                                               class="form-check-input"--}}
+{{--                                                               v-validate="'required'"--}}
+{{--                                                               type="radio"--}}
+{{--                                                               id="{{ $method->method }}"--}}
+{{--                                                               name="shipping_method"--}}
+{{--                                                               data-vv-as="&quot;{{ __('shop::app.checkout.onepage.shipping-method') }}&quot;"--}}
+{{--                                                               value="{{ $method->method }}"--}}
+{{--                                                               v-model="selected_shipping_method"--}}
+{{--                                                               @change="shippingMethodSelected($event)"--}}
+{{--                                                               :disabled="!address_form_validate"--}}
+{{--                                                        >--}}
 
-                                                        <label class="form-check-label"
-                                                               for="{{ $method->method }}">{{ $method->method_title }}</label>
-                                                    </div>
-                                                    <p>{{ $method->method_description }}</p>
-                                                </li>
-                                            </ul>
-                                        @endforeach
-                                    </div>
-                                    <div class="col-12">
-                                        <h4>{{ __('shop::app.checkout.onepage.payment-method') }}</h4>
-                                    </div>
-                                    <div class="col-12">
-                                        <payment-section @onPaymentMethodSelected="paymentMethodSelected($event)"></payment-section>
-                                    </div>
+{{--                                                        <label class="form-check-label"--}}
+{{--                                                               for="{{ $method->method }}">{{ $method->method_title }}</label>--}}
+{{--                                                    </div>--}}
+{{--                                                    <p>{{ $method->method_description }}</p>--}}
+{{--                                                </li>--}}
+{{--                                            </ul>--}}
+{{--                                        @endforeach--}}
+{{--                                    </div>--}}
                                 </div>
                             </div>
                             <div class="col-lg-6">
@@ -179,7 +180,7 @@
                         },
                     },
 
-                    selected_shipping_method: "{{ $cart->shipping_method ? $cart->shipping_method : '' }}",
+                    selected_shipping_method: "flatrate_flatrate",
 
                     selected_payment_method: {method: "{{ Webkul\Payment\Facades\Payment::getPaymentMethods()[0]['method'] }}"},
 
@@ -199,7 +200,11 @@
 
                     reviewComponentKey: 0,
 
-                    is_customer_exist: 0
+                    is_customer_exist: 0,
+
+                    updateSummaryPrice: 0,
+
+                    dataShippingKey: 0,
                 }
             },
 
@@ -331,12 +336,12 @@
                         })
                 },
 
-                saveAddress: function (for_shipping) {
+                saveAddress: function (for_shipping, dataShippingKey) {
                     var this_this = this;
 
                     this.disable_button = true;
 
-                    this.$http.post("{{ route('shop.checkout.save-address') }}", {...this.address, for_shipping})
+                    this.$http.post("{{ route('shop.checkout.save-address') }}", {...this.address, for_shipping, dataShippingKey})
                         .then(function (response) {
 
                             this_this.disable_button = false;
@@ -361,11 +366,11 @@
                         })
                 },
 
-                saveShipping: function () {
+                saveShipping: function (dataShippingKey) {
                     var this_this = this;
 
                     this.disable_button = true;
-                    this.$http.post("{{ route('shop.checkout.save-shipping') }}", {'shipping_method': this.selected_shipping_method})
+                    this.$http.post("{{ route('shop.checkout.save-shipping') }}", {'shipping_method': this.selected_shipping_method, 'dataShippingKey': dataShippingKey})
                         .then(function (response) {
                             this_this.disable_button = false;
 
@@ -382,8 +387,14 @@
 
                             this_this.handleErrorResponse(error.response, 'shipping-form')
                         })
+                    console.log("SaveShipping", this);
                 },
 
+                updateSummaryCart: function(event){
+                    // this.address.billing.city = this.dataShippingKey.label;
+                    this.saveAddress(true, this.dataShippingKey);
+                    this.saveShipping(this.dataShippingKey);
+                },
                 savePayment: function () {
                     var this_this = this;
 
@@ -494,7 +505,7 @@
                 return {
                     templateRender: null,
 
-                    selected_shipping_method: '',
+                    selected_shipping_method: 'flatrate_flatrate',
 
                     first_iteration: true,
                 }

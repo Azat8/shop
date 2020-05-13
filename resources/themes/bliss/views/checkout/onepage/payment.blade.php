@@ -1,7 +1,7 @@
 @foreach (Webkul\Payment\Facades\Payment::getPaymentMethods() as $payment)
     <div class="">
         <ul class="delivery_cont">
-            <li>
+            <li class="{{$payment['method']}}">
                 <div class="form-check">
                     <input v-validate="'required'" type="radio" id="{{ $payment['method'] }}" name="payment[method]" value="{{ $payment['method'] }}" v-model="payment.method" @change="methodSelected()" data-vv-as="&quot;{{ __('shop::app.checkout.onepage.payment-method') }}&quot;" :disabled="!$parent.address_form_validate">
 

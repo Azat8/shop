@@ -107,13 +107,19 @@ class OnepageController extends Controller
             return response()->json(['redirect_url' => route('customer.session.index')], 403);
         }
 
-        $data['billing']['address1'] = implode(PHP_EOL, array_filter($data['billing']['address1']));
-        $data['shipping']['address1'] = implode(PHP_EOL, array_filter($data['shipping']['address1']));
-
         if (Cart::hasError() || ! Cart::saveCustomerAddress($data)) {
             return response()->json(['redirect_url' => route('shop.checkout.cart.index')], 403);
         } else {
             $cart = Cart::getCart();
+
+            if(!isset($data['dataShippingKey'])){
+                $data['billing']['address1'] = implode(PHP_EOL, array_filter($data['billing']['address1']));
+                $data['shipping']['address1'] = implode(PHP_EOL, array_filter($data['shipping']['address1']));
+            } else {
+                $shippingData = config('cities')[$data['dataShippingKey']];
+                $data['billing']['address1']  =  $shippingData['label'];
+                $data['shipping']['address1'] =  $shippingData['label'];
+            }
 
             Cart::collectTotals();
 
@@ -139,6 +145,16 @@ class OnepageController extends Controller
 
         if (Cart::hasError() || !$shippingMethod || !Cart::saveShippingMethod($shippingMethod))
             return response()->json(['redirect_url' => route('shop.checkout.cart.index')], 403);
+
+        if(Cart::getCart()->selected_shipping_rate && $dataShippingKey = request()->get('dataShippingKey')){
+
+            $shippingData = config('cities')[$dataShippingKey];
+
+            Cart::getCart()->selected_shipping_rate()->update([
+                'price' => $shippingData['price'],
+                'base_price' => $shippingData['price']
+            ]);
+        }
 
         Cart::collectTotals();
 
@@ -190,7 +206,22 @@ class OnepageController extends Controller
             ]);
         }
 
-        $order = $this->orderRepository->create(Cart::prepareDataForOrder());
+        $order = $this->orderRepository->create($data = Cart::prepareDataForOrder());
+        if(isset($data['payment']['method'])){
+            if($data['payment']['method'] == 'moneytransfer'){
+                $api_data = [
+                    'bindingId' => $order->cart_id,
+                    'returnUrl'   => url()->full(),
+                    'userName'    => config('bank-api.bank_api.login'),
+                    'password'    => config('bank-api.bank_api.password'),
+                    'amount'      => 6000
+                ];
+                $response = (new \GuzzleHttp\Client)->request('POST', config('bank-api.bank_api.url'), $api_data);
+                dd($response);
+
+            }
+        }
+
 
         Cart::deActivateCart();
 

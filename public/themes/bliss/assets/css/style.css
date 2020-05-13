@@ -2436,7 +2436,7 @@ footer ul .footer_navigation a:hover {
 } .header_social a:before {
     display: none;
 } .header_social a:nth-child(1) {
-    background-image: url(/themes/bliss/assets/images/hg/icons/facebook-icon.png); 
+    background-image: url(/themes/bliss/assets/images/hg/icons/facebook-icon.png);
 } .header_social a:nth-child(2) {
     background-image: url(/themes/bliss/assets/images/hg/icons/youtube-icon.png);
 } .header_social a:nth-child(3) {
@@ -2445,7 +2445,7 @@ footer ul .footer_navigation a:hover {
     display: none;
 } .home_slider_container .slick-list {
     height: 60vh;
-} 
+}
 
 @media screen and (min-height: 320px) and (max-width: 768px){
     .mobile-login-register-dropdown button > img {
@@ -2455,3 +2455,12 @@ footer ul .footer_navigation a:hover {
         width:  100%;
     }
 }
+
+.moneytransfer {
+    background-image: url(/themes/bliss/assets/images/hg/card_logos/visa_logo.png), url(/themes/bliss/assets/images/hg/card_logos/mastercard_logo.png);
+    background-repeat: no-repeat;
+    background-size: 10%;
+    background-position-x: 21rem, 24rem;
+    background-position-y: 2rem, 1.5rem;
+}
+

@@ -22,7 +22,7 @@
                                     <input v-validate="'required'" type="radio" id="{{ $rate->method }}" name="shipping_method" data-vv-as="&quot;{{ __('shop::app.checkout.onepage.shipping-method') }}&quot;" value="{{ $rate->method }}" v-model="selected_shipping_method" @change="methodSelected()">
                                     <span class="checkmark"></span>
                                 </label>
-                                {{-- <label class="radio-view" for="{{ $rate->method }}"></label> --}}
+                                 <label class="radio-view" for="{{ $rate->method }}"></label>
                                 <b class="ship-rate method-label">{{ core()->currency($rate->base_price) }}</b>
                             </div>
 

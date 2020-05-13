@@ -28,9 +28,11 @@
 
     <div class="col-lg-8">
         <div class="form-group" :class="[errors.has('address-form.billing[city]') ? 'has-error' : '']">
-
-            <input @change="validateAddressForm" type="text" v-validate="'required'" placeholder="{{ __('shop::app.checkout.onepage.city') }}" class="control form-control user_info" id="billing_city" name="billing[city]" v-model="address.billing.city" data-vv-as="&quot;{{ __('shop::app.checkout.onepage.city') }}&quot;"/>
-
+            <select name="billing[city]" v-validate="'required'" v-model="dataShippingKey" class="form-control" @change="updateSummaryCart($event)">
+                @foreach(config('cities') as $key => $city)
+                    <option value="{{$key}}">{{$city['label']}} - {{$city['price']}} AMD</option>
+                @endforeach
+            </select>
             <span class="control-error" v-if="errors.has('address-form.billing[city]')">
                 @{{ errors.first('address-form.billing[city]') }}
             </span>
