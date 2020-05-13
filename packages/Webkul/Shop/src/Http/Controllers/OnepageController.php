@@ -212,13 +212,16 @@ class OnepageController extends Controller
                 $api_data = [
                     'userName'    => config('bank-api.bank_api.login'),
                     'password'    => md5(config('bank-api.bank_api.password')),
-                    'amount' => '500',
+                    'amount' => 100,
                     'returnUrl' => url(),
                     'orderNumber' => $order->cart_id,
-                    'currency' => 643
+                    'currency' => 643,
+                    'pageView' => 'MOBILE',
+                    'language' => app()->getLocale(),
+                    'jsonParams' => json_encode(['orderNumber' => $order->cart_id])
                 ];
 
-                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/registerPreAuth.do', $api_data);
+                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/register.do', $api_data);
                 dd($response, 'Api response');
 
             }
