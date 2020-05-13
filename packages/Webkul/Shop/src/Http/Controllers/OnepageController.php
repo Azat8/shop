@@ -209,18 +209,20 @@ class OnepageController extends Controller
         $order = $this->orderRepository->create($data = Cart::prepareDataForOrder());
         if(isset($data['payment']['method'])){
             if($data['payment']['method'] == 'moneytransfer'){
+
                 $api_data = [
-                    'userName'    => config('bank-api.bank_api.login'),
-                    'password'    => md5(config('bank-api.bank_api.password')),
                     'amount' => 100,
-                    'returnUrl' => url(),
-                    'orderNumber' => $order->cart_id,
                     'currency' => 643,
-                    'pageView' => 'DESKTOP',
                     'language' => app()->getLocale(),
+                    'orderNumber' => $order->cart_id,
+                    'password'    => md5(config('bank-api.bank_api.password')),
+                    'returnUrl' => urlencode(url()),
+                    'userName'    => config('bank-api.bank_api.login'),
+                    'jsonParams' => json_encode(['orderNumber' => $order->cart_id]),
+                    'pageView' => 'DESKTOP',
                 ];
 
-                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/registerPreAuth.do', $api_data);
+                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/register.do', $api_data);
                 dd($response);
             }
         }
