@@ -221,7 +221,7 @@ class OnepageController extends Controller
                 ];
                 $client = new \GuzzleHttp\Client;
                 $client->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/registerPreAuth.do', $api_data);
-                dd($client, $api_data);
+                dd($client->getBody(), $api_data);
             }
         }
 
