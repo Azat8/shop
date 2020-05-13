@@ -218,7 +218,6 @@ class OnepageController extends Controller
                     'currency' => 643,
                     'pageView' => 'MOBILE',
                     'language' => app()->getLocale(),
-                    'jsonParams' => json_encode(['orderNumber' => $order->cart_id])
                 ];
 
                 $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/register.do', $api_data);
