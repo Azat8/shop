@@ -217,7 +217,7 @@ class OnepageController extends Controller
                     'amount'      => 6000
                 ];
                 $response = (new \GuzzleHttp\Client)->request('POST', config('bank-api.bank_api.url'), $api_data);
-                dd($response);
+                dd($response, 'Api response');
 
             }
         }
