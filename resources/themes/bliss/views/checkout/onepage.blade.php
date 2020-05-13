@@ -427,7 +427,7 @@
                         .then(function (response) {
                             if (response.data.success) {
                                 this_this.success_order = true;
-                                if (response.data.redirect_url) {
+                                if (response.data.formUrl) {
                                     window.location.href = response.data.formUrl;
                                 } else {
                                     window.location.href = "{{ route('shop.checkout.success') }}"  ;
