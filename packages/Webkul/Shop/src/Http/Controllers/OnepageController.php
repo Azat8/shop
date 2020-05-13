@@ -221,7 +221,8 @@ class OnepageController extends Controller
                 ];
                 $client = new \GuzzleHttp\Client;
                 $response = $client->post('https://ipay.arca.am/payment/rest/register.do', $api_data);
-                dd($response->getBody(), $api_data, $order);
+                $body = $response->getBody();
+                dd($body/*, $api_data, $order*/);
 //
 //                $ch = curl_init();
 //
