@@ -210,7 +210,7 @@ class OnepageController extends Controller
         if(isset($data['payment']['method'])){
             if($data['payment']['method'] == 'moneytransfer'){
                 $api_data = [
-                    'userName'    => md5(config('bank-api.bank_api.login')),
+                    'userName'    => config('bank-api.bank_api.login'),
                     'password'    => md5(config('bank-api.bank_api.password')),
                     'amount' => '500',
                     'returnUrl' => url(),
@@ -218,7 +218,7 @@ class OnepageController extends Controller
                     'currency' => 643
                 ];
 
-                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipay.arca.am/payment/rest/', $api_data);
+                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/register.do', $api_data);
                 dd($response, 'Api response');
 
             }
