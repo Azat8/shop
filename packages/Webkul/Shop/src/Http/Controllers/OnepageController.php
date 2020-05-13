@@ -213,7 +213,7 @@ class OnepageController extends Controller
                     'userName'    => config('bank-api.bank_api.login'),
                     'password'    => md5(config('bank-api.bank_api.password')),
                     'amount' => 100,
-                    'returnUrl' => md5(url()),
+                    'returnUrl' => url(),
                     'orderNumber' => $order->cart_id,
                     'currency' => 643,
                     'pageView' => 'MOBILE',
