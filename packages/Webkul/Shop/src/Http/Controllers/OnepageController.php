@@ -216,7 +216,7 @@ class OnepageController extends Controller
                     'returnUrl' => url(),
                     'orderNumber' => $order->cart_id,
                     'currency' => 643,
-                    'pageView' => 'MOBILE',
+                    'pageView' => 'DESKTOP',
                     'language' => app()->getLocale(),
                 ];
 
