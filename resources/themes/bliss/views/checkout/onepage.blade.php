@@ -425,15 +425,15 @@
 
                     this.$http.post("{{ route('shop.checkout.save-order') }}", {'_token': "{{ csrf_token() }}"})
                         .then(function (response) {
-                            console.log(response);
-                            {{--if (response.data.success) {--}}
-                            {{--    this_this.success_order = true;--}}
-                            {{--    if (response.data.formUrl) {--}}
-                            {{--        window.location.href = response.data.formUrl;--}}
-                            {{--    } else {--}}
-                            {{--        window.location.href = "{{ route('shop.checkout.success') }}"  ;--}}
-                            {{--    }--}}
-                            {{--}--}}
+                            if (response.data.success) {
+                                console.log(response.data, response.data.data.formUrl);
+                                this_this.success_order = true;
+                                if (response.data.data.formUrl) {
+                                    window.location.href = response.data.data.formUrl;
+                                } else {
+                                    window.location.href = "{{ route('shop.checkout.success') }}"  ;
+                                }
+                            }
                         })
                         .catch(function (error) {
                             this_this.disable_button = true;
