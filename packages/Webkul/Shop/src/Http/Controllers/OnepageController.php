@@ -226,10 +226,7 @@ class OnepageController extends Controller
                 $body = $response->getBody();
 
                 $dataResponse = json_decode($body, true);
-
-                if(isset($dataResponse['formUrl'])){
-                    return redirect($dataResponse['formUrl']);
-                }
+                return $dataResponse;
             }
         }
 
