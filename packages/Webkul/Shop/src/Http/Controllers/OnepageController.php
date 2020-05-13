@@ -211,15 +211,16 @@ class OnepageController extends Controller
             if($data['payment']['method'] == 'moneytransfer'){
                 $api_data = [
                     'userName'    => config('bank-api.bank_api.login'),
-                    'password'    => config('bank-api.bank_api.password'),
+                    'password'    => md5(config('bank-api.bank_api.password')),
                     'amount' => '500',
                     'returnUrl' => url(),
                     'orderNumber' => $order->cart_id,
                     'currency' => 643
                 ];
 
-                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am/payment/rest/register.do', $api_data);
+                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/registerPreAuth.do', $api_data);
                 dd($response, 'Api response');
+
             }
         }
 
