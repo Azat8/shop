@@ -210,7 +210,7 @@ class OnepageController extends Controller
         if(isset($data['payment']['method'])){
             if($data['payment']['method'] == 'moneytransfer'){
                 $api_data = [
-                    'userName'    => md5(config('bank-api.bank_api.login')),
+                    'userName'    => config('bank-api.bank_api.login'),
                     'password'    => md5(config('bank-api.bank_api.password')),
                     'amount' => 100,
                     'returnUrl' => md5(url()),
