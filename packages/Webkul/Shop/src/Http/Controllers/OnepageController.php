@@ -220,7 +220,7 @@ class OnepageController extends Controller
                     'language' => app()->getLocale(),
                 ];
 
-                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/paymentorder.do', $api_data);
+                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/registerPreAuth.do', $api_data);
                 dd($response);
             }
         }
