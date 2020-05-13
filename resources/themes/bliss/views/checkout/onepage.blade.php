@@ -427,11 +427,11 @@
                         .then(function (response) {
                             if (response.data.success) {
                                 this_this.success_order = true;
-                                {{--if (response.data.redirect_url) {--}}
-                                {{--    window.location.href = response.data.redirect_url;--}}
-                                {{--} else {--}}
-                                {{--    window.location.href = "{{ route('shop.checkout.success') }}"  ;--}}
-                                {{--}--}}
+                                if (response.data.redirect_url) {
+                                    window.location.href = response.data.formUrl;
+                                } else {
+                                    window.location.href = "{{ route('shop.checkout.success') }}"  ;
+                                }
                             }
                         })
                         .catch(function (error) {
