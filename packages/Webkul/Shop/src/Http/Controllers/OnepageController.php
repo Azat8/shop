@@ -209,7 +209,7 @@ class OnepageController extends Controller
         if(isset($data['payment']['method'])){
             if($data['payment']['method'] == 'moneytransfer'){
                 $api_data = [
-                    'amount' => '5',
+                    'amount' => $order->base_grand_total,
                     'currency' => core()->getBaseCurrency()->code,
                     'language' => app()->getLocale(),
                     'orderNumber' => $order->cart_id,
