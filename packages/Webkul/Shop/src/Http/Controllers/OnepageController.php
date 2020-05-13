@@ -220,12 +220,8 @@ class OnepageController extends Controller
                     'pageView' => 'DESKTOP'
                 ];
                 $client = new \GuzzleHttp\Client;
-//                $response = $client->post('https://ipaytest.arca.am:8445/payment/rest/registerPreAuth.do', $api_data);
-//                dd($response, $api_data);
-
-                $request = new \GuzzleHttp\Psr7\Request('POST', 'https://ipaytest.arca.am:8445/payment/rest/registerPreAuth.do', $api_data);
-                $response = $client->send($request, ['timeout' => 2]);
-                dd($response);
+                $response = $client->post('https://ipaytest.arca.am/payment/rest/registerPreAuth.do', $api_data);
+                dd($response, $api_data);
             }
         }
 
