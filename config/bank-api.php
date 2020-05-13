@@ -9,6 +9,6 @@ return [
     'bank_api' => [
         'url' => 'https://ipay.arca.am/payment/rest/',
         'login' => '34543495_api',
-        'password' => 'mBxYhy5XqQEs887s'
+            'password' => 'mBxYhy5XqQEs887s'
     ]
 ];

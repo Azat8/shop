@@ -218,9 +218,8 @@ class OnepageController extends Controller
                     'currency' => 643
                 ];
 
-                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am:8445/payment/rest/register.do', $api_data);
+                $response = (new \GuzzleHttp\Client)->request('POST', 'https://ipaytest.arca.am/payment/rest/register.do', $api_data);
                 dd($response, 'Api response');
-
             }
         }
 
