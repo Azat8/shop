@@ -123,6 +123,9 @@ class OnepageController extends Controller
             Cart::collectTotals();
 
             if ($cart->haveStockableItems()) {
+
+                $this->updateShippingData();
+
                 if (! $rates = Shipping::collectRates())
                     return response()->json(['redirect_url' => route('shop.checkout.cart.index')], 403);
                 else
@@ -145,15 +148,7 @@ class OnepageController extends Controller
         if (Cart::hasError() || !$shippingMethod || !Cart::saveShippingMethod($shippingMethod))
             return response()->json(['redirect_url' => route('shop.checkout.cart.index')], 403);
 
-        if(Cart::getCart()->selected_shipping_rate && $dataShippingKey = request()->get('dataShippingKey')){
-
-            $shippingData = config('cities')[$dataShippingKey];
-
-            $shipping = Cart::getCart()->selected_shipping_rate;
-            $shipping->price      = $shippingData['price'];
-            $shipping->base_price = $shippingData['price'];
-            $shipping->save();
-        }
+        $this->updateShippingData();
 
         Cart::collectTotals();
 
@@ -372,6 +367,19 @@ class OnepageController extends Controller
                     'message' => trans('admin::app.promotion.status.coupon-remove-failed'),
                     'data' => null
                 ], 422);
+        }
+    }
+
+    protected function updateShippingData()
+    {
+        if(Cart::getCart()->selected_shipping_rate && $dataShippingKey = request()->get('dataShippingKey')){
+
+            $shippingData = config('cities')[$dataShippingKey];
+
+            $shipping = Cart::getCart()->selected_shipping_rate;
+            $shipping->price      = $shippingData['price'];
+            $shipping->base_price = $shippingData['price'];
+            $shipping->save();
         }
     }
 }
