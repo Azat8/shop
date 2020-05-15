@@ -196,11 +196,11 @@ class OnepageController extends Controller
         }
 
         $order = $this->orderRepository->create($data = Cart::prepareDataForOrder());
-
+        dd((int)$order->base_grand_total);
         if(isset($data['payment']['method'])){
             if($data['payment']['method'] == 'moneytransfer'){
                 $api_data = [
-                    'amount' => (int) $order->base_grand_total,
+                    'amount' => (int)$order->base_grand_total,
                     'currency' => '051',
                     'language' => app()->getLocale(),
                     'orderNumber' => $order->cart_id,
