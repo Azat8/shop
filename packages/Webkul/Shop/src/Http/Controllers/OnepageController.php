@@ -376,15 +376,7 @@ class OnepageController extends Controller
                 'base_price' => $shippingData['price'],
                 'price'      => $shippingData['price']
             ]);
-
-            config('carriers.express.default_rate', $shippingData['price']);
-            config('carriers.express.price', $shippingData['price']);
-            config('carriers.flatrate.default_rate', $shippingData['price']);
-            config('carriers.flatrate.price', $shippingData['price']);
-            config('carriers.free.default_rate', $shippingData['price']);
-            config('carriers.free.price', $shippingData['price']);
-
-            dd(config('carriers'));
+            dd(\DB::table('cart_shipping_rates')->get());
         }
     }
 }
