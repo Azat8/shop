@@ -105,7 +105,7 @@ class CheckoutController extends Controller
         foreach (Shipping::getGroupedAllShippingRates() as $code => $shippingMethod) {
             $rates[] = [
                 'carrier_title' => $shippingMethod['carrier_title'],
-                'rates' => CartShippingRateResource::collection(collect($shippingMethod['rates']))
+                'rates' => /*CartShippingRateResource::collection(collect($shippingMethod['rates']))*/''
             ];
         }
 
