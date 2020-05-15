@@ -686,6 +686,7 @@ class Cart
 
             $cart->discount_amount += $shipping->discount_amount;
             $cart->base_discount_amount += $shipping->base_discount_amount;
+            dd('debug');
         }
 
         $quantities = 0;

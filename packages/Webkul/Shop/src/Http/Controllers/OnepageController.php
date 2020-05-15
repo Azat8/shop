@@ -153,7 +153,6 @@ class OnepageController extends Controller
                 'price' => $shippingData['price'],
                 'base_price' => $shippingData['price']
             ]);
-            dd(Cart::getCart()->selected_shipping_rate);
         }
 
         Cart::collectTotals();
