@@ -17,7 +17,7 @@
             <p>{{ __('shop::app.checkout.onepage.order-summary') }}:</p>
         </div>
         <div class="col-lg-7">
-            <span id="total">{{ $cart->base_sub_total }}</span>
+            <span id="total">{{ core()->currency($cart->base_sub_total) }}</span>
         </div>
     </div>
     <div class="row no-gutters">
@@ -27,6 +27,7 @@
         <div class="col-lg-7">
         <span id="shipping_price">
             @if ($cart->selected_shipping_rate)
+                {{dd($cart->selected_shipping_rate)}}
                 {{ core()->currency($cart->selected_shipping_rate->base_price) }}
             @else
                 0
@@ -39,7 +40,7 @@
             <p>{{__('app.total_price')}}:</p>
         </div>
         <div class="col-lg-7">
-            <span id="grand_total">{{ $cart->base_grand_total }}</span>
+            <span id="grand_total">{{ core()->currency($cart->base_grand_total) }}</span>
         </div>
     </div>
 
