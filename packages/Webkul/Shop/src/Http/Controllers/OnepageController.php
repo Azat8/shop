@@ -377,11 +377,14 @@ class OnepageController extends Controller
                 'price'      => $shippingData['price']
             ]);
 
-            foreach ($carriers = config('carriers') as $key => $carrier){
-                $carrier['default_rate'] = $shippingData['price'];
-                $carrier['price'] = $shippingData['price'];
-            }
-            dd($carriers);
+            config('carriers.express.default_rate', $shippingData['price']);
+            config('carriers.express.price', $shippingData['price']);
+            config('carriers.flatrate.default_rate', $shippingData['price']);
+            config('carriers.flatrate.price', $shippingData['price']);
+            config('carriers.free.default_rate', $shippingData['price']);
+            config('carriers.free.price', $shippingData['price']);
+
+            dd(config('carriers'));
         }
     }
 }
