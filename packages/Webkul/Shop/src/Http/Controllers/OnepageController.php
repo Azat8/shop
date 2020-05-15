@@ -87,8 +87,6 @@ class OnepageController extends Controller
     {
         $cart = Cart::getCart();
 
-        $this->updateShippingData();
-
         return response()->json([
             'html' => view('shop::checkout.total.summary', compact('cart'))->render()
         ]);
@@ -371,7 +369,9 @@ class OnepageController extends Controller
     protected function updateShippingData()
     {
         if(Cart::getCart()->selected_shipping_rate && $dataShippingKey = request()->get('dataShippingKey')){
+
             $shippingData = config('cities')[$dataShippingKey];
+
             \DB::table('cart_shipping_rates')->update([
                 'base_price' => $shippingData['price'],
                 'price'      => $shippingData['price']

@@ -42,7 +42,7 @@ class Shipping
             }
         }
 
-        $this->saveAllShippingRates();
+//        $this->saveAllShippingRates();
 
         return [
                 'jump_to_section' => 'shipping',
