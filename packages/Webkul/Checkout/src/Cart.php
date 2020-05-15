@@ -928,10 +928,10 @@ class Cart
 
         if ($this->getCart()->haveStockableItems()) {
 
-            if(isset(config('cities')[request()->get('dataShippingKey')]['price'])){
-                $shippingPrice = config('cities')[request()->get('dataShippingKey')]['price'];
-            } else {
-                $shippingPrice = $data['selected_shipping_rate']['base_price'];
+            $shippingPrice = 0;
+
+            if($shipping = request()->get('dataShippingKey')){
+                $shippingPrice = config('cities')[$shipping]['price'];
             }
 
             $finalData = array_merge($finalData, [
