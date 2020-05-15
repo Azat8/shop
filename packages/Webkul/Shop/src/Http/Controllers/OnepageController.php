@@ -376,7 +376,6 @@ class OnepageController extends Controller
                 'base_price' => $shippingData['price'],
                 'price'      => $shippingData['price']
             ]);
-            dd(\DB::table('cart_shipping_rates')->get());
         }
     }
 }
