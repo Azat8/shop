@@ -156,7 +156,7 @@ class OnepageController extends Controller
         }
 
         Cart::collectTotals();
-
+        dd(Cart::getCart());
         return response()->json(Payment::getSupportedPaymentMethods());
     }
 
