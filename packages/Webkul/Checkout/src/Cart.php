@@ -943,14 +943,14 @@ class Cart
             }
 
             $finalData = array_merge($finalData, [
-                'shipping_method'               => $data['selected_shipping_rate']['method'],
-                'shipping_title'                => $data['selected_shipping_rate']['carrier_title'] . ' - ' . $data['selected_shipping_rate']['method_title'],
-                'shipping_description'          => $data['selected_shipping_rate']['method_description'],
+                'shipping_method'               => 'flatrate',
+                'shipping_title'                => 'flatrate',
+                'shipping_description'          => 'Courier Shipping',
                 'shipping_amount'               => $shippingPrice,
                 'base_shipping_amount'          => $shippingPrice,
                 'shipping_address'              => Arr::except($data['shipping_address'], ['id', 'cart_id']),
-                'shipping_discount_amount'      => $data['selected_shipping_rate']['discount_amount'],
-                'base_shipping_discount_amount' => $data['selected_shipping_rate']['base_discount_amount'],
+                'shipping_discount_amount'      => 0,
+                'base_shipping_discount_amount' => 0,
             ]);
         }
 

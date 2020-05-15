@@ -145,8 +145,6 @@ class OnepageController extends Controller
         if (Cart::hasError() || !$shippingMethod || !Cart::saveShippingMethod($shippingMethod))
             return response()->json(['redirect_url' => route('shop.checkout.cart.index')], 403);
 
-        $this->updateShippingData();
-
         Cart::collectTotals();
 
         return response()->json(Payment::getSupportedPaymentMethods());
@@ -363,19 +361,6 @@ class OnepageController extends Controller
                     'message' => trans('admin::app.promotion.status.coupon-remove-failed'),
                     'data' => null
                 ], 422);
-        }
-    }
-
-    protected function updateShippingData()
-    {
-        if(Cart::getCart()->selected_shipping_rate && $dataShippingKey = request()->get('dataShippingKey')){
-
-            $shippingData = config('cities')[$dataShippingKey];
-
-            \DB::table('cart_shipping_rates')->update([
-                'base_price' => $shippingData['price'],
-                'price'      => $shippingData['price']
-            ]);
         }
     }
 }

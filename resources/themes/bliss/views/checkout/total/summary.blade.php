@@ -27,11 +27,7 @@
         </div>
         <div class="col-lg-7">
         <span id="shipping_price">
-            @if ($cart->selected_shipping_rate)
-                {{ core()->currency($cart->selected_shipping_rate->base_price) }}
-            @else
-                0
-            @endif
+            {{ core()->currency(isset(config('cities')[request()->get('dataShippingKey')]['price']) ? config('cities')[request()->get('dataShippingKey')]['price'] : 0) }}
         </span>
         </div>
     </div>

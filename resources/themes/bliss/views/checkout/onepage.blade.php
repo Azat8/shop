@@ -323,7 +323,7 @@
                 getOrderSummary() {
                     var this_this = this;
 
-                    this.$http.get("{{ route('shop.checkout.summary') }}")
+                    this.$http.get("{{ route('shop.checkout.summary') }}"+"?dataShippingKey="+this.dataShippingKey)
                         .then(function (response) {
                             summaryHtml = Vue.compile(response.data.html)
 
