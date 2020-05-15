@@ -87,6 +87,8 @@ class OnepageController extends Controller
     {
         $cart = Cart::getCart();
 
+        $this->updateShippingData();
+
         return response()->json([
             'html' => view('shop::checkout.total.summary', compact('cart'))->render()
         ]);
@@ -109,8 +111,6 @@ class OnepageController extends Controller
             $shippingData = config('cities')[$data['dataShippingKey']];
             $data['billing']['address1']  =  $shippingData['label'];
             $data['shipping']['address1'] =  $shippingData['label'];
-
-            $this->updateShippingData();
         }
 
         if (! auth()->guard('customer')->check() && ! Cart::getCart()->hasGuestCheckoutItems()) {
@@ -371,6 +371,7 @@ class OnepageController extends Controller
 
     protected function updateShippingData()
     {
+        dd(Cart::getCart()->selected_shipping_rate);
         if(Cart::getCart()->selected_shipping_rate && $dataShippingKey = request()->get('dataShippingKey')){
 
             $shippingData = config('cities')[$dataShippingKey];
@@ -379,6 +380,8 @@ class OnepageController extends Controller
             $shipping->price      = $shippingData['price'];
             $shipping->base_price = $shippingData['price'];
             $shipping->save();
+
+            config(['app.timezone' => 'America/Chicago']);
         }
     }
 }
