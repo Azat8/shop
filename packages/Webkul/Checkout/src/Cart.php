@@ -680,18 +680,10 @@ class Cart
         $cart->grand_total = $cart->sub_total + $cart->tax_total + $cart->discount_amount;
         $cart->base_grand_total = $cart->base_sub_total + $cart->base_tax_total - $cart->base_discount_amount;
 
-        if ($shipping = $cart->selected_shipping_rate) {
-            if(isset(config('cities')[request()->get('dataShippingKey')])){
-                $shippingPrice = config('cities')[request()->get('dataShippingKey')]['price'];
-                $cart->grand_total = $cart->grand_total + $shippingPrice;
-                $cart->base_grand_total = $cart->base_grand_total + $shippingPrice;
-            } else {
-                $cart->grand_total = (float)$cart->grand_total + $shipping->price - $shipping->discount_amount;
-                $cart->base_grand_total = (float)$cart->base_grand_total + $shipping->base_price - $shipping->base_discount_amount;
-            }
-
-            $cart->discount_amount += $shipping->discount_amount;
-            $cart->base_discount_amount += $shipping->base_discount_amount;
+        if($shipping = request()->get('dataShippingKey')){
+            $shippingPrice = config('cities')[$shipping]['price'];
+            $cart->grand_total = $cart->grand_total + $shippingPrice;
+            $cart->base_grand_total = $cart->base_grand_total + $shippingPrice;
         }
 
         $quantities = 0;
