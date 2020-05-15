@@ -86,7 +86,7 @@ class OnepageController extends Controller
     public function summary()
     {
         $cart = Cart::getCart();
-        dd(\Webkul\Checkout\Models\CartShippingRate::get());
+        dd(\Webkul\Checkout\Models\CartShippingRate::first());
         return response()->json([
             'html' => view('shop::checkout.total.summary', compact('cart'))->render()
         ]);
