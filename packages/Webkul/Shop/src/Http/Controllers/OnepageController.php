@@ -370,16 +370,12 @@ class OnepageController extends Controller
 
     protected function updateShippingData()
     {
-        if(Cart::getCart()->selected_shipping_rate && $dataShippingKey = request()->get('dataShippingKey')){
-
+        if($dataShippingKey = request()->get('dataShippingKey')){
             $shippingData = config('cities')[$dataShippingKey];
-
-            $shipping = Cart::getCart()->selected_shipping_rate;
-            $shipping->price      = $shippingData['price'];
-            $shipping->base_price = $shippingData['price'];
-            $shipping->save();
-
-            config(['app.timezone' => 'America/Chicago']);
+            \DB::table('cart_shipping_rates')->update([
+                'base_price' => $shippingData['price'],
+                'price'      => $shippingData['price']
+            ]);
         }
     }
 }
