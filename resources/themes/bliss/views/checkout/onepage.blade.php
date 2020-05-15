@@ -423,7 +423,7 @@
                 saveOrder: function () {
                     var this_this = this;
 
-                    this.$http.post("{{ route('shop.checkout.save-order') }}", {'_token': "{{ csrf_token() }}"})
+                    this.$http.post("{{ route('shop.checkout.save-order') }}", {'_token': "{{ csrf_token() }}", 'dataShippingKey': this.dataShippingKey})
                         .then(function (response) {
                             if (response.data.success) {
                                 console.log(response.data, response.data.data.formUrl);
