@@ -156,7 +156,7 @@ class OnepageController extends Controller
         }
 
         Cart::collectTotals();
-        dd(Cart::getCart());
+        dd(Cart::getCart()->selected_shipping_rate);
         return response()->json(Payment::getSupportedPaymentMethods());
     }
 
