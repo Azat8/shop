@@ -149,10 +149,10 @@ class OnepageController extends Controller
 
             $shippingData = config('cities')[$dataShippingKey];
 
-            Cart::getCart()->selected_shipping_rate()->update([
-                'price' => $shippingData['price'],
-                'base_price' => $shippingData['price']
-            ]);
+            $shipping = Cart::getCart()->selected_shipping_rate;
+            $shipping->price = $shippingData['price'];
+            $shipping->base_price = $shippingData['price'];
+            $shipping->save();
         }
 
         Cart::collectTotals();
