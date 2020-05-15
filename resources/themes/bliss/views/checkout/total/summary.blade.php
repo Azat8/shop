@@ -27,7 +27,6 @@
         <div class="col-lg-7">
         <span id="shipping_price">
             @if ($cart->selected_shipping_rate)
-                {{dd($cart->selected_shipping_rate)}}
                 {{ core()->currency($cart->selected_shipping_rate->base_price) }}
             @else
                 0
