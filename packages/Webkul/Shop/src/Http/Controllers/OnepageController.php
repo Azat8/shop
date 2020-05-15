@@ -152,7 +152,7 @@ class OnepageController extends Controller
             Cart::getCart()->selected_shipping_rate()->update([
                 'price' => $shippingData['price'],
                 'base_price' => $shippingData['price']
-            ])->save();
+            ]);
         }
 
         Cart::collectTotals();
