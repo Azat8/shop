@@ -700,7 +700,7 @@ class Cart
 
         $cart->save();
 
-        dd($cart->selected_shipping_rate);
+        dump($cart->selected_shipping_rate);
 
         Event::dispatch('checkout.cart.collect.totals.after', $cart);
     }
