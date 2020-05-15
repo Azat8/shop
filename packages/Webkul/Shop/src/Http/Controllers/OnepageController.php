@@ -109,6 +109,8 @@ class OnepageController extends Controller
             $shippingData = config('cities')[$data['dataShippingKey']];
             $data['billing']['address1']  =  $shippingData['label'];
             $data['shipping']['address1'] =  $shippingData['label'];
+
+            $this->updateShippingData();
         }
 
         if (! auth()->guard('customer')->check() && ! Cart::getCart()->hasGuestCheckoutItems()) {
@@ -123,9 +125,6 @@ class OnepageController extends Controller
             Cart::collectTotals();
 
             if ($cart->haveStockableItems()) {
-
-                $this->updateShippingData();
-
                 if (! $rates = Shipping::collectRates())
                     return response()->json(['redirect_url' => route('shop.checkout.cart.index')], 403);
                 else
