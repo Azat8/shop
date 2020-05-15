@@ -681,8 +681,14 @@ class Cart
         $cart->base_grand_total = $cart->base_sub_total + $cart->base_tax_total - $cart->base_discount_amount;
 
         if ($shipping = $cart->selected_shipping_rate) {
-            $cart->grand_total = (float)$cart->grand_total + $shipping->price - $shipping->discount_amount;
-            $cart->base_grand_total = (float)$cart->base_grand_total + $shipping->base_price - $shipping->base_discount_amount;
+            if(isset(config('cities')[request()->get('dataShippingKey')])){
+                $shippingPrice = config('cities')[request()->get('dataShippingKey')]['price'];
+                $cart->grand_total = $cart->grand_total + $shippingPrice;
+                $cart->base_grand_total = $cart->base_grand_total + $shippingPrice;
+            } else {
+                $cart->grand_total = (float)$cart->grand_total + $shipping->price - $shipping->discount_amount;
+                $cart->base_grand_total = (float)$cart->base_grand_total + $shipping->base_price - $shipping->base_discount_amount;
+            }
 
             $cart->discount_amount += $shipping->discount_amount;
             $cart->base_discount_amount += $shipping->base_discount_amount;
@@ -929,12 +935,19 @@ class Cart
         ];
 
         if ($this->getCart()->haveStockableItems()) {
+
+            if(isset(config('cities')[request()->get('dataShippingKey')]['price'])){
+                $shippingPrice = config('cities')[request()->get('dataShippingKey')]['price'];
+            } else {
+                $shippingPrice = $data['selected_shipping_rate']['base_price'];
+            }
+
             $finalData = array_merge($finalData, [
                 'shipping_method'               => $data['selected_shipping_rate']['method'],
                 'shipping_title'                => $data['selected_shipping_rate']['carrier_title'] . ' - ' . $data['selected_shipping_rate']['method_title'],
                 'shipping_description'          => $data['selected_shipping_rate']['method_description'],
-                'shipping_amount'               => $data['selected_shipping_rate']['price'],
-                'base_shipping_amount'          => $data['selected_shipping_rate']['base_price'],
+                'shipping_amount'               => $shippingPrice,
+                'base_shipping_amount'          => $shippingPrice,
                 'shipping_address'              => Arr::except($data['shipping_address'], ['id', 'cart_id']),
                 'shipping_discount_amount'      => $data['selected_shipping_rate']['discount_amount'],
                 'base_shipping_discount_amount' => $data['selected_shipping_rate']['base_discount_amount'],

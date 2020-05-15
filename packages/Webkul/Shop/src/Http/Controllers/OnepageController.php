@@ -229,7 +229,7 @@ class OnepageController extends Controller
 
         return response()->json([
             'success' => true,
-            'data' => $dataResponse
+            'data' => isset($dataResponse) ? $dataResponse : 'success'
         ]);
     }
 
