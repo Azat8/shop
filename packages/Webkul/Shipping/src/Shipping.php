@@ -28,7 +28,7 @@ class Shipping
         if (! $cart = Cart::getCart())
             return false;
 
-        $this->removeAllShippingRates();
+//        $this->removeAllShippingRates();
 
         foreach (Config::get('carriers') as $shippingMethod) {
             $object = new $shippingMethod['class'];
