@@ -86,7 +86,7 @@ class OnepageController extends Controller
     public function summary()
     {
         $cart = Cart::getCart();
-        dd(\Webkul\Checkout\Models\CartShippingRate::get([
+        dd(\Webkul\Checkout\Models\CartShippingRate::get(
             "id",
             "carrier",
             "carrier_title",
@@ -100,7 +100,7 @@ class OnepageController extends Controller
             "updated_at",
             "discount_amount",
             "base_discount_amount"
-        ]));
+        ));
         return response()->json([
             'html' => view('shop::checkout.total.summary', compact('cart'))->render()
         ]);
