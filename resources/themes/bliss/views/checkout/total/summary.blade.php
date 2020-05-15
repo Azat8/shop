@@ -11,7 +11,6 @@
 {{--        </ul>--}}
 {{--    </div>--}}
 {{--</div>--}}
-{{dump($cart->selected_shipping_rate)}}
 
 <div>
     <div class="row no-gutters">

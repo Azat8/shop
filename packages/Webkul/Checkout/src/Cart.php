@@ -700,8 +700,6 @@ class Cart
 
         $cart->save();
 
-        dump($cart->selected_shipping_rate);
-
         Event::dispatch('checkout.cart.collect.totals.after', $cart);
     }
 

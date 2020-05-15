@@ -189,6 +189,7 @@ class OnepageController extends Controller
     */
     public function saveOrder()
     {
+        dd(Cart::prepareDataForOrder());
         if (Cart::hasError())
             return response()->json(['redirect_url' => route('shop.checkout.cart.index')], 403);
 
