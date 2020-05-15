@@ -376,11 +376,12 @@ class OnepageController extends Controller
                 'base_price' => $shippingData['price'],
                 'price'      => $shippingData['price']
             ]);
-            dd(config('carriers'));
-            config([
-                'carriers.default_rate' => '',
-                'carriers.price'        => ''
-            ]);
+
+            foreach ($carriers = config('carriers') as $key => $carrier){
+                $carrier['default_rate'] = $shippingData['price'];
+                $carrier['price'] = $shippingData['price'];
+            }
+            dd($carriers);
         }
     }
 }
