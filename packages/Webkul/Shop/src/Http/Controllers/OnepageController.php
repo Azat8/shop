@@ -370,11 +370,16 @@ class OnepageController extends Controller
 
     protected function updateShippingData()
     {
-        if($dataShippingKey = request()->get('dataShippingKey')){
+        if(Cart::getCart()->selected_shipping_rate && $dataShippingKey = request()->get('dataShippingKey')){
             $shippingData = config('cities')[$dataShippingKey];
             \DB::table('cart_shipping_rates')->update([
                 'base_price' => $shippingData['price'],
                 'price'      => $shippingData['price']
+            ]);
+            dd(config('carriers'));
+            config([
+                'carriers.default_rate' => '',
+                'carriers.price'        => ''
             ]);
         }
     }

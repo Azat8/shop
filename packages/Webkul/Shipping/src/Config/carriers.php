@@ -18,6 +18,7 @@ return [
         'active' => true,
         'default_rate' => '10',
 //        'type' => 'per_unit',
+        'price' => '0',
         'class' => 'Webkul\Shipping\Carriers\FlatRate'
     ],
 
@@ -27,6 +28,7 @@ return [
         'description' => 'Self pickup',
         'active' => true,
         'default_rate' => '0',
+        'price' => '0',
         'class' => 'Webkul\Shipping\Carriers\Free'
     ]
 ];
