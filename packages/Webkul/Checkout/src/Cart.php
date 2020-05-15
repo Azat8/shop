@@ -699,6 +699,7 @@ class Cart
         $cart->items_qty = $quantities;
 
         $cart->save();
+
         dd($cart->selected_shipping_rate);
 
         Event::dispatch('checkout.cart.collect.totals.after', $cart);
