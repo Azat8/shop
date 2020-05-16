@@ -35,13 +35,23 @@ use Webkul\Core\Repositories\SliderRepository;
 
     /**
      * loads the home page for the storefront
-     * 
-     * @return \Illuminate\View\View 
+     *
+     * @return \Illuminate\View\View
      */
     public function index()
     {
+        if(request('orderId') && request('customerOrderId')){
+
+            $order = \Webkul\Sales\Models\Order::find(base64_decode(request('orderId')));
+
+            if($order){
+                $order->update(['status' => 'completed']);
+                session()->flash('success', 'Գնումը Հաջողությամբ կատարվեց: Գնման հաստատումը կուղարկվի ձեր էլ հասցեին։');
+            }
+        }
+
         $currentChannel = core()->getCurrentChannel();
-        
+
         $sliderData = $this->sliderRepository->findByField('channel_id', $currentChannel->id)->toArray();
 
         return view($this->_config['view'], compact('sliderData'));

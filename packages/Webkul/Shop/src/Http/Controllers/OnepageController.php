@@ -203,11 +203,11 @@ class OnepageController extends Controller
                     'amount' => (int)$order->base_grand_total,
                     'currency' => '051',
                     'language' => app()->getLocale(),
-                    'orderNumber' => $order->cart_id,
+                    'orderNumber' => $order->id,
                     'password'    => config('bank-api.bank_api.password'),
-                    'returnUrl' => /*urlencode(*/url('/')/*)*/,
+                    'returnUrl' => url("/?customerOrderId=".base64_encode($order->id)),
                     'userName'    => config('bank-api.bank_api.login'),
-                    'jsonParams' => json_encode(['orderNumber' => $order->cart_id]),
+                    'jsonParams' => json_encode(['orderNumber' => $order->id]),
                     'pageView' => 'DESKTOP'
                 ];
                 $client = new \GuzzleHttp\Client;
