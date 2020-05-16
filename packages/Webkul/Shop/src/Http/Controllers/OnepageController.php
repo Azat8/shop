@@ -220,7 +220,7 @@ class OnepageController extends Controller
                 $body = $response->getBody();
 
                 $dataResponse = json_decode($body, true);
-
+                dd($dataResponse);
             }
         }
 
