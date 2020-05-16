@@ -184,16 +184,16 @@ class OnepageController extends Controller
 
         Cart::collectTotals();
 
-        $this->validateOrder();
+//        $this->validateOrder();
 
         $cart = Cart::getCart();
 
-        if ($redirectUrl = Payment::getRedirectUrl($cart)) {
-            return response()->json([
-                'success' => true,
-                'redirect_url' => $redirectUrl
-            ]);
-        }
+//        if ($redirectUrl = Payment::getRedirectUrl($cart)) {
+//            return response()->json([
+//                'success' => true,
+//                'redirect_url' => $redirectUrl
+//            ]);
+//        }
 
         $requestData = Cart::prepareDataForOrder();
         $requestData['token'] = base64_encode(rand());
@@ -224,7 +224,7 @@ class OnepageController extends Controller
                 dd($dataResponse);
             }
         }
-
+        dd('deActivateCart');
         Cart::deActivateCart();
 
         session()->flash('order', $order);
