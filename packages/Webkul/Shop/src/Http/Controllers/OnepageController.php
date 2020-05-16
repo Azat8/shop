@@ -213,6 +213,7 @@ class OnepageController extends Controller
                     'jsonParams' => json_encode(['orderNumber' => $order->id]),
                     'pageView' => 'DESKTOP'
                 ];
+                dd($api_data);
                 $client = new \GuzzleHttp\Client;
 
                 $response = $client->get("https://ipay.arca.am/payment/rest/register.do?".http_build_query($api_data));
