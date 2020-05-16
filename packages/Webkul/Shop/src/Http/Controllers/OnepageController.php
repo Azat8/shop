@@ -208,7 +208,7 @@ class OnepageController extends Controller
                     'language' => app()->getLocale(),
                     'orderNumber' => $order->id,
                     'password'    => config('bank-api.bank_api.password'),
-                    'returnUrl' => /*url("/?token=$order->token")*/url("/"),
+                    'returnUrl' => url("/?token=$order->token"),
                     'userName'    => config('bank-api.bank_api.login'),
                     'jsonParams' => json_encode(['orderNumber' => $order->id]),
                     'pageView' => 'DESKTOP'
