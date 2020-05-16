@@ -195,10 +195,10 @@ class OnepageController extends Controller
 //            ]);
 //        }
 
-        $requestData = Cart::prepareDataForOrder();
-        $requestData['token'] = base64_encode(rand());
+        $data = Cart::prepareDataForOrder();
+        $data['token'] = base64_encode(rand());
 
-        $order = $this->orderRepository->create($requestData);
+        $order = $this->orderRepository->create($data);
 
         if(isset($data['payment']['method'])){
             if($data['payment']['method'] == 'moneytransfer'){
@@ -213,7 +213,7 @@ class OnepageController extends Controller
                     'jsonParams' => json_encode(['orderNumber' => $order->id]),
                     'pageView' => 'DESKTOP'
                 ];
-                dd($api_data);
+
                 $client = new \GuzzleHttp\Client;
 
                 $response = $client->get("https://ipay.arca.am/payment/rest/register.do?".http_build_query($api_data));
