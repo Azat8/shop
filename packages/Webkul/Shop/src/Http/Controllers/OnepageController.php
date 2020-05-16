@@ -221,10 +221,9 @@ class OnepageController extends Controller
                 $body = $response->getBody();
 
                 $dataResponse = json_decode($body, true);
-                dd($dataResponse);
             }
         }
-        dd('deActivateCart');
+
         Cart::deActivateCart();
 
         session()->flash('order', $order);
