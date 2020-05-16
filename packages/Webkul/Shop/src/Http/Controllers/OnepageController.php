@@ -205,7 +205,7 @@ class OnepageController extends Controller
                     'language' => app()->getLocale(),
                     'orderNumber' => $order->cart_id,
                     'password'    => config('bank-api.bank_api.password'),
-                    'returnUrl' => urlencode(url()->current()),
+                    'returnUrl' => urlencode(url('/')),
                     'userName'    => config('bank-api.bank_api.login'),
                     'jsonParams' => json_encode(['orderNumber' => $order->cart_id]),
                     'pageView' => 'DESKTOP'
