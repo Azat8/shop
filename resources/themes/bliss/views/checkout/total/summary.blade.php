@@ -18,7 +18,7 @@
             <p>{{ __('shop::app.checkout.onepage.order-summary') }}:</p>
         </div>
         <div class="col-lg-7">
-            <span id="total">{{ core()->currency($cart->base_sub_total) }}</span>
+            <span id="total">{{ core()->currency($cart ? $cart->base_sub_total : 0) }}</span>
         </div>
     </div>
     <div class="row no-gutters">
@@ -36,7 +36,7 @@
             <p>{{__('app.total_price')}}:</p>
         </div>
         <div class="col-lg-7">
-            <span id="grand_total">{{ core()->currency($cart->base_grand_total) }}</span>
+            <span id="grand_total">{{ core()->currency($cart ? $cart->base_grand_total : 0) }}</span>
         </div>
     </div>
 

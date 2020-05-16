@@ -217,25 +217,21 @@ class OnepageController extends Controller
 
                 $response = $client->get("https://ipay.arca.am/payment/rest/register.do?".http_build_query($api_data));
 
-                Cart::deActivateCart();
-
                 $body = $response->getBody();
 
                 $dataResponse = json_decode($body, true);
-                dd($dataResponse);
 
             }
-        } else {
-
-            Cart::deActivateCart();
-
-            session()->flash('order', $order);
-
-            return response()->json([
-                'success' => true,
-                'data' => isset($dataResponse) ? $dataResponse : 'success'
-            ]);
         }
+
+        Cart::deActivateCart();
+
+        session()->flash('order', $order);
+
+        return response()->json([
+            'success' => true,
+            'data' => isset($dataResponse) ? $dataResponse : 'success'
+        ]);
     }
 
     /**
