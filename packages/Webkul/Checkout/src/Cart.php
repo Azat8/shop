@@ -923,7 +923,7 @@ class Cart
             'base_discount_amount'  => $data['base_discount_amount'],
             'billing_address'       => Arr::except($data['billing_address'], ['id', 'cart_id']),
             'payment'               => Arr::except($data['payment'], ['id', 'cart_id']),
-            'channel'               => core()->getCurrentChannel(),
+            'channel'               => core()->getCurrentChannel()
         ];
 
         if ($this->getCart()->haveStockableItems()) {
@@ -942,7 +942,7 @@ class Cart
                 'base_shipping_amount'          => $shippingPrice,
                 'shipping_address'              => Arr::except($data['shipping_address'], ['id', 'cart_id']),
                 'shipping_discount_amount'      => 0,
-                'base_shipping_discount_amount' => 0,
+                'base_shipping_discount_amount' => 0
             ]);
         }
 

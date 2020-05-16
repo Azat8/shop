@@ -195,7 +195,10 @@ class OnepageController extends Controller
             ]);
         }
 
-        $order = $this->orderRepository->create($data = Cart::prepareDataForOrder());
+        $requestData = Cart::prepareDataForOrder();
+        $requestData['token'] = base64_encode(rand());
+
+        $order = $this->orderRepository->create($requestData);
 
         if(isset($data['payment']['method'])){
             if($data['payment']['method'] == 'moneytransfer'){
@@ -205,32 +208,34 @@ class OnepageController extends Controller
                     'language' => app()->getLocale(),
                     'orderNumber' => $order->id,
                     'password'    => config('bank-api.bank_api.password'),
-                    'returnUrl' => url("/?customerOrderId=".base64_encode($order->id)),
+                    'returnUrl' => url("/?token=$order->token"),
                     'userName'    => config('bank-api.bank_api.login'),
                     'jsonParams' => json_encode(['orderNumber' => $order->id]),
                     'pageView' => 'DESKTOP'
                 ];
                 $client = new \GuzzleHttp\Client;
 
-                dd('debug');
                 $response = $client->get("https://ipay.arca.am/payment/rest/register.do?".http_build_query($api_data));
+
+                Cart::deActivateCart();
 
                 $body = $response->getBody();
 
                 $dataResponse = json_decode($body, true);
+                dd($dataResponse);
 
             }
+        } else {
+
+            Cart::deActivateCart();
+
+            session()->flash('order', $order);
+
+            return response()->json([
+                'success' => true,
+                'data' => isset($dataResponse) ? $dataResponse : 'success'
+            ]);
         }
-
-
-        Cart::deActivateCart();
-
-        session()->flash('order', $order);
-
-        return response()->json([
-            'success' => true,
-            'data' => isset($dataResponse) ? $dataResponse : 'success'
-        ]);
     }
 
     /**

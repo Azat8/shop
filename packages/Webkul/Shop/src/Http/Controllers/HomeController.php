@@ -40,9 +40,9 @@ use Webkul\Core\Repositories\SliderRepository;
      */
     public function index()
     {
-        if(request('orderId') && request('customerOrderId')){
+        if(request('orderId') && request('token')){
 
-            $order = \Webkul\Sales\Models\Order::find(base64_decode(request('orderId')));
+            $order = \Webkul\Sales\Models\Order::whereToken(request('token')->first());
 
             if($order){
                 $order->update(['status' => 'completed']);
