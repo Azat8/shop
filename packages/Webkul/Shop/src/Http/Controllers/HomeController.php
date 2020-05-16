@@ -42,7 +42,7 @@ use Webkul\Core\Repositories\SliderRepository;
     {
         if(request('orderId') && request('token')){
 
-            $order = \Webkul\Sales\Models\Order::whereToken(request('token')->first());
+            $order = \Webkul\Sales\Models\Order::whereToken(request('token'))->first();
 
             if($order){
                 $order->update(['status' => 'completed']);

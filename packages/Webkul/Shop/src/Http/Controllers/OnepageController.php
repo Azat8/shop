@@ -184,16 +184,16 @@ class OnepageController extends Controller
 
         Cart::collectTotals();
 
-//        $this->validateOrder();
+        $this->validateOrder();
 
         $cart = Cart::getCart();
 
-//        if ($redirectUrl = Payment::getRedirectUrl($cart)) {
-//            return response()->json([
-//                'success' => true,
-//                'redirect_url' => $redirectUrl
-//            ]);
-//        }
+        if ($redirectUrl = Payment::getRedirectUrl($cart)) {
+            return response()->json([
+                'success' => true,
+                'redirect_url' => $redirectUrl
+            ]);
+        }
 
         $data = Cart::prepareDataForOrder();
         $data['token'] = base64_encode(rand());
