@@ -132,12 +132,12 @@ class OrderDataGrid extends DataGrid
         ]);
     }
 
-//     public function prepareActions() {
-//         $this->addAction([
-//             'title' => 'Order View',
-//             'method' => 'GET', // use GET request only for redirect purposes
-//             'route' => 'admin.sales.orders.view',
-//             'icon' => 'icon eye-icon'
-//         ]);
-//     }
+     public function prepareActions() {
+         $this->addAction([
+             'title' => 'Order View',
+             'method' => 'GET', // use GET request only for redirect purposes
+             'route' => 'admin.sales.orders.view',
+             'icon' => 'icon eye-icon'
+         ]);
+     }
 }
