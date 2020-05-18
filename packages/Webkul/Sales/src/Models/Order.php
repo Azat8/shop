@@ -20,12 +20,12 @@ class Order extends Model implements OrderContract
     ];
 
     protected $statusLabel = [
-        'pending'         => 'Pending',
-        'pending_payment' => 'Pending Payment',
-        'processing'      => 'Processing',
-        'completed'       => 'Completed',
-        'canceled'        => 'Canceled',
-        'closed'          => 'Closed',
+        'pending'         => 'Սպասման մեջ',
+        'pending_payment' => 'Վճարման մեջ',
+        'processing'      => 'Վերամշակման մեջ',
+        'completed'       => 'Վճարված է',
+        'canceled'        => 'Չեղարկված',
+        'closed'          => 'Փակված',
         'fraud'           => 'Fraud',
     ];
 

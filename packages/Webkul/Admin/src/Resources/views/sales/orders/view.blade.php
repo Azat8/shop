@@ -25,23 +25,23 @@
                     </a>
                 @endif
 
-                @if ($order->canInvoice())
-                    <a href="{{ route('admin.sales.invoices.create', $order->id) }}" class="btn btn-lg btn-primary">
-                        {{ __('admin::app.sales.orders.invoice-btn-title') }}
-                    </a>
-                @endif
+{{--                @if ($order->canInvoice())--}}
+{{--                    <a href="{{ route('admin.sales.invoices.create', $order->id) }}" class="btn btn-lg btn-primary">--}}
+{{--                        {{ __('admin::app.sales.orders.invoice-btn-title') }}--}}
+{{--                    </a>--}}
+{{--                @endif--}}
 
-                @if ($order->canRefund())
-                    <a href="{{ route('admin.sales.refunds.create', $order->id) }}" class="btn btn-lg btn-primary">
-                        {{ __('admin::app.sales.orders.refund-btn-title') }}
-                    </a>
-                @endif
+{{--                @if ($order->canRefund())--}}
+{{--                    <a href="{{ route('admin.sales.refunds.create', $order->id) }}" class="btn btn-lg btn-primary">--}}
+{{--                        {{ __('admin::app.sales.orders.refund-btn-title') }}--}}
+{{--                    </a>--}}
+{{--                @endif--}}
 
-                @if ($order->canShip())
-                    <a href="{{ route('admin.sales.shipments.create', $order->id) }}" class="btn btn-lg btn-primary">
-                        {{ __('admin::app.sales.orders.shipment-btn-title') }}
-                    </a>
-                @endif
+{{--                @if ($order->canShip())--}}
+{{--                    <a href="{{ route('admin.sales.shipments.create', $order->id) }}" class="btn btn-lg btn-primary">--}}
+{{--                        {{ __('admin::app.sales.orders.shipment-btn-title') }}--}}
+{{--                    </a>--}}
+{{--                @endif--}}
             </div>
         </div>
 
@@ -82,15 +82,15 @@
                                             </span>
                                         </div>
 
-                                        <div class="row">
-                                            <span class="title">
-                                                {{ __('admin::app.sales.orders.channel') }}
-                                            </span>
+{{--                                        <div class="row">--}}
+{{--                                            <span class="title">--}}
+{{--                                                {{ __('admin::app.sales.orders.channel') }}--}}
+{{--                                            </span>--}}
 
-                                            <span class="value">
-                                                {{ $order->channel_name }}
-                                            </span>
-                                        </div>
+{{--                                            <span class="value">--}}
+{{--                                                {{ $order->channel_name }}--}}
+{{--                                            </span>--}}
+{{--                                        </div>--}}
                                     </div>
                                 </div>
 
@@ -140,17 +140,17 @@
                         <accordian :title="'{{ __('admin::app.sales.orders.address') }}'" :active="true">
                             <div slot="body">
 
-                                <div class="sale-section">
-                                    <div class="secton-title">
-                                        <span>{{ __('admin::app.sales.orders.billing-address') }}</span>
-                                    </div>
+{{--                                <div class="sale-section">--}}
+{{--                                    <div class="secton-title">--}}
+{{--                                        <span>{{ __('admin::app.sales.orders.billing-address') }}</span>--}}
+{{--                                    </div>--}}
 
-                                    <div class="section-content">
+{{--                                    <div class="section-content">--}}
 
-                                        @include ('admin::sales.address', ['address' => $order->billing_address])
+{{--                                        @include ('admin::sales.address', ['address' => $order->billing_address])--}}
 
-                                    </div>
-                                </div>
+{{--                                    </div>--}}
+{{--                                </div>--}}
 
                                 @if ($order->shipping_address)
                                     <div class="sale-section">
@@ -242,13 +242,13 @@
                                                 <th>{{ __('admin::app.sales.orders.SKU') }}</th>
                                                 <th>{{ __('admin::app.sales.orders.product-name') }}</th>
                                                 <th>{{ __('admin::app.sales.orders.price') }}</th>
-                                                {{-- <th>{{ __('admin::app.sales.orders.item-status') }}</th> --}}
-                                                <th>{{ __('admin::app.sales.orders.subtotal') }}</th>
-                                                <th>{{ __('admin::app.sales.orders.tax-percent') }}</th>
-                                                <th>{{ __('admin::app.sales.orders.tax-amount') }}</th>
-                                                @if ($order->base_discount_amount > 0)
-                                                    <th>{{ __('admin::app.sales.orders.discount-amount') }}</th>
-                                                @endif
+                                                 <th>{{ __('admin::app.sales.orders.item-status') }}</th>
+{{--                                                <th>{{ __('admin::app.sales.orders.subtotal') }}</th>--}}
+{{--                                                <th>{{ __('admin::app.sales.orders.tax-percent') }}</th>--}}
+{{--                                                <th>{{ __('admin::app.sales.orders.tax-amount') }}</th>--}}
+{{--                                                @if ($order->base_discount_amount > 0)--}}
+{{--                                                    <th>{{ __('admin::app.sales.orders.discount-amount') }}</th>--}}
+{{--                                                @endif--}}
                                                 <th>{{ __('admin::app.sales.orders.grand-total') }}</th>
                                             </tr>
                                         </thead>
@@ -277,7 +277,7 @@
 
                                                     <td>{{ core()->formatBasePrice($item->base_price) }}</td>
 
-                                                    {{-- <td>
+                                                    <td>
                                                         <span class="qty-row">
                                                             {{ $item->qty_ordered ? __('admin::app.sales.orders.item-ordered', ['qty_ordered' => $item->qty_ordered]) : '' }}
                                                         </span>
@@ -298,16 +298,16 @@
                                                             {{ $item->qty_canceled ? __('admin::app.sales.orders.item-canceled', ['qty_canceled' => $item->qty_canceled]) : '' }}
                                                         </span>
                                                     </td>
- --}}
-                                                    <td>{{ core()->formatBasePrice($item->base_total) }}</td>
 
-                                                    <td>{{ $item->tax_percent }}%</td>
+{{--                                                    <td>{{ core()->formatBasePrice($item->base_total) }}</td>--}}
 
-                                                    <td>{{ core()->formatBasePrice($item->base_tax_amount) }}</td>
+{{--                                                    <td>{{ $item->tax_percent }}%</td>--}}
 
-                                                    @if ($order->base_discount_amount > 0)
-                                                        <td>{{ core()->formatBasePrice($item->base_discount_amount) }}</td>
-                                                    @endif
+{{--                                                    <td>{{ core()->formatBasePrice($item->base_tax_amount) }}</td>--}}
+
+{{--                                                    @if ($order->base_discount_amount > 0)--}}
+{{--                                                        <td>{{ core()->formatBasePrice($item->base_discount_amount) }}</td>--}}
+{{--                                                    @endif--}}
 
                                                     <td>{{ core()->formatBasePrice($item->base_total + $item->base_tax_amount - $item->base_discount_amount) }}</td>
                                                 </tr>
@@ -376,7 +376,7 @@
                                         <td>-</td>
                                         <td>{{ core()->formatBasePrice($order->base_total_due) }}</td>
                                     </tr>
-                                </table> --}}
+                                </table>--}}
 
                             </div>
                         </accordian>
@@ -384,139 +384,139 @@
                     </div>
                 </tab>
 
-                <tab name="{{ __('admin::app.sales.orders.invoices') }}">
+{{--                <tab name="{{ __('admin::app.sales.orders.invoices') }}">--}}
 
-                    <div class="table" style="padding: 20px 0">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>{{ __('admin::app.sales.invoices.id') }}</th>
-                                    <th>{{ __('admin::app.sales.invoices.date') }}</th>
-                                    <th>{{ __('admin::app.sales.invoices.order-id') }}</th>
-                                    <th>{{ __('admin::app.sales.invoices.customer-name') }}</th>
-                                    {{-- <th>{{ __('admin::app.sales.invoices.status') }}</th> --}}
-                                    <th>{{ __('admin::app.sales.invoices.amount') }}</th>
-                                    <th>{{ __('admin::app.sales.invoices.action') }}</th>
-                                </tr>
-                            </thead>
+{{--                    <div class="table" style="padding: 20px 0">--}}
+{{--                        <table>--}}
+{{--                            <thead>--}}
+{{--                                <tr>--}}
+{{--                                    <th>{{ __('admin::app.sales.invoices.id') }}</th>--}}
+{{--                                    <th>{{ __('admin::app.sales.invoices.date') }}</th>--}}
+{{--                                    <th>{{ __('admin::app.sales.invoices.order-id') }}</th>--}}
+{{--                                    <th>{{ __('admin::app.sales.invoices.customer-name') }}</th>--}}
+{{--                                    --}}{{-- <th>{{ __('admin::app.sales.invoices.status') }}</th> --}}
+{{--                                    <th>{{ __('admin::app.sales.invoices.amount') }}</th>--}}
+{{--                                    <th>{{ __('admin::app.sales.invoices.action') }}</th>--}}
+{{--                                </tr>--}}
+{{--                            </thead>--}}
 
-                            <tbody>
+{{--                            <tbody>--}}
 
-                                @foreach ($order->invoices as $invoice)
-                                    <tr>
-                                        <td>#{{ $invoice->id }}</td>
-                                        <td>{{ $invoice->created_at }}</td>
-                                        <td>#{{ $invoice->order->increment_id }}</td>
-                                        <td>{{ $invoice->address->name }}</td>
-                                        {{-- <td>{{ $invoice->status_label }}</td> --}}
-                                        <td>{{ core()->formatBasePrice($invoice->base_grand_total) }}</td>
-                                        <td class="action">
-                                            <a href="{{ route('admin.sales.invoices.view', $invoice->id) }}">
-                                                <i class="icon eye-icon"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
+{{--                                @foreach ($order->invoices as $invoice)--}}
+{{--                                    <tr>--}}
+{{--                                        <td>#{{ $invoice->id }}</td>--}}
+{{--                                        <td>{{ $invoice->created_at }}</td>--}}
+{{--                                        <td>#{{ $invoice->order->increment_id }}</td>--}}
+{{--                                        <td>{{ $invoice->address->name }}</td>--}}
+{{--                                        --}}{{-- <td>{{ $invoice->status_label }}</td> --}}
+{{--                                        <td>{{ core()->formatBasePrice($invoice->base_grand_total) }}</td>--}}
+{{--                                        <td class="action">--}}
+{{--                                            <a href="{{ route('admin.sales.invoices.view', $invoice->id) }}">--}}
+{{--                                                <i class="icon eye-icon"></i>--}}
+{{--                                            </a>--}}
+{{--                                        </td>--}}
+{{--                                    </tr>--}}
+{{--                                @endforeach--}}
 
-                                @if (! $order->invoices->count())
-                                    <tr>
-                                        <td class="empty" colspan="7">{{ __('admin::app.common.no-result-found') }}</td>
-                                    <tr>
-                                @endif
-                        </table>
-                    </div>
+{{--                                @if (! $order->invoices->count())--}}
+{{--                                    <tr>--}}
+{{--                                        <td class="empty" colspan="7">{{ __('admin::app.common.no-result-found') }}</td>--}}
+{{--                                    <tr>--}}
+{{--                                @endif--}}
+{{--                        </table>--}}
+{{--                    </div>--}}
 
-                </tab>
+{{--                </tab>--}}
 
-                @if ($order->shipping_address)
-                    <tab name="{{ __('admin::app.sales.orders.shipments') }}">
+{{--                @if ($order->shipping_address)--}}
+{{--                    <tab name="{{ __('admin::app.sales.orders.shipments') }}">--}}
 
-                        <div class="table" style="padding: 20px 0">
-                            <table>
-                                <thead>
-                                    <tr>
-                                        <th>{{ __('admin::app.sales.shipments.id') }}</th>
-                                        <th>{{ __('admin::app.sales.shipments.date') }}</th>
-                                        <th>{{ __('admin::app.sales.shipments.order-id') }}</th>
-                                        <th>{{ __('admin::app.sales.shipments.order-date') }}</th>
-                                        <th>{{ __('admin::app.sales.shipments.customer-name') }}</th>
-                                        <th>{{ __('admin::app.sales.shipments.total-qty') }}</th>
-                                        <th>{{ __('admin::app.sales.shipments.action') }}</th>
-                                    </tr>
-                                </thead>
+{{--                        <div class="table" style="padding: 20px 0">--}}
+{{--                            <table>--}}
+{{--                                <thead>--}}
+{{--                                    <tr>--}}
+{{--                                        <th>{{ __('admin::app.sales.shipments.id') }}</th>--}}
+{{--                                        <th>{{ __('admin::app.sales.shipments.date') }}</th>--}}
+{{--                                        <th>{{ __('admin::app.sales.shipments.order-id') }}</th>--}}
+{{--                                        <th>{{ __('admin::app.sales.shipments.order-date') }}</th>--}}
+{{--                                        <th>{{ __('admin::app.sales.shipments.customer-name') }}</th>--}}
+{{--                                        <th>{{ __('admin::app.sales.shipments.total-qty') }}</th>--}}
+{{--                                        <th>{{ __('admin::app.sales.shipments.action') }}</th>--}}
+{{--                                    </tr>--}}
+{{--                                </thead>--}}
 
-                                <tbody>
+{{--                                <tbody>--}}
 
-                                    @foreach ($order->shipments as $shipment)
-                                        <tr>
-                                            <td>#{{ $shipment->id }}</td>
-                                            <td>{{ $shipment->created_at }}</td>
-                                            <td>#{{ $shipment->order->id }}</td>
-                                            <td>{{ $shipment->order->created_at }}</td>
-                                            <td>{{ $shipment->address->name }}</td>
-                                            <td>{{ $shipment->total_qty }}</td>
-                                            <td class="action">
-                                                <a href="{{ route('admin.sales.shipments.view', $shipment->id) }}">
-                                                    <i class="icon eye-icon"></i>
-                                                </a>
-                                            </td>
-                                        </tr>
-                                    @endforeach
+{{--                                    @foreach ($order->shipments as $shipment)--}}
+{{--                                        <tr>--}}
+{{--                                            <td>#{{ $shipment->id }}</td>--}}
+{{--                                            <td>{{ $shipment->created_at }}</td>--}}
+{{--                                            <td>#{{ $shipment->order->id }}</td>--}}
+{{--                                            <td>{{ $shipment->order->created_at }}</td>--}}
+{{--                                            <td>{{ $shipment->address->name }}</td>--}}
+{{--                                            <td>{{ $shipment->total_qty }}</td>--}}
+{{--                                            <td class="action">--}}
+{{--                                                <a href="{{ route('admin.sales.shipments.view', $shipment->id) }}">--}}
+{{--                                                    <i class="icon eye-icon"></i>--}}
+{{--                                                </a>--}}
+{{--                                            </td>--}}
+{{--                                        </tr>--}}
+{{--                                    @endforeach--}}
 
-                                    @if (! $order->shipments->count())
-                                        <tr>
-                                            <td class="empty" colspan="7">{{ __('admin::app.common.no-result-found') }}</td>
-                                        <tr>
-                                    @endif
-                            </table>
-                        </div>
+{{--                                    @if (! $order->shipments->count())--}}
+{{--                                        <tr>--}}
+{{--                                            <td class="empty" colspan="7">{{ __('admin::app.common.no-result-found') }}</td>--}}
+{{--                                        <tr>--}}
+{{--                                    @endif--}}
+{{--                            </table>--}}
+{{--                        </div>--}}
 
-                    </tab>
-                @endif
+{{--                    </tab>--}}
+{{--                @endif--}}
 
-                <tab name="{{ __('admin::app.sales.orders.refunds') }}">
+{{--                <tab name="{{ __('admin::app.sales.orders.refunds') }}">--}}
 
-                    <div class="table" style="padding: 20px 0">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>{{ __('admin::app.sales.refunds.id') }}</th>
-                                    <th>{{ __('admin::app.sales.refunds.date') }}</th>
-                                    <th>{{ __('admin::app.sales.refunds.order-id') }}</th>
-                                    <th>{{ __('admin::app.sales.refunds.customer-name') }}</th>
-                                    {{-- <th>{{ __('admin::app.sales.refunds.status') }}</th> --}}
-                                    <th>{{ __('admin::app.sales.refunds.refunded') }}</th>
-                                    <th>{{ __('admin::app.sales.refunds.action') }}</th>
-                                </tr>
-                            </thead>
+{{--                    <div class="table" style="padding: 20px 0">--}}
+{{--                        <table>--}}
+{{--                            <thead>--}}
+{{--                                <tr>--}}
+{{--                                    <th>{{ __('admin::app.sales.refunds.id') }}</th>--}}
+{{--                                    <th>{{ __('admin::app.sales.refunds.date') }}</th>--}}
+{{--                                    <th>{{ __('admin::app.sales.refunds.order-id') }}</th>--}}
+{{--                                    <th>{{ __('admin::app.sales.refunds.customer-name') }}</th>--}}
+{{--                                    --}}{{-- <th>{{ __('admin::app.sales.refunds.status') }}</th> --}}
+{{--                                    <th>{{ __('admin::app.sales.refunds.refunded') }}</th>--}}
+{{--                                    <th>{{ __('admin::app.sales.refunds.action') }}</th>--}}
+{{--                                </tr>--}}
+{{--                            </thead>--}}
 
-                            <tbody>
+{{--                            <tbody>--}}
 
-                                @foreach ($order->refunds as $refund)
-                                    <tr>
-                                        <td>#{{ $refund->id }}</td>
-                                        <td>{{ $refund->created_at }}</td>
-                                        <td>#{{ $refund->order->increment_id }}</td>
-                                        <td>{{ $refund->order->customer_full_name }}</td>
-                                        {{-- <td>{{ __('admin::app.sales.refunds.refunded') }}</td> --}}
-                                        <td>{{ core()->formatBasePrice($refund->base_grand_total) }}</td>
-                                        <td class="action">
-                                            <a href="{{ route('admin.sales.refunds.view', $refund->id) }}">
-                                                <i class="icon eye-icon"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                @endforeach
+{{--                                @foreach ($order->refunds as $refund)--}}
+{{--                                    <tr>--}}
+{{--                                        <td>#{{ $refund->id }}</td>--}}
+{{--                                        <td>{{ $refund->created_at }}</td>--}}
+{{--                                        <td>#{{ $refund->order->increment_id }}</td>--}}
+{{--                                        <td>{{ $refund->order->customer_full_name }}</td>--}}
+{{--                                        --}}{{-- <td>{{ __('admin::app.sales.refunds.refunded') }}</td> --}}
+{{--                                        <td>{{ core()->formatBasePrice($refund->base_grand_total) }}</td>--}}
+{{--                                        <td class="action">--}}
+{{--                                            <a href="{{ route('admin.sales.refunds.view', $refund->id) }}">--}}
+{{--                                                <i class="icon eye-icon"></i>--}}
+{{--                                            </a>--}}
+{{--                                        </td>--}}
+{{--                                    </tr>--}}
+{{--                                @endforeach--}}
 
-                                @if (! $order->refunds->count())
-                                    <tr>
-                                        <td class="empty" colspan="7">{{ __('admin::app.common.no-result-found') }}</td>
-                                    <tr>
-                                @endif
-                        </table>
-                    </div>
+{{--                                @if (! $order->refunds->count())--}}
+{{--                                    <tr>--}}
+{{--                                        <td class="empty" colspan="7">{{ __('admin::app.common.no-result-found') }}</td>--}}
+{{--                                    <tr>--}}
+{{--                                @endif--}}
+{{--                        </table>--}}
+{{--                    </div>--}}
 
-                </tab>
+{{--                </tab>--}}
 
                 {!! view_render_event('sales.order.tabs.after', ['order' => $order]) !!}
             </tabs>

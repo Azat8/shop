@@ -311,7 +311,7 @@ return [
             'info' => 'Information',
             'invoices' => 'Invoices',
             'shipments' => 'Shipments',
-            'order-and-account' => 'Order and Account',
+            'order-and-account' => 'Պատվեր և ինֆորմացիա',
             'order-info' => 'Order Information',
             'order-date' => 'Պատվերի ամսաթիվ',
             'order-status' => 'Վաճառքի կարքավիճակ',
