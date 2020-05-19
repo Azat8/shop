@@ -13,8 +13,8 @@ return [
 
     'flatrate' => [
         'code' => 'flatrate',
-        'title' => 'Courier Shipping',
-        'description' => 'Courier Shipping',
+        'title' => 'Առաքում',
+        'description' => 'Առաքիչի առաքւոմ',
         'active' => true,
         'default_rate' => '10',
 //        'type' => 'per_unit',
