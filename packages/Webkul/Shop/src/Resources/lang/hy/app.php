@@ -451,11 +451,11 @@ return [
             'move-to-wishlist-error' => 'Cannot move item to wishlist, please try again later.',
             'add-config-warning' => 'Please select option before adding to cart.',
             'quantity' => [
-                'quantity' => 'Quantity',
-                'success' => 'Cart Item(s) successfully updated.',
-                'illegal' => 'Quantity cannot be lesser than one.',
-                'inventory_warning' => 'The requested quantity is not available, please try again later.',
-                'error' => 'Cannot update the item(s) at the moment, please try again later.'
+                'quantity' => 'Քանակ',
+                'success' => 'Զամբյուղի ապրանք(ներ)ը թարմացվեցին',
+                'illegal' => 'Քանակը չի կարող մեկից փոքր լինել:',
+                'inventory_warning' => 'Հայցվող քանակն անհասանելի է, խնդրում ենք փորձել ավելի ուշ.',
+                'error' => 'Հնարավոր չէ թարմացնել ապրանք(ներ)ը տվյալ պահին, փորձեք ավելի ուշ:'
             ],
 
             'item' => [
@@ -464,10 +464,10 @@ return [
                 'success-remove' => 'Ապրանքը հեռացվեց զամբյուղից։',
                 'error-add' => 'Ապրանքը չհաջողվեց ավելացնել զամբյուղում։',
             ],
-            'quantity-error' => 'Requested quantity is not available.',
-            'cart-subtotal' => 'Cart Subtotal',
-            'cart-remove-action' => 'Do you really want to do this ?',
-            'partial-cart-update' => 'Only some of the product(s) were updated',
+            'quantity-error' => 'Չթույլատրված քանակ',
+            'cart-subtotal' => 'Զամբյուղի քանակ',
+            'cart-remove-action' => 'Դուք իսկապես ուզում եք դա անել:',
+            'partial-cart-update' => 'Միայն որոշ ապրանքներ թարմացվեցին',
             'link-missing' => ''
         ],
 

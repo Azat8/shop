@@ -459,15 +459,15 @@ return [
             ],
 
             'item' => [
-                'error_remove' => 'No items to remove from the cart.',
-                'success' => 'Item was successfully added to cart.',
-                'success-remove' => 'Item was removed successfully from the cart.',
-                'error-add' => 'Item cannot be added to cart, please try again later.',
+                'error_remove' => 'Нет товаров для удаления из корзины.',
+                'success' => 'Товар был успешно добавлен в корзину.',
+                'success-remove' => 'Товар был успешно удален из корзины.',
+                'error-add' => 'Товар не может быть добавлен в корзину.',
             ],
-            'quantity-error' => 'Requested quantity is not available.',
-            'cart-subtotal' => 'Cart Subtotal',
-            'cart-remove-action' => 'Do you really want to do this ?',
-            'partial-cart-update' => 'Only some of the product(s) were updated',
+            'quantity-error' => 'Запрашиваемое количество недоступно.',
+            'cart-subtotal' => 'Итого по корзине',
+            'cart-remove-action' => 'Вы действительно хотите это сделать?',
+            'partial-cart-update' => 'Только некоторые из продуктов были обновлены',
             'link-missing' => ''
         ],
 
