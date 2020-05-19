@@ -259,7 +259,7 @@
 
                         <a
                             class="fs16 mt15 col-12 remove-decoration"
-                            href="{{ route('shop.home.index') }}">
+                            href="{{ route('products') }}">
 
                             <button type="button" class="theme-btn remove-decoration">
                                 {{ __('shop::app.checkout.cart.continue-shopping') }}
