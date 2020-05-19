@@ -439,7 +439,7 @@ return [
                 'qty_impossible' => 'Cannot add more than one of these products to cart.'
             ],
             'create-error' => 'Encountered some issue while making cart instance.',
-            'title' => 'Shopping Cart',
+            'title' => 'Զամբյուղ',
             'empty' => 'Ձեր Զամբյուղը դատարկ է',
             'update-cart' => 'Թարմացնել զամբյուղը',
             'continue-shopping' => 'Շարունակել գնումներ կատարել',
