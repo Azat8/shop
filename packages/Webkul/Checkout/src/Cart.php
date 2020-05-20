@@ -535,6 +535,7 @@ class Cart
                 $shippingAddress['last_name'] = $this->getCurrentCustomer()->user()->last_name;
                 $shippingAddress['email'] = $this->getCurrentCustomer()->user()->email;
                 $shippingAddress['address1'] = $address['address1'];
+                $shippingAddress['address2'] = $address['address2'];;
                 $shippingAddress['country'] = $address['country'];
                 $shippingAddress['state'] = $address['state'];
                 $shippingAddress['city'] = $address['city'];
@@ -548,9 +549,9 @@ class Cart
                 $this->customerAddressRepository->create($shippingAddress);
             }
         }
-
         if ($billingAddressModel = $cart->billing_address) {
             $this->cartAddressRepository->update($billingAddress, $billingAddressModel->id);
+
 
             if ($cart->haveStockableItems()) {
                 if ($shippingAddressModel = $cart->shipping_address) {

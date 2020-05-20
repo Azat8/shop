@@ -544,10 +544,10 @@ return [
         ],
 
         'success' => [
-            'title' => 'Order successfully placed',
-            'thanks' => 'Thank you for your order!',
-            'order-id-info' => 'Your order id is #:order_id',
-            'info' => 'We will email you, your order details and tracking information'
+            'title' => 'Պատվերը հաջողությամբ տեղադրված է',
+            'thanks' => 'Շնորհակալություն պատվերի համար!',
+            'order-id-info' => 'Ձեր պատվերի ID - ն է #:order_id',
+            'info' => 'Մենք կուղարկենք ձեզ էլ. Փոստին, ձեր պատվերի մանրամասներին և տեղեկություններին հետևելու համար։'
         ]
     ],
 

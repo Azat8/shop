@@ -177,7 +177,7 @@
                         },
 
                         shipping: {
-                            address1: [""]
+                            address1: ["{{config('cities')[0]['label']}}"]
                         }
                     },
 
@@ -238,11 +238,6 @@
                     }
                 }
             },
-
-           beforeMount: function () {
-               this.saveAddress(true, this.dataShippingKey);
-               this.saveShipping(this.dataShippingKey);
-           },
 
             methods: {
                 navigateToStep: function (step) {
@@ -428,6 +423,9 @@
 
                 saveOrder: function () {
                     var this_this = this;
+
+                    this.saveAddress(true, this.dataShippingKey);
+                    this.saveShipping(this.dataShippingKey);
 
                     this.$http.post("{{ route('shop.checkout.save-order') }}", {'_token': "{{ csrf_token() }}", 'dataShippingKey': this.dataShippingKey})
                         .then(function (response) {
