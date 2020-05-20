@@ -124,7 +124,7 @@ class CartController extends Controller
         $cart = Cart::getCart();
 
         return response()->json([
-                'message' => 'Product added to cart successfully.',
+                'message' => __('shop::app.checkout.cart.item.success'),
                 'data' => $cart ? new CartResource($cart) : null
             ]);
     }

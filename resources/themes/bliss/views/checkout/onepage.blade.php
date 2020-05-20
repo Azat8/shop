@@ -169,15 +169,16 @@
 
                     address: {
                         billing: {
-                            address1: [''],
+                            address1: ["{{config('cities')[0]['label']}}"],
+                            address2: [""],
                             state: 'Republic of Armenia',
                             country: 'Armenia',
                             use_for_shipping: true,
                         },
 
                         shipping: {
-                            address1: ['']
-                        },
+                            address1: [""]
+                        }
                     },
 
                     selected_shipping_method: "flatrate_flatrate",
@@ -237,6 +238,11 @@
                     }
                 }
             },
+
+           beforeMount: function () {
+               this.saveAddress(true, this.dataShippingKey);
+               this.saveShipping(this.dataShippingKey);
+           },
 
             methods: {
                 navigateToStep: function (step) {

@@ -105,6 +105,7 @@ class OnepageController extends Controller
         if(!isset($data['dataShippingKey'])){
             $data['billing']['address1'] = implode(PHP_EOL, array_filter($data['billing']['address1']));
             $data['shipping']['address1'] = implode(PHP_EOL, array_filter($data['shipping']['address1']));
+            $data['billing']['address2'] = implode(PHP_EOL, array_filter($data['billing']['address2']));
         } else {
             $shippingData = config('cities')[$data['dataShippingKey']];
             $data['billing']['address1']  =  $shippingData['label'];

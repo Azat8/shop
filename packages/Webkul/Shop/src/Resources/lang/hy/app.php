@@ -321,6 +321,7 @@ return [
                     'individual-refund' => 'Refund #:refund_id',
                     'adjustment-refund' => 'Adjustment Refund',
                     'adjustment-fee' => 'Adjustment Fee',
+                    'flatrate-shipping' => 'Առաքիչի առաքւոմ'
                 ]
             ],
 
@@ -472,7 +473,7 @@ return [
         ],
 
         'onepage' => [
-            'house' => 'Բնակարան',
+            'house' => 'Հասցե բնակարան',
             'title' => 'Վճարում',
             'information' => 'Տեղեկատվություն',
             'shipping' => 'առաքում',

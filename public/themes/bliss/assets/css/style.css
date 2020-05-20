@@ -1393,7 +1393,7 @@ footer ul .footer_navigation a:hover {
     flex: 1.5;
 }
 
-.sign_up_container .sign_up_form .btn_send_form {
+.sign_up_container .sign_up_form .btn_send_form, .next-shipping-btn {
     width: 100%;
     background-color: #007bff;
     color: white;

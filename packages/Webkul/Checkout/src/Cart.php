@@ -496,6 +496,7 @@ class Cart
      */
     public function saveCustomerAddress($data)
     {
+
         if (!$cart = $this->getCart()) {
             return false;
         }
@@ -510,6 +511,7 @@ class Cart
             $billingAddress['last_name'] = $this->getCurrentCustomer()->user()->last_name;
             $billingAddress['email'] = $this->getCurrentCustomer()->user()->email;
             $billingAddress['address1'] = $address['address1'];
+            $billingAddress['address2'] = $address['address2'];
             $billingAddress['country'] = $address['country'];
             $billingAddress['state'] = $address['state'];
             $billingAddress['city'] = $address['city'];
@@ -936,13 +938,13 @@ class Cart
 
             $finalData = array_merge($finalData, [
                 'shipping_method'               => 'flatrate',
-                'shipping_title'                => 'flatrate',
+                'shipping_title'                => __('shop::app.customer.account.order.view.flatrate-shipping'),
                 'shipping_description'          => 'Courier Shipping',
                 'shipping_amount'               => $shippingPrice,
                 'base_shipping_amount'          => $shippingPrice,
                 'shipping_address'              => Arr::except($data['shipping_address'], ['id', 'cart_id']),
                 'shipping_discount_amount'      => 0,
-                'base_shipping_discount_amount' => 0
+                'base_shipping_discount_amount' => 0,
             ]);
         }
 

@@ -15,6 +15,7 @@ class AddColumnTokenOnTableOrders extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             $table->longText('token')->nullable();
+            $table->longText('more_address')->nullable();
         });
     }
 
@@ -27,6 +28,7 @@ class AddColumnTokenOnTableOrders extends Migration
     {
         Schema::table('orders', function (Blueprint $table) {
             $table->dropColumn('token');
+            $table->dropColumn('more_address');
         });
     }
 }

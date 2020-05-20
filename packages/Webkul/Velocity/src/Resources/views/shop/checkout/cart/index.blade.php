@@ -258,7 +258,7 @@
                         </div>
 
                         <a
-                            class="fs16 mt15 col-12 remove-decoration"
+                            class="fs16 mt15 col-12 remove-decoration next-shipping-btn"
                             href="{{ route('products') }}">
 
                             <button type="button" class="theme-btn remove-decoration">
