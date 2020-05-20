@@ -567,7 +567,7 @@ return [
             'payment' => 'Վճարման եղանակ',
             'price' => 'Գին',
             'quantity' => 'Քանակ',
-            'subtotal' => 'Ենթա արժեք',
+            'subtotal' => 'Արժեք',
             'shipping-handling' => 'Առաքում',
             'tax' => 'Tax',
             'discount' => 'Զեղճ',
