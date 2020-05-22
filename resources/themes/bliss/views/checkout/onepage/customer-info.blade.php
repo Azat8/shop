@@ -6,9 +6,9 @@
     <div class="col-lg-6">
         <div class="form-group" :class="[errors.has('address-form.billing[city]') ? 'has-error' : '']">
             <select name="billing[city]"  v-validate="'required'" v-model="dataShippingKey" class="form-control" @change="updateSummaryCart($event)">
-{{--                @foreach(config('cities') as $key => $city)--}}
-{{--                    <option value="{{$key}}">{{$city['locales'][app()->getLocale()]}} - {{$city['price']}} AMD</option>--}}
-{{--                @endforeach--}}
+                @foreach(config('cities') as $key => $city)
+                    <option value="{{$key}}">{{$city['locales'][app()->getLocale()]}} - {{$city['price']}} AMD</option>
+                @endforeach
             </select>
             <span class="control-error" v-if="errors.has('address-form.billing[city]')">
                 @{{ errors.first('address-form.billing[city]') }}
