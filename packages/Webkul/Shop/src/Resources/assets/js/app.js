@@ -17,7 +17,9 @@ require("ez-plus/src/jquery.ez-plus.js");
 
 Vue.use(VeeValidate, {
     dictionary: {
-        ar: { messages: localeMessages.ar }
+        ar: { messages: localeMessages.ar },
+        hy: { messages: localeMessages.hy },
+        ru: { messages: localeMessages.ru }
     },
     events: 'input|change|blur',
 });

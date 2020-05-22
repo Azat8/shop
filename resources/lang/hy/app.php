@@ -24,7 +24,7 @@ return [
     'total' => 'Ընդամենը',
     'go_to_payment' => 'Անցնել վճարման',
     'payment_process' => 'Վճարման գործընթաց',
-    'details' => 'Մանրամասները',
+    'details' => 'Մանրամասներ',
     'home_why_we_choose' => 'Ինչու ենք ընտրում HG արտադրանքը ?',
     'home_section_title_1' => 'ինչ է HG?',
     'home_section_title_2' => 'HG-ն հարվածում է նշանակետին',
