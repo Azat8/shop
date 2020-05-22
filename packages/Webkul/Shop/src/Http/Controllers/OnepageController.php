@@ -108,8 +108,9 @@ class OnepageController extends Controller
             $data['billing']['address2'] = implode(PHP_EOL, array_filter($data['billing']['address2']));
         } else {
             $shippingData = config('cities')[$data['dataShippingKey']];
-            $data['billing']['address1']  =  $shippingData['label'];
-            $data['shipping']['address1'] =  $shippingData['label'];
+
+            $data['billing']['address1']  =  $shippingData['locales'][app()->getLocale()];
+            $data['shipping']['address1'] =  $shippingData['locales'][app()->getLocale()];
         }
 
         if (! auth()->guard('customer')->check() && ! Cart::getCart()->hasGuestCheckoutItems()) {
