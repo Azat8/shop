@@ -1455,14 +1455,14 @@ footer ul .footer_navigation a:hover {
 
 .payment_details .delivery_cont li label {
     color: #203263;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: bold;
 }
 
 .payment_details .delivery_cont li p {
     margin: 0;
     color: #203263;
-    font-size: 16px;
+    font-size: 10px;
 }
 
 .payment_details .delivery_cont .visa_master {
