@@ -2457,10 +2457,9 @@ footer ul .footer_navigation a:hover {
 }
 
 .moneytransfer {
-    background-image: url(/themes/bliss/assets/images/hg/card_logos/visa_logo.png), url(/themes/bliss/assets/images/hg/card_logos/mastercard_logo.png);
+    background-image: url(/themes/bliss/assets/images/hg/card_logos/amex_logo.png), url(/themes/bliss/assets/images/hg/card_logos/arca_logo.png), url(/themes/bliss/assets/images/hg/card_logos/visa_logo.png), url(/themes/bliss/assets/images/hg/card_logos/mastercard_logo.png);
     background-repeat: no-repeat;
     background-size: 10%;
-    background-position-x: 21rem, 24rem;
-    background-position-y: 2rem, 1.5rem;
+    background-position-x: 15rem, 18rem, 21rem, 24rem;
+    background-position-y: 0.4rem, 2rem, 2rem, 0.8rem;
 }
-
