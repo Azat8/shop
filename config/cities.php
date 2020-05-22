@@ -1,7 +1,7 @@
 <?php
 
 return [
-    ['price' => '0', 'locales' => ['hy' => 'Երևան', 'ru' => 'Ереван', 'en' => 'Yerevan']],
+    ['price' => '500', 'locales' => ['hy' => 'Երևան', 'ru' => 'Ереван', 'en' => 'Yerevan']],
     ['price' => '1400', 'locales' => ['hy' => 'Աբովյան', 'ru' => 'Абовян', 'en' => 'Abovyan']],
     ['price' => '9200', 'locales' => ['hy' => 'Ազատան', 'ru' => 'Азатан', 'en' => 'Azatan']],
     ['price' => '2400', 'locales' => ['hy' => 'Ազատավան', 'ru' => 'Азатаван', 'en' => 'Azatavan']],

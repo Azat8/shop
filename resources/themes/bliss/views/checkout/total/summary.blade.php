@@ -36,7 +36,7 @@
             <p>{{__('app.total_price')}}:</p>
         </div>
         <div class="col-lg-7">
-            <span id="grand_total">{{ core()->currency($cart ? $cart->base_grand_total : 0) }}</span>
+            <span id="grand_total">{{ core()->currency($cart ? $cart->base_grand_total : 500) }}</span>
         </div>
     </div>
 

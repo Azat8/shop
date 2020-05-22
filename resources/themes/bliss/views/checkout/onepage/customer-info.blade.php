@@ -30,7 +30,7 @@
     <div class="col-lg-6">
         <div class="form-group" :class="[errors.has('address-form.billing[apartment]') ? 'has-error' : '']">
 
-            <input @change="validateAddressForm" type="text" v-validate="'required'" placeholder="{{ __('shop::app.checkout.onepage.house') }}  " class="control form-control user_info" id="billing_apartment" name="billing[apartment]" v-model="address.billing.address2" data-vv-as="&quot;{{ __('shop::app.checkout.onepage.apartment') }}&quot;"/>
+            <input @change="validateAddressForm" type="text" v-validate="'required'" placeholder="{{ __('shop::app.checkout.onepage.house') }}  " class="control form-control user_info" id="billing_apartment" name="billing[apartment]" v-model="address.billing.address2" data-vv-as="&quot;{{ __('shop::app.checkout.onepage.house') }}&quot;"/>
 
             <span class="control-error" v-if="errors.has('address-form.billing[apartment]')">
                 @{{ errors.first('address-form.billing[apartment]') }}
