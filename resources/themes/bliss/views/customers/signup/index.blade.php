@@ -63,7 +63,7 @@
                     <span class="control-error" v-if="errors.has('city')">@{{ errors.first('city') }}</span>
                 </div>
                 <div class="form-group">
-                    <input type="text" class="form-control index_input" :class="[errors.has('postcode') ? 'has-error' : '']" placeholder="{{ __('shop::app.customer.signup-form.index') }}" name="postcode" v-validate="'required'" value="{{ old('postcode') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.index') }}&quot;">
+                    <input type="text" class="form-control index_input" :class="[errors.has('postcode') ? 'has-error' : '']" placeholder="{{ __('shop::app.customer.signup-form.index') }}" name="postcode" value="{{ old('postcode') }}" data-vv-as="&quot;{{ __('shop::app.customer.signup-form.index') }}&quot;">
                     <span class="control-error" v-if="errors.has('postcode')">@{{ errors.first('postcode') }}</span>
                 </div>
                 <button type="submit" class="btn btn_send_form">

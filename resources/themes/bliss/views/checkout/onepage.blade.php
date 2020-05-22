@@ -169,7 +169,7 @@
 
                     address: {
                         billing: {
-                            address1: ["{{config('cities')[0]['label']}}"],
+                            address1: ["{{config('cities')[0]['locales'][app()->getLocale()]}}"],
                             address2: [""],
                             state: 'Republic of Armenia',
                             country: 'Armenia',
@@ -177,7 +177,7 @@
                         },
 
                         shipping: {
-                            address1: ["{{config('cities')[0]['label']}}"]
+                            address1: ["{{config('cities')[0]['locales'][app()->getLocale()]}}"]
                         }
                     },
 

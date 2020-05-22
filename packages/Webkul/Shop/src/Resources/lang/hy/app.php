@@ -38,7 +38,7 @@ return [
         'profile' => 'Profile',
         'wishlist' => 'Wishlist',
         'cart' => 'Cart',
-        'logout' => 'Դուրսգալ',
+        'logout' => 'Դուրս գալ',
         'search-text' => 'Փնտրել'
     ],
 
