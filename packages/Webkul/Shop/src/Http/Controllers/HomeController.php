@@ -40,14 +40,34 @@ use Webkul\Core\Repositories\SliderRepository;
      */
     public function index()
     {
-        if(request('orderId') && request('token')){
+        if(request('token') && $order_id = request('orderId')){
+            $api_data = [
+                'orderId'     => $order_id,
+                'language'    => app()->getLocale(),
+                'password'    => config('bank-api.bank_api.password'),
+                'userName'    => config('bank-api.bank_api.login'),
+            ];
 
-            $order = \Webkul\Sales\Models\Order::whereToken(request('token'))->first();
+            $client   = new \GuzzleHttp\Client;
+            $request  = $client->get(config('bank-api.bank_api.url').config('bank-api.methods.get_status').http_build_query($api_data));
+            $body     = $request->getBody();
+            $response = json_decode($body, true);
 
-            if($order){
-                $order->update(['status' => 'completed']);
-                session()->flash('success', 'Գնումը Հաջողությամբ կատարվեց: Գնման հաստատումը կուղարկվի ձեր էլ հասցեին։');
-            }
+            if($response['errorCode'] == 0){
+                $order           = \Webkul\Sales\Models\Order::whereToken(request('token'))->first();
+                $responseMessage = config('bank-api.statuses')[$response['orderStatus']][app()->getLocale()];
+
+                if($order){
+                    if($response['orderStatus'] == 2){
+                        $order->update(['status' => 'completed']);
+                        $responseMessage = 'Գնումը Հաջողությամբ կատարվեց: Գնման հաստատումը կուղարկվի ձեր էլ հասցեին։';
+                    } elseif ($response['orderStatus'] == 6 || $response['orderStatus'] == 3) {
+                        $order->update(['status' => 'canceled']);
+                    }
+                }
+            } else {
+              $responseMessage = $response['errorMessage'];
+            } session()->flash('success', $responseMessage);
         }
 
         $currentChannel = core()->getCurrentChannel();

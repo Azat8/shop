@@ -218,7 +218,7 @@ class OnepageController extends Controller
 
                 $client = new \GuzzleHttp\Client;
 
-                $response = $client->get("https://ipay.arca.am/payment/rest/register.do?".http_build_query($api_data));
+                $response = $client->get(config('bank-api.bank_api.url').config('bank-api.methods.order_register').http_build_query($api_data));
 
                 $body = $response->getBody();
 
