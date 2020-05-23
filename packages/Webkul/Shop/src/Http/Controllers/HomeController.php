@@ -48,10 +48,11 @@ use Webkul\Core\Repositories\SliderRepository;
                 'userName'    => config('bank-api.bank_api.login'),
             ];
 
-            $client   = new \GuzzleHttp\Client;
-            $request  = $client->get(config('bank-api.bank_api.url').config('bank-api.methods.get_status').http_build_query($api_data));
-            $body     = $request->getBody();
-            $response = json_decode($body, true);
+            $client         = new \GuzzleHttp\Client;
+            $request        = $client->get(config('bank-api.bank_api.url').config('bank-api.methods.get_status').http_build_query($api_data));
+            $body           = $request->getBody();
+            $response       = json_decode($body, true);
+            $responseStatus = 'error';
 
             if($response['errorCode'] == 0){
                 $order           = \Webkul\Sales\Models\Order::whereToken(request('token'))->first();
@@ -61,13 +62,14 @@ use Webkul\Core\Repositories\SliderRepository;
                     if($response['orderStatus'] == 2){
                         $order->update(['status' => 'completed']);
                         $responseMessage = 'Գնումը Հաջողությամբ կատարվեց: Գնման հաստատումը կուղարկվի ձեր էլ հասցեին։';
+                        $responseStatus = 'success';
                     } elseif ($response['orderStatus'] == 6 || $response['orderStatus'] == 3) {
                         $order->update(['status' => 'canceled']);
                     }
                 }
             } else {
               $responseMessage = $response['errorMessage'];
-            } session()->flash('success', $responseMessage);
+            } session()->flash($responseStatus, $responseMessage);
         }
 
         $currentChannel = core()->getCurrentChannel();
