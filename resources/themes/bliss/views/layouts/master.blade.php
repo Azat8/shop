@@ -12,6 +12,8 @@
     <style>
         main .alert-wrapper .alert-error {
             background-color: #f8d7da!important;
+            color: #721c24;
+            border-color: #f5c6cb;
         }
     </style>
 {{--    <link rel="stylesheet" href="{{ bagisto_asset('css/shop.css') }}">--}}
