@@ -9,7 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="content-language" content="{{ app()->getLocale() }}">
-
+    <style>
+        main .alert-wrapper .alert-error {
+            background-color: #f8d7da!important;
+        }
+    </style>
 {{--    <link rel="stylesheet" href="{{ bagisto_asset('css/shop.css') }}">--}}
 {{--    <link rel="stylesheet" href="{{ asset('vendor/webkul/ui/assets/themes/bliss/assets/css/ui.css') }}">--}}
 
