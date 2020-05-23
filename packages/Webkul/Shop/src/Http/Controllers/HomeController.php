@@ -52,7 +52,7 @@ use Webkul\Core\Repositories\SliderRepository;
             $request        = $client->get(config('bank-api.bank_api.url').config('bank-api.methods.get_status').http_build_query($api_data));
             $body           = $request->getBody();
             $response       = json_decode($body, true);
-            $responseStatus = 'warning';
+            $responseStatus = 'error';
 
             if($response['errorCode'] == 0){
                 $order           = \Webkul\Sales\Models\Order::whereToken(request('token'))->first();
