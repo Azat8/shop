@@ -2462,6 +2462,6 @@ footer ul .footer_navigation a:hover {
     background-size: 10%;
     background-position-x: 24rem, 18rem, 21rem, 15rem;
     background-position-y: 0.4rem, 2rem, 2rem, 0.8rem;
-}.alert-wrapper .alert-error {
+} main .alert-wrapper .alert-error {
     background-color: #f8d7da!important;
 }
