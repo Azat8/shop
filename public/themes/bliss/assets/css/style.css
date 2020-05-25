@@ -570,7 +570,7 @@ main .mobile_social {
     color: #203263;
     font-weight: bold;
     font-size: 24px;
-    max-height: 53px;
+    /*max-height: 53px;*/
     overflow: hidden;
 }
 
