@@ -571,7 +571,7 @@ main .mobile_social {
     font-weight: bold;
     font-size: 24px;
     /*max-height: 53px;*/
-    overflow: hidden;
+    overflow:86 hidden;
 }
 
 .home_advantage_hg .home_advantage_hg_row .home_advantage_hg_row_text p {
