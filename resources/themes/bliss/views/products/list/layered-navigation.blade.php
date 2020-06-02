@@ -104,7 +104,7 @@
                         <ul class="production_name_list">
                             @foreach($categories as $category)
                                 <li>
-                                    <a href="/{{ $category->slug }}">{{ $category->name }}</a>
+                                    <a href="/{{ $category->slug }}?limit=">{{ $category->name }}</a>
                                 </li>
                             @endforeach
                         </ul>
