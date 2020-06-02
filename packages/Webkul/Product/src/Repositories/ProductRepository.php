@@ -199,13 +199,7 @@ class ProductRepository extends Repository
                 });
 
                 return $qb->groupBy('product_flat.id');
-            });
-
-        if(isset($params['all'])){
-            $results = $results->get();
-        } else {
-            $results = $results->paginate(isset($params['limit']) ? $params['limit'] : 9);
-        }
+            })->paginate(isset($params['limit']) ? $params['limit'] : 9);
 
         return $results;
     }
