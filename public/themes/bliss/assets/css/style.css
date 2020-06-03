@@ -2463,3 +2463,33 @@ footer ul .footer_navigation a:hover {
     background-position-x: 24rem, 18rem, 21rem, 15rem;
     background-position-y: 0.4rem, 2rem, 2rem, 0.8rem;
 }
+
+
+.pagination {
+    width: 100%;
+}
+
+.pagination {
+    display: flex;
+    padding-left: 0;
+    list-style: none;
+    border-radius: .25rem;
+}
+
+.pagination li {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    margin-left: -1px;
+    line-height: 1.25;
+    color: #007bff;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+}
+
+.pagination .active {
+    z-index: 1;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}

@@ -17,25 +17,25 @@
 
         <div class="category-container">
 
-            @if (in_array($category->display_mode, [null, 'products_only', 'products_and_description']))
+        @if (in_array($category->display_mode, [null, 'products_only', 'products_and_description']))
                 @include ('shop::products.list.layered-navigation')
             @endif
 
-            <div class="category-block" @if ($category->display_mode == 'description_only') style="width: 100%" @endif>
+                <div class="category-block" @if ($category->display_mode == 'description_only') style="width: 100%" @endif>
                 <div class="hero-image mb-35">
-                    @if (!is_null($category->image))
+                @if (!is_null($category->image))
                         <img class="logo" src="{{ $category->image_url }}" />
                     @endif
                 </div>
                 @if (in_array($category->display_mode, [null, 'description_only', 'products_and_description']))
-                    @if ($category->description)
+                @if ($category->description)
                         <div class="category-description">
                             {!! $category->description !!}
                         </div>
                     @endif
                 @endif
 
-                @if (in_array($category->display_mode, [null, 'products_only', 'products_and_description']))
+            @if (in_array($category->display_mode, [null, 'products_only', 'products_and_description']))
                     <?php $products = $productRepository->getAll($category->id); ?>
 
                     @if ($products->count())
