@@ -103,7 +103,7 @@
                     <div class="col-lg-3">
                         <ul class="production_name_list">
                             @foreach($categories as $category)
-                                <li>
+                                <li class="{{request()->segment(1) == $category->slug ? 'production_name_list_active' : ''}}">
                                     <a href="/{{ $category->slug }}">{{ $category->name }}</a>
                                 </li>
                             @endforeach
