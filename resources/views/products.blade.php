@@ -80,7 +80,7 @@
                         <ul class="production_name_list">
                             @foreach($categories as $category)
                                 <li>
-                                    <a href="/{{ $category->slug }}?limit=">{{ $category->name }}</a>
+                                    <a href="/{{ $category->slug }}">{{ $category->name }}</a>
                                 </li>
                             @endforeach
                         </ul>
@@ -115,7 +115,7 @@
                                     @endforeach
                                 </div>
                                 <div class="show_more_production">
-                                    <a href="/{{ $category->slug }}?limit=" class="show_more_production_icon"
+                                    <a href="/{{ $category->slug }}" class="show_more_production_icon"
                                        style="background-image: url('/themes/bliss/assets/images/hg/icons/moreArrow.png')">
                                     </a>
                                 </div>
