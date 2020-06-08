@@ -56,6 +56,9 @@
     }
 
     $productRepository = app('Webkul\Product\Repositories\ProductRepository');
+
+    $category_name = '';
+
 @endphp
 
 @section('page_title')
@@ -104,7 +107,6 @@
                         <ul class="production_name_list">
                             @foreach($categories as $category)
                                 @php
-                                    $category_name = '';
                                     $condition     = request()->segment(1) == $category->slug;
 
                                     if($condition){
