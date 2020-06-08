@@ -475,6 +475,9 @@ class Core
         }
 
         $formater = new \NumberFormatter(app()->getLocale(), \NumberFormatter::CURRENCY);
+
+        $formater->setAttribute(\NumberFormatter::FRACTION_DIGITS, 0);
+
         $symbol = $this->getCurrentCurrency()->symbol;
 
         if ($symbol) {
