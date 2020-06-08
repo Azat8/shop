@@ -104,7 +104,11 @@
                         <ul class="production_name_list">
                             @foreach($categories as $category)
                                 <li class="{{request()->segment(1) == $category->slug ? 'production_name_list_active' : ''}}">
-                                    <a href="/{{ $category->slug }}">{{ $category->name }}</a>
+                                    <a href="/{{ $category->slug }}">
+                                        @section('category_title')
+                                            {{ $category->name }}
+                                        @show
+                                    </a>
                                 </li>
                             @endforeach
                         </ul>
@@ -112,7 +116,7 @@
                     <div class="col-lg-9">
 
                             <div class="production_category">
-                                <h1>{{ $category->name }}</h1>
+                                <h1>@yield('category_title')</h1>
 
                                 <div class="production_category_row">
                                     @foreach($products as $key => $product)
