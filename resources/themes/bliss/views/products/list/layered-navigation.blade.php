@@ -105,9 +105,7 @@
                             @foreach($categories as $category)
                                 <li class="{{request()->segment(1) == $category->slug ? 'production_name_list_active' : ''}}">
                                     <a href="/{{ $category->slug }}">
-                                        @section('category_title')
-                                            {{ $category->name }}
-                                        @show
+                                        {{ $category->name }}
                                     </a>
                                 </li>
                             @endforeach
@@ -116,7 +114,7 @@
                     <div class="col-lg-9">
 
                             <div class="production_category">
-                                <h1>@yield('category_title')</h1>
+                                <h1>{{ $category->name }}</h1>
 
                                 <div class="production_category_row">
                                     @foreach($products as $key => $product)
