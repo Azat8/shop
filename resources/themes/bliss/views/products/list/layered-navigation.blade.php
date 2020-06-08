@@ -50,7 +50,7 @@
 
     $categories = [];
 
-    foreach (app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree(core()->getCurrentChannel()->root_category_id) as $category) {
+    foreach ($model_category = app('Webkul\Category\Repositories\CategoryRepository')->getVisibleCategoryTree(core()->getCurrentChannel()->root_category_id) as $category) {
         if ($category->slug)
             array_push($categories, $category);
     }
@@ -103,7 +103,15 @@
                     <div class="col-lg-3">
                         <ul class="production_name_list">
                             @foreach($categories as $category)
-                                <li class="{{request()->segment(1) == $category->slug ? 'production_name_list_active' : ''}}">
+                                @php
+                                    $category_name = '';
+                                    $condition     = request()->segment(1) == $category->slug;
+
+                                    if($condition){
+                                        $category_name = $category->name;
+                                    }
+                                @endphp
+                                <li class="{{$condition ? 'production_name_list_active' : ''}}">
                                     <a href="/{{ $category->slug }}">
                                         {{ $category->name }}
                                     </a>
@@ -112,9 +120,8 @@
                         </ul>
                     </div>
                     <div class="col-lg-9">
-
                             <div class="production_category">
-                                <h1>{{ $category->name }}</h1>
+                                <h1>{{ $category_name }}</h1>
 
                                 <div class="production_category_row">
                                     @foreach($products as $key => $product)
@@ -150,5 +157,6 @@
             </div>
         </div>
     </main>
+
     {{ view_render_event('bagisto.shop.home.content.after') }}
 @endsection
