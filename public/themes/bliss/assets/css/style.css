@@ -451,6 +451,8 @@ main .mobile_social {
     text-align: center;
 } html:lang(ru) .main_header .header_navigation li a {
     padding: 25px 77px!important;
+} html:lang(en) .main_header .header_navigation li a {
+    padding: 25px 94px;!important;
 }
 
 
