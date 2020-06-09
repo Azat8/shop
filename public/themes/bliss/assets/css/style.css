@@ -849,11 +849,15 @@ footer ul .footer_navigation a:hover {
     justify-content: space-between;
     margin: 0;
     padding: 0 15px;
+    bottom: 0;
+    position: absolute;
 }
 
 .production_category_row_item > ul > li {
     display: flex;
     align-items: center;
+} .production_category_row_item {
+    position: relative
 }
 
 .production_category_row_item > ul > li > span {
