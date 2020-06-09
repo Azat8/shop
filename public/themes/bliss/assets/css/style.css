@@ -2492,4 +2492,6 @@ footer ul .footer_navigation a:hover {
     color: #fff;
     background-color: #007bff;
     border-color: #007bff;
+} .footer_navigation a {
+    text-transform: uppercase!important;
 }

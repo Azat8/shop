@@ -97,7 +97,7 @@
                 <ul class="header_navigation">
                     <li><a href="{{url('page/about-us')}}">{{ __('app.about_company') }}</a></li>
                     <li><a href="{{url('/products')}}">{{ __('app.products') }}</a></li>
-                    <li><a href="{{url('matrix')}}">{{ __('app.matrix') }}</a></li>
+{{--                    <li><a href="{{url('matrix')}}">{{ __('app.matrix') }}</a></li>--}}
                     {{-- <li><a href="javascript:;">Советы</a></li> --}}
                     <li><a href="{{url('page/payment-delivery')}}">{{ __('app.payment_delivery') }}</a></li>
                     <li><a href="{{url('page/contact-us')}}">{{ __('app.contact') }}</a></li>
@@ -149,7 +149,7 @@
                 <li class="footer_navigation">
                     <a href="{{url('page/about-us')}}">{{ __('app.about_company') }}</a>
                     <a href="{{url('products')}}">{{ __('app.products') }}</a>
-                    <a href="{{route('matrix')}}">{{ __('app.matrix') }}</a>
+{{--                    <a href="{{route('matrix')}}">{{ __('app.matrix') }}</a>--}}
                     {{-- <a href="javascript:;">Советы</a> --}}
                     <a href="{{url('page/payment-delivery')}}">{{ __('app.payment_delivery') }}</a>
                     <a href="{{url('page/contact-us')}}">{{ __('app.contact') }}</a>
@@ -195,7 +195,7 @@
     <ul class="mobile_menu">
         <li><a href="{{url('page/about-us')}}">{{ __('app.about_company') }}</a></li>
         <li><a href="{{url('products')}}">{{ __('app.products') }}</a></li>
-        <li><a href="{{route('matrix')}}">{{ __('app.matrix') }}</a></li>
+{{--        <li><a href="{{route('matrix')}}">{{ __('app.matrix') }}</a></li>--}}
         <li><a href="{{url('page/payment-delivery')}}">{{ __('app.payment_delivery') }}</a></li>
         <li><a href="{{url('page/contact-us')}}">{{ __('app.contact') }}</a></li>
     </ul>
