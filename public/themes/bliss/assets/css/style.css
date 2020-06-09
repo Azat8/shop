@@ -452,7 +452,7 @@ main .mobile_social {
 } html:lang(ru) .main_header .header_navigation li a {
     padding: 25px 77px!important;
 } html:lang(en) .main_header .header_navigation li a {
-    padding: 25px 94px;!important;
+    padding: 25px 94px!important;
 }
 
 
