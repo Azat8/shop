@@ -449,8 +449,8 @@ main .mobile_social {
     font-size: 17px;
     font-weight: bold;
     text-align: center;
-} html:lang(ru) > .main_header .header_navigation li a {
-  padding: 25px 77px;
+} html:lang(ru) .main_header .header_navigation li a {
+    padding: 25px 77px!important;
 }
 
 
