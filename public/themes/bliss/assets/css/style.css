@@ -841,6 +841,7 @@ footer ul .footer_navigation a:hover {
     font-size: 18px;
     text-align: center;
     padding: 10px 5px 0 5px;
+    margin-bottom: 5rem;
 }
 
 .production_category_row_item > ul {
@@ -851,6 +852,7 @@ footer ul .footer_navigation a:hover {
     padding: 0 15px;
     bottom: 0;
     position: absolute;
+    width: 100%;
 }
 
 .production_category_row_item > ul > li {
