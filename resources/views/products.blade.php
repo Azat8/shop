@@ -94,23 +94,23 @@
                                     @foreach($products as $key => $product)
                                         @if($key < 2)
                                             @php($productBaseImage = $productImageHelper->getProductBaseImage($product))
-                                            <div class="production_category_row_item">
-                                                <a href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
-                                                   style="position:relative; background-image: url({{$productBaseImage['medium_image_url']}})">
-                                                    <div class="overlay overlay-{{$product->getTypeInstance()->haveSpecialPrice() ? 'sale' : ($product->new ? 'new' : '')}}"></div>
-                                                   </a>
-                                                <p>{{ $product->name }}</p>
-                                                <ul>
-                                                    <li>
-                                                        <span>{!! $product->getTypeInstance()->getPriceHtml() !!}</span>
-{{--                                                        <i class="production_price"--}}
-{{--                                                           style="background-image: url('/themes/bliss/assets/images/hg/icons/geldark.png')"></i>--}}
-                                                    </li>
-                                                    <li>
-                                                        <basket product_id="{{ $product->product_id }}"></basket>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                                <div class="production_category_row_item">
+                                                    <a href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
+                                                       style="position:relative; background-image: url({{$productBaseImage['medium_image_url']}})">
+                                                        <div class="overlay overlay-{{$product->getTypeInstance()->haveSpecialPrice() ? 'sale' : ($product->new ? 'new' : '')}}"></div>
+                                                    </a>
+                                                    <p>{{ $product->name }}</p>
+                                                    <ul>
+                                                        <li>
+                                                            <span>{!! $product->getTypeInstance()->getPriceHtml() !!}</span>
+                                                            {{--                                                        <i class="production_price"--}}
+                                                            {{--                                                           style="background-image: url('/themes/bliss/assets/images/hg/icons/geldark.png')"></i>--}}
+                                                        </li>
+                                                        <li>
+                                                            <basket product_id="{{ $product->product_id }}"></basket>
+                                                        </li>
+                                                    </ul>
+                                                </div>
                                         @endif
                                     @endforeach
                                 </div>
