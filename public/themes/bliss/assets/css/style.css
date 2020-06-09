@@ -825,6 +825,7 @@ footer ul .footer_navigation a:hover {
 
 .production_category > .production_category_row .production_category_row_item:not(:last-child) {
     margin-right: 10px;
+    padding-top: 2rem;
 }
 
 .production_category_row_item > a {
@@ -841,7 +842,7 @@ footer ul .footer_navigation a:hover {
     font-size: 18px;
     text-align: center;
     padding: 10px 20px 0 20px;
-    margin-bottom: 6rem;
+    margin-bottom: 4rem;
     margin-top: 4rem;
 }
 
