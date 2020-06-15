@@ -70,7 +70,7 @@
                 <div class="main_header">
                 <div class="header_top">
                     <div class="header_top_logo">
-                        <a href="/" style="background-image: url(/storage/{{core()->getCurrentChannel()->logo}})">
+                        <a href="/" style="background-image: url({{asset('themes/bliss/assets/images/hg/hg_logo_'.app()->getLocale().'.png')}})">
 
                         </a>
                     </div>
