@@ -70,8 +70,8 @@
                 <div class="main_header">
                 <div class="header_top">
                     <div class="header_top_logo">
-                        <a href="/" style="background-image: url({{asset('themes/bliss/assets/images/hg/hg_logo_'.app()->getLocale().'.png')}})">
-
+                        <a href="/" {{--style="background-image: url({{asset('themes/bliss/assets/images/hg/hg_logo_'.app()->getLocale().'.png')}})"--}}>
+                            <img src="{{asset('themes/bliss/assets/images/hg/hg_logo_'.app()->getLocale().'.png')}}" alt="">
                         </a>
                     </div>
                     <div class="header_top_search">
@@ -112,7 +112,9 @@
                         <a href="javascript:;" class="burger_menu"
                            style="background-image: url('/themes/bliss/assets/images/hg/icons/menu_icon.png')"></a>
                     </div>
-                    <a href="/" class="mobile_logo" style="background-image: url(/storage/{{core()->getCurrentChannel()->logo}})"></a>
+                    <a href="/" class="mobile_logo">
+                        <img src="{{asset('themes/bliss/assets/images/hg/hg_logo_'.app()->getLocale().'.png')}}" alt="">
+                    </a>
                     <ul class="right_side">
                         <li>
                             @include('shop::partials.login-register-dropdown', ['class' => 'mobile mobile-login-register-dropdown'])

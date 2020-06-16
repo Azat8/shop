@@ -115,9 +115,11 @@ main {
     width: 30px;
 }
 
-.mobile_header .mobile_header_container .mobile_logo {
-    width: 158px;
-    height: 30px;
+.mobile_header .mobile_header_container .mobile_logo img {
+    width: 17%;
+    position: absolute;
+    left: 40%;
+    top: 0;
 }
 
 .mobile_header .mobile_header_container .right_side {
@@ -423,7 +425,7 @@ main .mobile_social {
     align-items: center;
     justify-content: space-between;
     width: 100%;
-    background-color: #1884C7;
+    background-color: #ffffff;
     padding: 0;
 }
 
@@ -435,7 +437,7 @@ main .mobile_social {
 }
 
 .main_header .header_navigation li:not(:last-child) {
-    border-right: 3px solid white;
+    border-right: 3px solid #ededeb;
 }
 
 .main_header .header_navigation li a {
@@ -444,7 +446,7 @@ main .mobile_social {
     text-transform: uppercase;
     height: 100%;
     width: 100%;
-    color: white;
+    color: #1884C7;
     padding: 25px 83px;
     font-size: 17px;
     font-weight: bold;
@@ -2507,4 +2509,8 @@ footer ul .footer_navigation a:hover {
     border-color: #007bff;
 } .footer_navigation a {
     text-transform: uppercase!important;
+} .header_top_logo img {
+    width: 10%;
+    position: absolute;
+    top: 0;
 }
