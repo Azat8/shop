@@ -219,8 +219,8 @@ main .mobile_social {
 }
 
 .header_social .social a {
-    width: 50px;
-    height: 50px;
+    width: 33px;
+    height: 30px;
 }
 
 .header_social .social a:not(:first-child) {
@@ -2513,6 +2513,4 @@ footer ul .footer_navigation a:hover {
     width: 11.5%;
     position: absolute;
     top: 0;
-}/*.header_social .social a {
-    background-size: ;
-}*/
+}
