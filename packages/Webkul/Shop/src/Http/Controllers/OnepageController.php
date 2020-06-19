@@ -101,8 +101,8 @@ class OnepageController extends Controller
     public function saveAddress(CustomerAddressForm $request)
     {
         $data = request()->all();
-
         if(!isset($data['dataShippingKey'])){
+            dd(1);
             $data['billing']['address1'] = implode(PHP_EOL, array_filter($data['billing']['address1']));
             $data['shipping']['address1'] = implode(PHP_EOL, array_filter($data['shipping']['address1']));
             $data['billing']['address2'] = implode(PHP_EOL, array_filter($data['billing']['address2']));
@@ -143,6 +143,8 @@ class OnepageController extends Controller
     public function saveShipping()
     {
         $shippingMethod = request()->get('shipping_method');
+
+        Cart::collectTotals();
 
         if (Cart::hasError() || !$shippingMethod || !Cart::saveShippingMethod($shippingMethod))
             return response()->json(['redirect_url' => route('shop.checkout.cart.index')], 403);

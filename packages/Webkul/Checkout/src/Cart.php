@@ -683,8 +683,10 @@ class Cart
         $cart->grand_total = $cart->sub_total + $cart->tax_total + $cart->discount_amount;
         $cart->base_grand_total = $cart->base_sub_total + $cart->base_tax_total - $cart->base_discount_amount;
 
-        if($shipping = request()->get('dataShippingKey')){
-            $shippingPrice = config('cities')[$shipping]['price'];
+
+        if(!empty($shipping = request()->all())){//this shipping
+            $shippingPrice = config('cities')[$shipping['dataShippingKey']]['price'];
+
             $cart->grand_total = $cart->grand_total + $shippingPrice;
             $cart->base_grand_total = $cart->base_grand_total + $shippingPrice;
         }

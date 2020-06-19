@@ -210,6 +210,9 @@
             },
 
             created: function () {
+
+                this.updateSummaryCart();
+
                 this.getOrderSummary();
 
                 if (!customerAddress) {
@@ -237,6 +240,7 @@
                         }
                     }
                 }
+
             },
 
             methods: {
@@ -262,7 +266,7 @@
                             if (scope == 'address-form') {
                                 this_this.saveAddress();
                             } else if (scope == 'shipping-form') {
-                                this_this.saveShipping();
+                                this_this.saveShipping(this.dataShippingKey);
                             } else if (scope == 'payment-form') {
                                 this_this.savePayment();
                             }
@@ -389,6 +393,9 @@
                             this_this.handleErrorResponse(error.response, 'shipping-form')
                         })
                     console.log("SaveShipping", this);
+
+                    this.getOrderSummary();
+
                 },
 
                 updateSummaryCart: function(event){
@@ -474,7 +481,7 @@
                 shippingMethodSelected: function (shippingMethod) {
                     this.selected_shipping_method = shippingMethod.target.value;
                     this.saveAddress(true);
-                    this.saveShipping();
+                    this.saveShipping(this.dataShippingKey);
                 },
 
                 paymentMethodSelected: function (paymentMethod) {
