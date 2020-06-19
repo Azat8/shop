@@ -200,8 +200,8 @@ class ProductRepository extends Repository
                     }
                 });
                 return $qb->groupBy('product_flat.id');
-            })->paginate(isset($params['limit']) ? $params['limit'] : 9);
-
+            })->orderBy('Position', 'asc')->orderBy('Position', 'asc')->paginate(isset($params['limit']) ? $params['limit'] : 9);
+//            dd($results);
         return $results;
     }
 
