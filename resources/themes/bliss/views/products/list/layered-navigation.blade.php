@@ -124,9 +124,9 @@
                     <div class="col-lg-9">
                             <div class="production_category">
                                 <h1>{{ $category_name }}</h1>
-
+                                {{dd($products)}}
                                 <div class="production_category_row">
-                                    @foreach($products->SortBy('position')->values()->all() as $key => $product)
+                                    @foreach($products->SortBy('position') as $key => $product)
 
                                             @php($productBaseImage = $productImageHelper->getProductBaseImage($product))
                                             <div class="production_category_row_item">
