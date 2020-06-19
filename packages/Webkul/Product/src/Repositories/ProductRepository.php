@@ -117,7 +117,7 @@ class ProductRepository extends Repository
 
                 $locale = request()->get('locale') ?: app()->getLocale();
 
-                $qb = $query->orderBy('position', 'asc')->distinct()
+                $qb = $query->distinct()
                         ->addSelect('product_flat.*')
                         ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
                         ->leftJoin('product_categories', 'products.id', '=', 'product_categories.product_id')
@@ -139,6 +139,8 @@ class ProductRepository extends Repository
                         ->where('flat_variants.channel', $channel)
                         ->where('flat_variants.locale', $locale);
                 });
+
+                $qb->orderBy('position', 'asc');
 
                 if (isset($params['search']))
                     $qb->where('product_flat.name', 'like', '%' . urldecode($params['search']) . '%');
