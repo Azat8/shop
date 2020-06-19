@@ -125,7 +125,7 @@
                             <div class="production_category">
                                 <h1>{{ $category_name }}</h1>
                                 <div class="production_category_row">
-                                    @foreach($products->SortBy('position') as $key => $product)
+                                    @foreach($products as $key => $product)
 
                                             @php($productBaseImage = $productImageHelper->getProductBaseImage($product))
                                             <div class="production_category_row_item">
