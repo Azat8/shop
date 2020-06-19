@@ -112,7 +112,7 @@ class ProductRepository extends Repository
     {
         $params = request()->input();
 
-        $results = app(ProductFlatRepository::class)->scopeQuery(function($query) use($params, $categoryId) {
+        $results = app(ProductFlatRepository::class)->orderBy('position', 'asc')->scopeQuery(function($query) use($params, $categoryId) {
                 $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
 
                 $locale = request()->get('locale') ?: app()->getLocale();
@@ -139,8 +139,6 @@ class ProductRepository extends Repository
                         ->where('flat_variants.channel', $channel)
                         ->where('flat_variants.locale', $locale);
                 });
-
-                $qb->orderBy('position', 'asc');
 
                 if (isset($params['search']))
                     $qb->where('product_flat.name', 'like', '%' . urldecode($params['search']) . '%');
@@ -199,8 +197,8 @@ class ProductRepository extends Repository
                         });
                     }
                 });
-                return $qb->groupBy('product_flat.id')->orderBy('position', 'asc');
-            })->orderBy('position', 'asc')->paginate(isset($params['limit']) ? $params['limit'] : 9);
+                return $qb->groupBy('product_flat.id');
+            })->paginate(isset($params['limit']) ? $params['limit'] : 9);
 
         return $results;
     }
