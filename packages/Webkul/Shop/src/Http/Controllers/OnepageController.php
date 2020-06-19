@@ -220,7 +220,7 @@ class OnepageController extends Controller
                     'jsonParams' => json_encode(['orderNumber' => $order->id]),
                     'pageView' => 'DESKTOP'
                 ];
-                dd($api_data);
+
                 $client = new \GuzzleHttp\Client;
 
                 $response = $client->get(config('bank-api.bank_api.url').config('bank-api.methods.order_register').http_build_query($api_data));
