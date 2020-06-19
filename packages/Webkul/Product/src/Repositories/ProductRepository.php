@@ -112,12 +112,12 @@ class ProductRepository extends Repository
     {
         $params = request()->input();
 
-        $results = app(ProductFlatRepository::class)->orderBy('position', 'asc')->scopeQuery(function($query) use($params, $categoryId) {
+        $results = app(ProductFlatRepository::class)->scopeQuery(function($query) use($params, $categoryId) {
                 $channel = request()->get('channel') ?: (core()->getCurrentChannelCode() ?: core()->getDefaultChannelCode());
 
                 $locale = request()->get('locale') ?: app()->getLocale();
 
-                $qb = $query->distinct()
+                $qb = $query->orderByRaw('(position) asc')->distinct()
                         ->addSelect('product_flat.*')
                         ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
                         ->leftJoin('product_categories', 'products.id', '=', 'product_categories.product_id')
