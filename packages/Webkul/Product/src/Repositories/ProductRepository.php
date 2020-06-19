@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Webkul\Attribute\Repositories\AttributeRepository;
 use Webkul\Core\Eloquent\Repository;
+use Webkul\Product\Models\ProductFlat;
 use Webkul\Product\Repositories\ProductFlatRepository;
 use Webkul\Product\Models\ProductAttributeValue;
 
@@ -117,7 +118,7 @@ class ProductRepository extends Repository
 
                 $locale = request()->get('locale') ?: app()->getLocale();
 
-                $qb = $query->orderByRaw('(position) asc')->distinct()
+                $qb = $query->distinct()
                         ->addSelect('product_flat.*')
                         ->leftJoin('products', 'product_flat.product_id', '=', 'products.id')
                         ->leftJoin('product_categories', 'products.id', '=', 'product_categories.product_id')
@@ -200,7 +201,7 @@ class ProductRepository extends Repository
                     }
                 });
                 return $qb->groupBy('product_flat.id');
-            })->orderBy('position', 'asc')->orderBy('Position', 'asc')->paginate(isset($params['limit']) ? $params['limit'] : 9);
+            })->orderBy('position', 'asc')->paginate(isset($params['limit']) ? $params['limit'] : 9);
         return $results;
     }
 
