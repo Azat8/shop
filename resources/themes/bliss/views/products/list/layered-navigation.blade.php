@@ -124,7 +124,7 @@
                     <div class="col-lg-9">
                             <div class="production_category">
                                 <h1>{{ $category_name }}</h1>
-                                {{dd($products)}}
+
                                 <div class="production_category_row">
                                     @foreach($products->SortBy('position') as $key => $product)
 
