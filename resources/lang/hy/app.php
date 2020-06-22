@@ -8,7 +8,7 @@ return [
     'products' => 'Ապրանքներ',
     'product' => 'Ապրանք',
     'matrix' => 'Մատրիցաներ',
-    'payment_delivery' => 'Վճարում ԵՎ առաքում',
+    'payment_delivery' => 'Վճարում եվ առաքում',
     'contact' => 'Կապ',
     'home' => 'Գլխավոր',
     'categories' => 'Կատեգորիաներ',
