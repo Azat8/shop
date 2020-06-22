@@ -685,10 +685,12 @@ class Cart
 
 
         if(!empty($shipping = request()->all())){//this shipping
-            $shippingPrice = config('cities')[$shipping['dataShippingKey']]['price'];
+            if(isset($shipping['dataShippingKey'])){
+                $shippingPrice = config('cities')[$shipping['dataShippingKey']]['price'];
 
-            $cart->grand_total = $cart->grand_total + $shippingPrice;
-            $cart->base_grand_total = $cart->base_grand_total + $shippingPrice;
+                $cart->grand_total = $cart->grand_total + $shippingPrice;
+                $cart->base_grand_total = $cart->base_grand_total + $shippingPrice;
+            }
         }
 
         $quantities = 0;
