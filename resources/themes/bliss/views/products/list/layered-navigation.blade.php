@@ -8,7 +8,7 @@
     $filterAttributes = [];
 
     if (isset($category)) {
-        $products = $productRepository->getAll($category->id)->all();
+        $products = $productRepository->getAll($category->id);
 
         $filterAttributes = $productFlatRepository->getFilterableAttributes($category, $products);
     }
