@@ -8,7 +8,7 @@
     $filterAttributes = [];
 
     if (isset($category)) {
-        $products = $productRepository->getAll($category->id);
+        $products = $productRepository->getAll($category->id)->all();
 
         $filterAttributes = $productFlatRepository->getFilterableAttributes($category, $products);
     }
@@ -149,7 +149,7 @@
                                     @endforeach
                                 </div>
 
-                                {{$products->links()}}
+{{--                                {{$products->links()}}--}}
 
                             </div>
 
