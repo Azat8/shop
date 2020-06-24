@@ -231,9 +231,11 @@ class OnepageController extends Controller
 
                 $response = curl_exec($ch);
 
+                $apiInfo = curl_getinfo($ch);
+
                 curl_close($ch);
 
-                dd($response);
+                dd($response, $apiInfo);
 
 //                $client = new \GuzzleHttp\Client;
 //
