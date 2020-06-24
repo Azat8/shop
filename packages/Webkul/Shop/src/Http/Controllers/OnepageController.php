@@ -213,7 +213,7 @@ class OnepageController extends Controller
 //                dd($base_grand_total);
 
                 $api_data = [
-                    'amount' => 50000,
+                    'amount' => $order->base_grand_total,
                     'currency' => '051',
                     'language' => app()->getLocale(),
                     'orderNumber' => $order->id,
