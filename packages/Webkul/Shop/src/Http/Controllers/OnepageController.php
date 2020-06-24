@@ -228,8 +228,14 @@ class OnepageController extends Controller
                 $client = new \GuzzleHttp\Client;
 //                dd(http_build_query($api_data));
 //                $response = $client->get(config('bank-api.bank_api.url').config('bank-api.methods.order_register').http_build_query($api_data));
-                $response = $client->request('GET', config('bank-api.bank_api.url'), $api_data);
-                $body = $response->getBody();
+
+                $request = new \GuzzleHttp\Psr7\Request('GET', config('bank-api.bank_api.url'));
+                $promise = $client->sendAsync($request)->then(function ($response) {
+                    dd($response->getBody());
+                });
+                $promise->wait();
+
+//                $body = $response->getBody();
 
                 $dataResponse = json_decode($body, true);
                 dd($dataResponse);
