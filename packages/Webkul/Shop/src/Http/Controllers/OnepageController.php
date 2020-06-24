@@ -227,7 +227,7 @@ class OnepageController extends Controller
 
                 $ch = curl_init();
                 curl_setopt($ch, CURLOPT_URL, config('bank-api.bank_api.url'));
-                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($api_data));
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($api_data));
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
                 $response = curl_exec($ch);
