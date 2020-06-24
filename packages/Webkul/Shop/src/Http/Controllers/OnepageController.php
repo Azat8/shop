@@ -208,7 +208,7 @@ class OnepageController extends Controller
             if($data['payment']['method'] == 'moneytransfer'){
                 $formater = new \NumberFormatter(false, \NumberFormatter::CURRENCY);
 
-                $base_grand_total = $formater->format($order->base_grand_total);
+                $base_grand_total = str_replace('$', '', $formater->format($order->base_grand_total));
 
                 dd($base_grand_total);
 
