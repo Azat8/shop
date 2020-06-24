@@ -128,7 +128,7 @@
                                     @foreach($products->sortBy('position') as $key => $product)
                                             @php($productBaseImage = $productImageHelper->getProductBaseImage($product))
                                             <div class="production_category_row_item">
-                                                {{-- <span>{{$product->position}}</span> --}}
+                                                <span>{{$product->position}}</span>
                                                 <a href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
                                                    style="position:relative;background-image: url({{$productBaseImage['medium_image_url']}})">
                                                        <div class="overlay overlay-{{$product->getTypeInstance()->haveSpecialPrice() ? 'sale' : ($product->new ? 'new' : '')}}"></div>
