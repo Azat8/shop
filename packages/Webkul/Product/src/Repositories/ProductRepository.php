@@ -154,7 +154,7 @@ class ProductRepository extends Repository
                             $qb->orderBy($attribute->code, $params['order']);
                         }
                     } else {
-                        $qb->orderBy($params['sort'] == 'created_at' ? 'product_flat.created_at' : $attribute->code, $params['order']);
+                        // $qb->orderBy($params['sort'] == 'created_at' ? 'product_flat.created_at' : $attribute->code, $params['order']);
                     }
                 }
 
