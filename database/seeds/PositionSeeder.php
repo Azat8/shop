@@ -17,7 +17,7 @@ class PositionSeeder extends Seeder
 				if(!$finded){
 					$data['text_value'] = $flat['position'];
 					$data['product_id'] = $flat['product_id'];
-					$data['attribute_id'] = $flat['attribute_id'];
+					$data['attribute_id'] = 28;
 					\Webkul\Product\Models\ProductAttributeValue::create($data);
 				}
 		}    
