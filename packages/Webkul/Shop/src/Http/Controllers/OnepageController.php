@@ -207,12 +207,13 @@ class OnepageController extends Controller
         if(isset($data['payment']['method'])){
             if($data['payment']['method'] == 'moneytransfer'){
                 $formater = new \NumberFormatter(null, \NumberFormatter::CURRENCY);
-                $formater->setAttribute(\NumberFormatter::FRACTION_DIGITS, 0);
-                dd($formater->format($order->base_grand_total));
 
+                $formater->setAttribute(\NumberFormatter::FRACTION_DIGITS, 0);
+
+                $totalAmount = str_replace('$', '', $formater->format($order->base_grand_total));
 
                 $api_data = [
-                    'amount' => $order->base_grand_total,
+                    'amount' => $totalAmount,
                     'currency' => '051',
                     'language' => app()->getLocale(),
                     'orderNumber' => $order->id,
