@@ -210,7 +210,7 @@ class OnepageController extends Controller
 
                 $formater->setAttribute(\NumberFormatter::FRACTION_DIGITS, 0);
 
-                $totalAmount = (int)$formater->format($order->base_grand_total);
+                $totalAmount = $formater->format($order->base_grand_total);
                 dd($totalAmount);
                 $api_data = [
                     'amount' => $totalAmount,
