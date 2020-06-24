@@ -211,9 +211,9 @@ class OnepageController extends Controller
                 $formater->setAttribute(\NumberFormatter::FRACTION_DIGITS, 0);
 
                 $totalAmount = $formater->format($order->base_grand_total);
-                dd($totalAmount, (float)$order->base_grand_total);
+
                 $api_data = [
-                    'amount' => $totalAmount,
+                    'amount' => (float)$order->base_grand_total,
                     'currency' => '051',
                     'language' => app()->getLocale(),
                     'orderNumber' => $order->id,
