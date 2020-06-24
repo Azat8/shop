@@ -213,7 +213,7 @@ class OnepageController extends Controller
                 $totalAmount = $formater->format($order->base_grand_total);
 
                 $api_data = [
-                    'amount' => (float)$order->base_grand_total,
+                    'amount' => (float)$totalAmount,
                     'currency' => '051',
                     'language' => app()->getLocale(),
                     'orderNumber' => $order->id,
@@ -224,29 +224,13 @@ class OnepageController extends Controller
                     'pageView' => 'DESKTOP'
                 ];
 
+                $client = new \GuzzleHttp\Client;
 
-                $ch = curl_init();
+                $response = $client->get(config('bank-api.bank_api.url').config('bank-api.methods.order_register').http_build_query($api_data));
 
-                curl_setopt($ch, CURLOPT_URL,config('bank-api.bank_api.url'));
-                curl_setopt($ch, CURLOPT_POST, 1);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($api_data));
-                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+                $body = $response->getBody();
 
-                $server_output = curl_exec($ch);
-
-                $d = json_decode($server_output);
-
-                curl_close ($d);
-
-
-//                $client = new \GuzzleHttp\Client;
-//
-//                $response = $client->get(config('bank-api.bank_api.url').config('bank-api.methods.order_register').http_build_query($api_data));
-//
-//                $body = $response->getBody();
-//
-//                $dataResponse = json_decode($body, true);
-
+                $dataResponse = json_decode($body, true);
             }
         }
 
