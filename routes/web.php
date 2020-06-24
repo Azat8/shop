@@ -15,3 +15,8 @@ Route::group(['middleware' => ['web', 'theme', 'locale', 'currency']], function 
     Route::get('/products', 'IndexController@products')->defaults('_config', [ 'view' => 'products' ])->name('products');
 //    Route::get('/matrix', 'IndexController@matrix')->defaults('_config', [ 'view' => 'matrix' ])->name('matrix');
 });
+
+Route::get('position-attributes', function(){
+	$productFlats = \Webkul\Product\Models\ProductFlat::wherePosition('28')->get();
+	dd($productFlats);
+});
