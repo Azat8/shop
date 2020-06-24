@@ -221,13 +221,12 @@ class OnepageController extends Controller
                     'returnUrl' => url("/?token=$order->token"),
                     'userName'    => config('bank-api.bank_api.login'),
                     'jsonParams' => json_encode(['orderNumber' => $order->id]),
-                    'pageView' => 'DESKTOP',
-                    'order_register' => 'register.do'
+                    'pageView' => 'DESKTOP'
                 ];
 
                 $ch = curl_init();
-                curl_setopt($ch, CURLOPT_URL, config('bank-api.bank_api.url'));
-                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($api_data));
+                curl_setopt($ch, CURLOPT_URL, config('bank-api.bank_api.url').config('bank-api.methods.order_register'));
+                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($api_data));
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
                 $response = curl_exec($ch);
