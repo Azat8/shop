@@ -17,6 +17,7 @@ Route::group(['middleware' => ['web', 'theme', 'locale', 'currency']], function 
 });
 
 Route::get('position-attributes', function(){
-	$productFlats = \Webkul\Product\Models\ProductFlat::wherePosition('28')->get();
+	// $productAttributeValues = \Webkul\Product\Models\ProductAttributeValue::;
+	$productFlats = \Webkul\Product\Models\ProductFlat::whereLocale('hy')->get();
 	dd($productFlats);
 });
