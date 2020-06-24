@@ -214,8 +214,8 @@ class OnepageController extends Controller
 
                 $api_data = [
                     'amount' => 50,
-                    'currency' => '051',
-                    'language' => app()->getLocale(),
+//                    'currency' => '051',
+//                    'language' => app()->getLocale(),
                     'orderNumber' => $order->id,
                     'password'    => config('bank-api.bank_api.password'),
                     'returnUrl' => url("/?token=$order->token"),
