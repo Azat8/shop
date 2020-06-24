@@ -1093,6 +1093,7 @@ footer ul .footer_navigation a:hover {
 }
 
 .production_single .production_single_image p {
+    font-size: 
     margin-top: 5px;
     border: 3px solid #62B4DD;
     padding: 10px 0;
@@ -1101,9 +1102,11 @@ footer ul .footer_navigation a:hover {
     font-weight: bold;
     font-size: 25px;
     text-align: center;
-    width: 350px;
+    width: 70px;
 }
-
+.production_single .production_single_image p span {
+    font-size: 16px;
+}
 .production_single .production_single_image ul {
     margin-top: 15px;
     padding: 0;

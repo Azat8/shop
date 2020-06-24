@@ -62,7 +62,7 @@
                                     </div>
                                 @endforeach
                             </div>
-                            <p class="volume">{{ __('app.volume') }} : <span> {{ $product->volume }}</span></p>
+                            <span> {{ $product->volume }}</span></p>
                             <div class="dots"></div>
 
                         </div>
