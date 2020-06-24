@@ -230,11 +230,11 @@ class OnepageController extends Controller
                 curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($api_data));
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-                curl_exec($ch);
+                $response = curl_exec($ch);
 
-                curl_close ($ch);
+                curl_close($ch);
 
-                dd(curl_getinfo($ch));
+                dd($response, curl_getinfo($ch));
 
 //                $client = new \GuzzleHttp\Client;
 //
