@@ -221,27 +221,39 @@ class OnepageController extends Controller
                     'returnUrl' => url("/?token=$order->token"),
                     'userName'    => config('bank-api.bank_api.login'),
                     'jsonParams' => json_encode(['orderNumber' => $order->id]),
-                    'pageView' => 'DESKTOP'
+                    'pageView' => 'DESKTOP',
+                    'order_register' => 'register.do'
                 ];
 
-                $client = new \GuzzleHttp\Client;
+                $ch = curl_init();
+                curl_setopt($ch, CURLOPT_URL, config('bank-api.bank_api.url'));
+                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($api_data));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-                $response = $client->get(config('bank-api.bank_api.url').config('bank-api.methods.order_register').http_build_query($api_data));
+                curl_exec($ch);
 
-                $body = $response->getBody();
+                curl_close ($ch);
 
-                $dataResponse = json_decode($body, true);
+                dd(curl_getinfo($ch));
+
+//                $client = new \GuzzleHttp\Client;
+//
+//                $response = $client->get(config('bank-api.bank_api.url').config('bank-api.methods.order_register').http_build_query($api_data));
+//
+//                $body = $response->getBody();
+//
+//                $dataResponse = json_decode($body, true);
             }
         }
 
-        Cart::deActivateCart();
-
-        session()->flash('order', $order);
-
-        return response()->json([
-            'success' => true,
-            'data' => isset($dataResponse) ? $dataResponse : 'success'
-        ]);
+//        Cart::deActivateCart();
+//
+//        session()->flash('order', $order);
+//
+//        return response()->json([
+//            'success' => true,
+//            'data' => isset($dataResponse) ? $dataResponse : 'success'
+//        ]);
     }
 
     /**
