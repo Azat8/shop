@@ -17,7 +17,14 @@ Route::group(['middleware' => ['web', 'theme', 'locale', 'currency']], function 
 });
 
 Route::get('position-attributes', function(){
-	// $productAttributeValues = \Webkul\Product\Models\ProductAttributeValue::;
 	$productFlats = \Webkul\Product\Models\ProductFlat::whereLocale('hy')->get(['position', 'product_id'])->toArray();
-	dd($productFlats);
+	foreach($productFlats as $flat){
+		$finded = \Webkul\Product\Models\ProductAttributeValue::where('product_id', $flat['product_id'])->where('attribute_id', '28')->count();
+		if(!$finded){
+			$data['text_value'] = $flat['position'];
+			$data['product_id'] = $flat['product_id'];
+			$data['attribute_id'] = $flat['attribute_id'];
+			\Webkul\Product\Models\ProductAttributeValue::create($data);
+		}
+	}
 });
