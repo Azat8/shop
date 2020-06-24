@@ -229,9 +229,8 @@ class OnepageController extends Controller
                 curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($api_data));
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-                $response = curl_exec($ch);
-
-                $apiInfo = curl_getinfo($ch);
+                $response = json_decode(curl_exec($ch), true);
+                $apiInfo  = curl_getinfo($ch);
 
                 curl_close($ch);
 
