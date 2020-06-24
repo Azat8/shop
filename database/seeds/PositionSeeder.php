@@ -18,6 +18,7 @@ class PositionSeeder extends Seeder
 					$data['text_value'] = $flat['position'];
 					$data['product_id'] = $flat['product_id'];
 					$data['attribute_id'] = 28;
+					dump('product_id ' . $flat['product_id'] . 'Created Successfully');
 					\Webkul\Product\Models\ProductAttributeValue::create($data);
 				}
 		}    
