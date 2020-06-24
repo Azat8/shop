@@ -210,7 +210,7 @@ class OnepageController extends Controller
 
                 $base_grand_total = str_replace('$', '', $formater->format($order->base_grand_total));
 
-                dd($base_grand_total);
+//                dd($base_grand_total);
 
                 $api_data = [
                     'amount' => $base_grand_total,
