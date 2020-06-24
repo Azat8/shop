@@ -206,9 +206,7 @@ class OnepageController extends Controller
 
         if(isset($data['payment']['method'])){
             if($data['payment']['method'] == 'moneytransfer'){
-                $formater = new \NumberFormatter(app()->getLocale(), \NumberFormatter::CURRENCY);
-
-                $formater->setAttribute(\NumberFormatter::CURRENCY, 0);
+                $formater = new \NumberFormatter(null, \NumberFormatter::CURRENCY);
 
                 $base_grand_total = $formater->format($order->base_grand_total);
 
