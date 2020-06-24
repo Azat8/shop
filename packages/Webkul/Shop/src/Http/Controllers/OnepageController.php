@@ -224,14 +224,29 @@ class OnepageController extends Controller
                     'pageView' => 'DESKTOP'
                 ];
 
-                $client = new \GuzzleHttp\Client;
 
-                $response = $client->get(config('bank-api.bank_api.url').config('bank-api.methods.order_register').http_build_query($api_data));
+                $ch = curl_init();
 
-                $body = $response->getBody();
+                curl_setopt($ch, CURLOPT_URL,config('bank-api.bank_api.url'));
+                curl_setopt($ch, CURLOPT_POST, 1);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($api_data));
+                curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
-                $dataResponse = json_decode($body, true);
-                dd($dataResponse);
+                $server_output = curl_exec($ch);
+
+                dd($server_output);
+
+                curl_close ($ch);
+
+
+//                $client = new \GuzzleHttp\Client;
+//
+//                $response = $client->get(config('bank-api.bank_api.url').config('bank-api.methods.order_register').http_build_query($api_data));
+//
+//                $body = $response->getBody();
+//
+//                $dataResponse = json_decode($body, true);
+
             }
         }
 
