@@ -206,14 +206,12 @@ class OnepageController extends Controller
 
         if(isset($data['payment']['method'])){
             if($data['payment']['method'] == 'moneytransfer'){
-//                $formater = new \NumberFormatter(false, \NumberFormatter::CURRENCY);
 
-//                $base_grand_total = str_replace('$', '', $formater->format($order->base_grand_total));
-
-//                dd($base_grand_total);
+                $formater = new \NumberFormatter(false, \NumberFormatter::FRACTION_DIGITS);
+                $totalAmount = $formater->format($order->base_grand_total);
 
                 $api_data = [
-                    'amount' => "500.00",
+                    'amount' => $totalAmount,
                     'currency' => '051',
                     'language' => app()->getLocale(),
                     'orderNumber' => $order->id,
@@ -223,7 +221,7 @@ class OnepageController extends Controller
                     'jsonParams' => json_encode(['orderNumber' => $order->id]),
                     'pageView' => 'DESKTOP'
                 ];
-
+                dd($api_data);
                 $client = new \GuzzleHttp\Client;
 
                 $response = $client->get(config('bank-api.bank_api.url').config('bank-api.methods.order_register').http_build_query($api_data));
