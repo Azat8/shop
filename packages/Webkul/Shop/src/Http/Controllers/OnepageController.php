@@ -206,12 +206,8 @@ class OnepageController extends Controller
 
         if(isset($data['payment']['method'])){
             if($data['payment']['method'] == 'moneytransfer'){
-                $formater = new \NumberFormatter(null, \NumberFormatter::CURRENCY);
-
-                $formater->setAttribute(\NumberFormatter::FRACTION_DIGITS, 0);
-                dd((int)$order->base_grand_total);
                 $api_data = [
-                    'amount' => 100,
+                    'amount' => (int)$order->base_grand_total*100,
                     'currency' => '051',
                     'language' => app()->getLocale(),
                     'orderNumber' => $order->id,
@@ -228,11 +224,10 @@ class OnepageController extends Controller
                 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
                 $response = json_decode(curl_exec($ch), true);
+
                 $apiInfo  = curl_getinfo($ch);
 
                 curl_close($ch);
-
-                dd("Response", $response);
             }
         }
 
@@ -242,7 +237,7 @@ class OnepageController extends Controller
 
         return response()->json([
             'success' => true,
-            'data' => isset($dataResponse) ? $dataResponse : 'success'
+            'data' => isset($response) ? $response : 'success'
         ]);
     }
 
