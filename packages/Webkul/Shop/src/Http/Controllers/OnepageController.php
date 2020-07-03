@@ -225,7 +225,7 @@ class OnepageController extends Controller
                 ];
 
                 $client = new \GuzzleHttp\Client;
-
+                dump("http_build_query", http_build_query($api_data));
                 $response = $client->get(config('bank-api.bank_api.url').config('bank-api.methods.order_register').http_build_query($api_data));
 
                 $body = $response->getBody();
