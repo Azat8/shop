@@ -234,7 +234,10 @@ class OnepageController extends Controller
 
                 curl_close($ch);
 
-                dd("Response", $response);
+                dd(
+                    "RequestData", http_build_query($api_data),
+                    "ResponseData", $response
+                );
             }
         }
 
