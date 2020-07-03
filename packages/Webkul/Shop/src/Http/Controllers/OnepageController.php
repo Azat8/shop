@@ -213,7 +213,7 @@ class OnepageController extends Controller
                 $totalAmount = $formater->format($order->base_grand_total);
 
                 $api_data = [
-                    'amount' => 5000,
+                    'amount' => 3000,
                     'currency' => '051',
                     'language' => app()->getLocale(),
                     'orderNumber' => $order->id,
