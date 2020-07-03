@@ -211,9 +211,9 @@ class OnepageController extends Controller
                 $formater->setAttribute(\NumberFormatter::FRACTION_DIGITS, 0);
 
                 $totalAmount = $formater->format($order->base_grand_total);
-
+                dd($totalAmount);
                 $api_data = [
-                    'amount' => 500*100,
+                    'amount' => 100,
                     'currency' => '051',
                     'language' => app()->getLocale(),
                     'orderNumber' => $order->id,
@@ -234,10 +234,7 @@ class OnepageController extends Controller
 
                 curl_close($ch);
 
-                dd(
-                    "RequestData", http_build_query($api_data),
-                    "ResponseData", $response
-                );
+                dd("Response", $response);
             }
         }
 
