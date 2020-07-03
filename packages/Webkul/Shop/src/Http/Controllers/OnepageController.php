@@ -209,9 +209,7 @@ class OnepageController extends Controller
                 $formater = new \NumberFormatter(null, \NumberFormatter::CURRENCY);
 
                 $formater->setAttribute(\NumberFormatter::FRACTION_DIGITS, 0);
-
-                $totalAmount = (int)$formater->format($order->base_grand_total);
-                dd($totalAmount);
+                dd($order->base_grand_total);
                 $api_data = [
                     'amount' => 100,
                     'currency' => '051',
