@@ -2339,6 +2339,11 @@ footer ul .footer_navigation a:hover {
     .matrix_container [class^="col"] {
         padding-right: 0;
     }
+    
+    iframe {
+        width: 300px;
+        height: 200px;
+    }
 
     .basket .total_price_container ul li a {
         width: 280px;
