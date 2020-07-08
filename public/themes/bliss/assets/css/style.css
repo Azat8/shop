@@ -2065,6 +2065,10 @@ footer ul .footer_navigation a:hover {
 }
 
 @media screen and (max-width: 991px) {
+    .mobile_header .mobile_header_container .mobile_logo img {
+        width: 88px;
+    top: 3px;
+    }
     .main_header {
         display: none;
     }
@@ -2194,6 +2198,9 @@ footer ul .footer_navigation a:hover {
 }
 
 @media screen and (max-width: 768px) {
+    .mobile_header .mobile_header_container .mobile_logo img {
+    width: 65px;
+}
     footer ul {
         flex-direction: column;
         justify-content: center;
