@@ -836,6 +836,7 @@ footer ul .footer_navigation a:hover {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
+    margin-top: 15px;
 }
 
 .production_category_row_item > p {
@@ -2435,7 +2436,7 @@ footer ul .footer_navigation a:hover {
     position: absolute;
     display: block;
     width: 30%;
-    top: 0px;
+    top: -15px;
     left: 0px;
     right: 0;
     bottom: 0;
