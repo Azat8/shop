@@ -211,7 +211,7 @@
             },
 
             created: function () {
-                
+
                 this.updateSummaryCart();
 
                 this.getOrderSummary();
@@ -272,14 +272,15 @@
                                 this_this.savePayment();
                             }
                         }
+
                     });
                 },
-                
+
                 validateButton: function (){
-                    
+
                     let billing = this.address.billing;
 
-                    if(!(billing.first_name && billing.last_name && billing.phone && billing.email)){
+                    if(!(billing.first_name && billing.last_name && billing.phone && billing.email && billing.more_address)){
                         this.disable_button = true;
                     } else {
                         this.disable_button = false;
@@ -442,7 +443,7 @@
 
                 saveOrder: function () {
                     var this_this = this;
-                    
+
                     this.validateButton();
 
                     console.log(this.address.billing, "billing", 'disabled_button', this_this.disable_button);
@@ -472,9 +473,9 @@
                                 }];
 
                                 this_this.$root.addFlashMessages()
-                            })    
+                            })
                     }
-                    
+
                 },
 
                 placeOrder: function () {

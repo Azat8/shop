@@ -517,6 +517,7 @@ class Cart
             $billingAddress['city'] = $address['city'];
             $billingAddress['postcode'] = $address['postcode'];
             $billingAddress['phone'] = $address['phone'];
+            $billingAddress['more_address'] = $address['more_address'];
         }
 
         if (isset($data['billing']['save_as_address']) && $data['billing']['save_as_address']) {
@@ -541,6 +542,7 @@ class Cart
                 $shippingAddress['city'] = $address['city'];
                 $shippingAddress['postcode'] = $address['postcode'];
                 $shippingAddress['phone'] = $address['phone'];
+                $billingAddress['more_address'] = $address['more_address'];
             }
 
             if (isset($data['shipping']['save_as_address']) && $data['shipping']['save_as_address']) {

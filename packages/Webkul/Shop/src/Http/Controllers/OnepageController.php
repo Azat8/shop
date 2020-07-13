@@ -102,7 +102,6 @@ class OnepageController extends Controller
     {
         $data = request()->all();
         if(!isset($data['dataShippingKey'])){
-            dd(1);
             $data['billing']['address1'] = implode(PHP_EOL, array_filter($data['billing']['address1']));
             $data['shipping']['address1'] = implode(PHP_EOL, array_filter($data['shipping']['address1']));
             $data['billing']['address2'] = implode(PHP_EOL, array_filter($data['billing']['address2']));

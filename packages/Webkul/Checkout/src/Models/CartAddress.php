@@ -9,7 +9,7 @@ class CartAddress extends Model implements CartAddressContract
 {
     protected $table = 'cart_address';
 
-    protected $fillable = ['first_name', 'last_name', 'email', 'address1', 'city', 'state', 'postcode',  'country', 'phone', 'address_type', 'cart_id'];
+    protected $fillable = ['first_name', 'last_name', 'email', 'address1', 'city', 'state', 'postcode',  'country', 'phone', 'address_type', 'cart_id', 'more_address'];
 
     /**
      * Get the shipping rates for the cart address.

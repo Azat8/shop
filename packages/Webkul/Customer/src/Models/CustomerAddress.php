@@ -23,7 +23,8 @@ class CustomerAddress extends Model implements CustomerAddressContract
         'default_address',
         'first_name',
         'last_name',
-        'home'
+        'home',
+        'more_address'
     ];
 
     /**
