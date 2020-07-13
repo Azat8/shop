@@ -104,8 +104,9 @@
                                 </div>
                             </div>
                             <div class="col-lg-5">
-                                <button type="button" @click="placeOrder()"
-                                        :disabled="disable_button" id="checkout-place-order-button">{{ __('shop::app.checkout.onepage.place-order') }}</button>
+                                <button type="button" @click="placeOrder()" :disabled="disable_button" id="checkout-place-order-button">
+                                    {{ __('shop::app.checkout.onepage.place-order') }}
+                                </button>
                                 <p class="order_info">{{ __('shop::app.checkout.onepage.payment-term') }}</p>
                             </div>
                         </div>
@@ -210,7 +211,7 @@
             },
 
             created: function () {
-
+                
                 this.updateSummaryCart();
 
                 this.getOrderSummary();
@@ -272,6 +273,17 @@
                             }
                         }
                     });
+                },
+                
+                validateButton: function (){
+                    
+                    let billing = this.address.billing;
+
+                    if(!(billing.first_name && billing.last_name && billing.phone && billing.email)){
+                        this.disable_button = true;
+                    } else {
+                        this.disable_button = false;
+                    }
                 },
 
                 validateAddressForm: function() {
@@ -430,32 +442,39 @@
 
                 saveOrder: function () {
                     var this_this = this;
+                    
+                    this.validateButton();
 
-                    this.saveAddress(true, this.dataShippingKey);
-                    this.saveShipping(this.dataShippingKey);
+                    console.log(this.address.billing, "billing", 'disabled_button', this_this.disable_button);
 
-                    this.$http.post("{{ route('shop.checkout.save-order') }}", {'_token': "{{ csrf_token() }}", 'dataShippingKey': this.dataShippingKey})
-                        .then(function (response) {
-                            if (response.data.success) {
-                                console.log(response.data, response.data.data.formUrl);
-                                this_this.success_order = true;
-                                if (response.data.data.formUrl) {
-                                    window.location.href = response.data.data.formUrl;
-                                } else {
-                                    window.location.href = "{{ route('shop.checkout.success') }}"  ;
+                    if(!this_this.disable_button){
+                        this.saveAddress(true, this.dataShippingKey);
+                        this.saveShipping(this.dataShippingKey);
+
+                        this.$http.post("{{ route('shop.checkout.save-order') }}", {'_token': "{{ csrf_token() }}", 'dataShippingKey': this.dataShippingKey})
+                            .then(function (response) {
+                                if (response.data.success) {
+                                    console.log(response.data, response.data.data.formUrl);
+                                    this_this.success_order = true;
+                                    if (response.data.data.formUrl) {
+                                        window.location.href = response.data.data.formUrl;
+                                    } else {
+                                        window.location.href = "{{ route('shop.checkout.success') }}"  ;
+                                    }
                                 }
-                            }
-                        })
-                        .catch(function (error) {
-                            this_this.disable_button = true;
+                            })
+                            .catch(function (error) {
+                                this_this.disable_button = true;
 
-                            window.flashMessages = [{
-                                'type': 'alert-error',
-                                'message': "{{ __('shop::app.common.error') }}"
-                            }];
+                                window.flashMessages = [{
+                                    'type': 'alert-error',
+                                    'message': "{{ __('shop::app.common.error') }}"
+                                }];
 
-                            this_this.$root.addFlashMessages()
-                        })
+                                this_this.$root.addFlashMessages()
+                            })    
+                    }
+                    
                 },
 
                 placeOrder: function () {
@@ -542,6 +561,8 @@
                 }
 
                 eventBus.$emit('after-checkout-shipping-section-added');
+
+                this.validateButton();
             },
 
             render: function (h) {
