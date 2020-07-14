@@ -53,13 +53,13 @@
                         {{ __('shop::app.mail.order.contact') }} : {{ $order->shipping_address->phone }}
                     </div>
 
-                    <div style="font-size: 16px;color: #242424;">
-                        {{ __('shop::app.mail.order.shipping') }}
-                    </div>
+{{--                    <div style="font-size: 16px;color: #242424;">--}}
+{{--                        {{ __('shop::app.mail.order.shipping') }}--}}
+{{--                    </div>--}}
 
-                    <div style="font-weight: bold;font-size: 16px;color: #242424;">
-                        {{ $order->shipping_title }}
-                    </div>
+{{--                    <div style="font-weight: bold;font-size: 16px;color: #242424;">--}}
+{{--                        {{ $order->shipping_title }}--}}
+{{--                    </div>--}}
                 </div>
             @endif
 
