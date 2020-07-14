@@ -202,11 +202,12 @@ class OnepageController extends Controller
 
         $data['token'] = base64_encode(rand());
 
-        if($data['payment']['method'] == 'cashondelivery'){
-            $data['status'] = 'completed';
-        }
-
         $order = $this->orderRepository->create($data);
+
+        if($data['payment']['method'] == 'cashondelivery'){
+            $order->status = 'completed';
+            $order->save();
+        }
 
         if(isset($data['payment']['method'])){
             if($data['payment']['method'] == 'moneytransfer'){
