@@ -173,6 +173,7 @@
             },
 
             created: function() {
+                this.saveShipping();
                 this.getOrderSummary();
 
                 if(! customerAddress) {
