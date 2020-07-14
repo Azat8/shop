@@ -320,7 +320,7 @@ return [
             'order-status-fraud' => 'Fraud',
             'order-status-pending' => 'Սպասման մեջ',
             'order-status-pending-payment' => 'Վճարման մեջ',
-            'order-status-processing' => 'Վերամշակման մեջ',
+            'order-status-processing' => 'Կանխիկ վճարում',
             'order-status-success' => 'Վճարված է',
             'channel' => 'Channel',
             'customer-name' => 'Հաճախորդի անուն',
