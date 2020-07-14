@@ -22,7 +22,7 @@ class Order extends Model implements OrderContract
     protected $statusLabel = [
         'pending'         => 'Սպասման մեջ',
         'pending_payment' => 'Վճարման մեջ',
-        'processing'      => 'Վերամշակման մեջ',
+        'processing'      => 'Կանխիկ վճարում',
         'completed'       => 'Վճարված է',
         'canceled'        => 'Չեղարկված',
         'closed'          => 'Փակված',

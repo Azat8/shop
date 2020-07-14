@@ -205,7 +205,7 @@ class OnepageController extends Controller
         $order = $this->orderRepository->create($data);
 
         if($data['payment']['method'] == 'cashondelivery'){
-            $order->status = 'completed';
+            $order->status = 'processing';
             $order->save();
         }
 
