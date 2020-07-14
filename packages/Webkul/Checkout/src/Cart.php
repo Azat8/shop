@@ -939,8 +939,8 @@ class Cart
 
             $shippingPrice = 0;
 
-            if($shipping = request()->get('dataShippingKey')){
-                $shippingPrice = config('cities')[$shipping]['price'];
+            if(isset(request()['dataShippingKey'])){
+                $shippingPrice = config('cities')[request()->get('dataShippingKey')]['price'];
             }
 
             $finalData = array_merge($finalData, [

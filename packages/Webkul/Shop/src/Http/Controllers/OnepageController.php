@@ -199,6 +199,7 @@ class OnepageController extends Controller
         }
 
         $data = Cart::prepareDataForOrder();
+
         $data['token'] = base64_encode(rand());
 
         $order = $this->orderRepository->create($data);
