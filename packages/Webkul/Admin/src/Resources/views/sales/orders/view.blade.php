@@ -207,15 +207,15 @@
                                         </div>
 
                                         <div class="section-content">
-                                            <div class="row">
-                                                <span class="title">
-                                                    {{ __('admin::app.sales.orders.shipping-method') }}
-                                                </span>
+{{--                                            <div class="row">--}}
+{{--                                                <span class="title">--}}
+{{--                                                    {{ __('admin::app.sales.orders.shipping-method') }}--}}
+{{--                                                </span>--}}
 
-                                                <span class="value">
-                                                    {{ $order->shipping_title }}
-                                                </span>
-                                            </div>
+{{--                                                <span class="value">--}}
+{{--                                                    {{ $order->shipping_title }}--}}
+{{--                                                </span>--}}
+{{--                                            </div>--}}
 
                                             <div class="row">
                                                 <span class="title">
