@@ -119,7 +119,10 @@ class OrderRepository extends Repository
                 Event::dispatch('checkout.order.orderitem.save.after', $data);
             }
 
-            Event::dispatch('checkout.order.save.after', $order);
+            if($order->payment->method == 'cashondelivery'){
+                Event::dispatch('checkout.order.save.after', $order);
+            }
+
         } catch (\Exception $e) {
             DB::rollBack();
 

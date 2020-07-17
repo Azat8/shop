@@ -52,46 +52,46 @@
                     {{ __('shop::app.mail.order.cancel.contact') }} : {{ $order->shipping_address->phone }}
                 </div>
 
-                <div style="font-size: 16px;color: #242424; font-weight: bold">
-                    {{ __('shop::app.mail.order.cancel.shipping') }}
-                </div>
+{{--                <div style="font-size: 16px;color: #242424; font-weight: bold">--}}
+{{--                    {{ __('shop::app.mail.order.cancel.shipping') }}--}}
+{{--                </div>--}}
 
-                <div style="font-size: 16px;color: #242424;">
-                    {{ $order->shipping_title }}
-                </div>
+{{--                <div style="font-size: 16px;color: #242424;">--}}
+{{--                    {{ $order->shipping_title }}--}}
+{{--                </div>--}}
             </div>
 
-            <div style="line-height: 25px;">
-                <div style="font-weight: bold;font-size: 16px;color: #242424;">
-                    {{ __('shop::app.mail.order.cancel.billing-address') }}
-                </div>
+{{--            <div style="line-height: 25px;">--}}
+{{--                <div style="font-weight: bold;font-size: 16px;color: #242424;">--}}
+{{--                    {{ __('shop::app.mail.order.cancel.billing-address') }}--}}
+{{--                </div>--}}
 
-                <div>
-                    {{ $order->billing_address->name }}
-                </div>
+{{--                <div>--}}
+{{--                    {{ $order->billing_address->name }}--}}
+{{--                </div>--}}
 
-                <div>
-                    {{ $order->billing_address->address1 }}, {{ $order->billing_address->state }}
-                </div>
+{{--                <div>--}}
+{{--                    {{ $order->billing_address->address1 }}, {{ $order->billing_address->state }}--}}
+{{--                </div>--}}
 
-                <div>
-                    {{ core()->country_name($order->billing_address->country) }} {{ $order->billing_address->postcode }}
-                </div>
+{{--                <div>--}}
+{{--                    {{ core()->country_name($order->billing_address->country) }} {{ $order->billing_address->postcode }}--}}
+{{--                </div>--}}
 
-                <div>---</div>
+{{--                <div>---</div>--}}
 
-                <div style="margin-bottom: 40px;">
-                    {{ __('shop::app.mail.order.cancel.contact') }} : {{ $order->billing_address->phone }}
-                </div>
+{{--                <div style="margin-bottom: 40px;">--}}
+{{--                    {{ __('shop::app.mail.order.cancel.contact') }} : {{ $order->billing_address->phone }}--}}
+{{--                </div>--}}
 
-                <div style="font-size: 16px; color: #242424; font-weight: bold">
-                    {{ __('shop::app.mail.order.cancel.payment') }}
-                </div>
+{{--                <div style="font-size: 16px; color: #242424; font-weight: bold">--}}
+{{--                    {{ __('shop::app.mail.order.cancel.payment') }}--}}
+{{--                </div>--}}
 
-                <div style="font-size: 16px; color: #242424;">
-                    {{ core()->getConfigData('sales.paymentmethods.' . $order->payment->method . '.title')[app()->getLocale()] }}
-                </div>
-            </div>
+{{--                <div style="font-size: 16px; color: #242424;">--}}
+{{--                    {{ core()->getConfigData('sales.paymentmethods.' . $order->payment->method . '.title')[app()->getLocale()] }}--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
 
         <div class="section-content">
@@ -157,14 +157,14 @@
                 </span>
             </div>
 
-            @foreach (Webkul\Tax\Helpers\Tax::getTaxRatesWithAmount($order, false) as $taxRate => $taxAmount )
-                <div>
-                    <span id="taxrate-{{ core()->taxRateAsIdentifier($taxRate) }}">{{ __('shop::app.mail.order.cancel.tax') }} {{ $taxRate }} %</span>
-                    <span id="taxamount-{{ core()->taxRateAsIdentifier($taxRate) }}" style="float: right;">
-                    {{ core()->formatPrice($taxAmount, $order->order_currency_code) }}
-                </span>
-                </div>
-            @endforeach
+{{--            @foreach (Webkul\Tax\Helpers\Tax::getTaxRatesWithAmount($order, false) as $taxRate => $taxAmount )--}}
+{{--                <div>--}}
+{{--                    <span id="taxrate-{{ core()->taxRateAsIdentifier($taxRate) }}">{{ __('shop::app.mail.order.cancel.tax') }} {{ $taxRate }} %</span>--}}
+{{--                    <span id="taxamount-{{ core()->taxRateAsIdentifier($taxRate) }}" style="float: right;">--}}
+{{--                    {{ core()->formatPrice($taxAmount, $order->order_currency_code) }}--}}
+{{--                </span>--}}
+{{--                </div>--}}
+{{--            @endforeach--}}
 
             @if ($order->discount_amount > 0)
                 <div>

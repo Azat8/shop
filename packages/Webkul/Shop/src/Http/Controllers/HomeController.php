@@ -2,6 +2,7 @@
 
 namespace Webkul\Shop\Http\Controllers;
 
+use Illuminate\Support\Facades\Event;
 use Webkul\Shop\Http\Controllers\Controller;
 use Webkul\Core\Repositories\SliderRepository;
 
@@ -63,6 +64,7 @@ use Webkul\Core\Repositories\SliderRepository;
                         $order->update(['status' => 'completed']);
                         $responseMessage = 'Գնումը Հաջողությամբ կատարվեց: Գնման հաստատումը կուղարկվի ձեր էլ հասցեին։';
                         $responseStatus = 'success';
+                        Event::dispatch('checkout.order.save.after', $order);
                     } elseif ($response['orderStatus'] == 6 || $response['orderStatus'] == 3) {
                         $order->update(['status' => 'canceled']);
                     }
