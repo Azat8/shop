@@ -2,8 +2,16 @@
 return [
     'cashondelivery' => [
         'code' => 'cashondelivery',
-        'title' => 'Կանխիկ վճարում',
-        'description' => 'Կանխիկ վճարում առաքման ժամանակ',
+        'title' => [
+            'en' => 'Cash payment',
+            'hy' => 'Կանխիկ վճարում',
+            'ru' => 'Оплата наличными'
+        ],
+        'description' => [
+            'en' => 'Cash payment on delivery',
+            'hy' => 'Կանխիկ վճարում առաքման ժամանակ',
+            'ru' => 'Оплата наличными при доставке',
+        ],
         'class' => 'Webkul\Payment\Payment\CashOnDelivery',
         'active' => true,
         'sort' => 1
@@ -11,8 +19,16 @@ return [
 
     'moneytransfer' => [
         'code' => 'moneytransfer',
-        'title' => 'Դրամական փոխանցում',
-        'description' => 'Դրամական փոխանցում քարտի միջոցով',
+        'title' => [
+            'en' => 'Money transfer',
+            'hy' => 'Դրամական փոխանցում',
+            'ru' => 'Перевод денег'
+        ],
+        'description' => [
+            'en' => 'Money transfer by card',
+            'hy' => 'Դրամական փոխանցում քարտի միջոցով',
+            'ru' => 'Денежный перевод по карте',
+        ],
         'class' => 'Webkul\Payment\Payment\MoneyTransfer',
         'active' => true,
         'sort' => 2

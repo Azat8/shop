@@ -104,6 +104,7 @@
                                 </div>
                             </div>
                             <div class="col-lg-5">
+                                <p class="order_info">{{ __('shop::app.checkout.onepage.payment-info') }}</p>
                                 <button type="button" @click="placeOrder()" :disabled="disable_button" id="checkout-place-order-button">
                                     {{ __('shop::app.checkout.onepage.place-order') }}
                                 </button>
