@@ -157,7 +157,7 @@
                                         </span>
 
                                         <span class="value">
-                                            {{ core()->getConfigData('sales.paymentmethods.' . $order->payment->method . '.title') }}
+                                            {{ core()->getConfigData('sales.paymentmethods.' . $order->payment->method . '.title')[app()->getLocale()] }}
                                         </span>
                                     </div>
 
@@ -181,21 +181,21 @@
 
                                     <div class="section-content">
                                         <div class="row">
-                                            <span class="title"> 
+                                            <span class="title">
                                                 {{ __('admin::app.sales.orders.shipping-method') }}
                                             </span>
 
-                                            <span class="value"> 
+                                            <span class="value">
                                                 {{ $order->shipping_title }}
                                             </span>
                                         </div>
 
                                         <div class="row">
-                                            <span class="title"> 
+                                            <span class="title">
                                                 {{ __('admin::app.sales.orders.shipping-price') }}
                                             </span>
 
-                                            <span class="value"> 
+                                            <span class="value">
                                                 {{ core()->formatBasePrice($order->base_shipping_amount) }}
                                             </span>
                                         </div>
@@ -230,7 +230,7 @@
 
                                                         @if (isset($item->additional['attributes']))
                                                             <div class="item-options">
-                                                                
+
                                                                 @foreach ($item->additional['attributes'] as $attribute)
                                                                     <b>{{ $attribute['attribute_name'] }} : </b>{{ $attribute['option_label'] }}</br>
                                                                 @endforeach

@@ -89,7 +89,7 @@
                 </div>
 
                 <div style="font-size: 16px; color: #242424;">
-                    {{ core()->getConfigData('sales.paymentmethods.' . $order->payment->method . '.title') }}
+                    {{ core()->getConfigData('sales.paymentmethods.' . $order->payment->method . '.title')[app()->getLocale()] }}
                 </div>
             </div>
         </div>

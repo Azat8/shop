@@ -154,7 +154,7 @@
                                     </span>
 
                                     <span class="value">
-                                        {{ core()->getConfigData('sales.paymentmethods.' . $order->payment->method . '.title') }}
+                                        {{ core()->getConfigData('sales.paymentmethods.' . $order->payment->method . '.title')[app()->getLocale()] }}
                                     </span>
                                 </div>
 
@@ -229,7 +229,7 @@
 
                                                 @if (isset($item->additional['attributes']))
                                                     <div class="item-options">
-                                                        
+
                                                         @foreach ($item->additional['attributes'] as $attribute)
                                                             <b>{{ $attribute['attribute_name'] }} : </b>{{ $attribute['option_label'] }}</br>
                                                         @endforeach

@@ -46,4 +46,5 @@ class NewAdminNotification extends Mailable
                 ->subject(trans('shop::app.mail.order.subject'))
                 ->view('shop::emails.sales.new-admin-order');
     }
+
 }

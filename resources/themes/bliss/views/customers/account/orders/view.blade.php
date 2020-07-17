@@ -491,7 +491,7 @@
 
                             <div class="box">
                                 <div class="box-title">
-                                    {{ __('shop::app.customer.account.order.view.payment-method') }} -- {{ core()->getConfigData('sales.paymentmethods.' . $order->payment->method . '.title') }}
+                                    {{ __('shop::app.customer.account.order.view.payment-method') }} -- {{ core()->getConfigData('sales.paymentmethods.' . $order->payment->method . '.title')[app()->getLocale()] }}
                                 </div>
                             </div>
                         </div>

@@ -34,6 +34,7 @@ class Order
             }
 
             $configKey = 'emails.general.notifications.emails.general.notifications.new-admin';
+
             if (core()->getConfigData($configKey)) {
                 Mail::queue(new NewAdminNotification($order));
             }

@@ -47,13 +47,21 @@
                         {{ core()->country_name($order->shipping_address->country) }} {{ $order->shipping_address->more_address }} {{ $order->shipping_address->postcode }}
                     </div>
 
+                    <div style="font-size: 16px; color: #242424;">
+                        {{ __('shop::app.mail.order.payment') }}
+                    </div>
+
+                    <div style="font-weight: bold;font-size: 16px; color: #242424;">
+                        {{ core()->getConfigData('sales.paymentmethods.' . $order->payment->method . '.title')[app()->getLocale()] }}
+                    </div>
+
                     <div>---</div>
 
                     <div style="margin-bottom: 40px;">
                         {{ __('shop::app.mail.order.contact') }} : {{ $order->shipping_address->phone }}
                     </div>
 
-{{--                    <div style="font-size: 16px;color: #242424;">--}}
+                        {{--                    <div style="font-size: 16px;color: #242424;">--}}
 {{--                        {{ __('shop::app.mail.order.shipping') }}--}}
 {{--                    </div>--}}
 

@@ -501,7 +501,7 @@
                                 </div>
 
                                 <div class="box-content">
-                                    {{ core()->getConfigData('sales.paymentmethods.' . $order->payment->method . '.title') }}
+                                    {{ core()->getConfigData('sales.paymentmethods.' . $order->payment->method . '.title')[app()->getLocale()] }}
                                 </div>
                             </div>
                         </div>
