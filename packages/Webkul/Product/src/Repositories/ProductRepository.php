@@ -81,14 +81,14 @@ class ProductRepository extends Repository
         Event::dispatch('catalog.product.update.before', $id);
 
         $product = $this->find($id);
+        $product->touch();
 
         $product = $product->getTypeInstance()->update($data, $id, $attribute);
 
         if (isset($data['channels']))
-            $product['channels'] = $data['channels'];
+        $product['channels'] = $data['channels'];
 
         Event::dispatch('catalog.product.update.after', $product);
-
         return $product;
     }
 
@@ -263,7 +263,7 @@ class ProductRepository extends Repository
                         ->where('product_flat.new', 1)
                         ->where('product_flat.channel', $channel)
                         ->where('product_flat.locale', $locale)
-                        ->orderBy('product_flat.updated_at', 'desc');
+                        ->orderBy('updated_at', 'desc');
                 })->paginate(3);
 
         return $results;
