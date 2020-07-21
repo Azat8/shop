@@ -24,7 +24,7 @@
                                                 </ul>
                                             </div>
 
-{{-- 
+{{--
     @if ($product->new)
         <div class="sticker new">
             {{ __('shop::app.products.new') }}

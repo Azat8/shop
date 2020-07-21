@@ -97,7 +97,7 @@
                                                 <div class="production_category_row_item">
                                                     <a href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
                                                        style="position:relative; background-image: url({{$productBaseImage['medium_image_url']}})">
-                                                        <div class="overlay overlay-{{$product->getTypeInstance()->haveSpecialPrice() ? 'sale' : ($product->new ? 'new' : '')}}"></div>
+                                                        <div class="overlay-product-list overlay overlay-{{$product->getTypeInstance()->haveSpecialPrice() ? 'sale' : ($product->new ? 'new' : '')}}"></div>
                                                     </a>
                                                     <p>{{ $product->name }}</p>
                                                     <ul>
