@@ -127,7 +127,7 @@
                                 <div class="production_category_row">
                                     @foreach($products->sortBy('position') as $key => $product)
                                             @php($productBaseImage = $productImageHelper->getProductBaseImage($product))
-                                            <div class="production_category_row_item">
+                                            <div class="production_category_row_item product-{{$product->id}}">
                                                 {{-- <span>{{$product->position}}</span> --}}
                                                 <a href="{{ route('shop.productOrCategory.index', $product->url_key) }}"
                                                    style="position:relative;background-image: url({{$productBaseImage['medium_image_url']}})">
